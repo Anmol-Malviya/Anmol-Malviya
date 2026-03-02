@@ -4,7 +4,7 @@
   
 
 <p align="center">
-  <img src="ChatGPT Image Feb 28, 2026, 07_42_37 PM.png" alt="img" width="100%" />
+  <img src="ANMOL.jpeg" alt="img" width="100%" />
 </p>
 
 
