@@ -4,7 +4,7 @@
   
 
 <p align="center">
-  <img src="ANMOL.jpeg" alt="img" width="100%" />
+  <img src="ANMOL.png" alt="img" width="100%" />
 </p>
 
 
