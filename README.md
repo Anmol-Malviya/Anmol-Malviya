@@ -215,62 +215,53 @@
 
 ---
 
-# 📊 GitHub Stats
+<h2 align="center">📊 Real-time Development Stats</h2>
 
-<div align="center">
-
-  <table>
-    <tr>
-      <td>
-        <img src="https://github-readme-stats.vercel.app/api?username=anmol0706&theme=tokyonight&hide_border=true&include_all_commits=true&count_private=true&show_icons=true" alt="GitHub Stats" />
-      </td>
-      <td>
-        <img src="https://nirzak-streak-stats.vercel.app/?user=anmol0706&theme=tokyonight&hide_border=true" alt="GitHub Streak" />
-      </td>
-    </tr>
-    <tr>
-      <td colspan="2" align="center">
-        <img src="https://github-readme-stats.vercel.app/api/top-langs/?username=anmol0706&theme=tokyonight&hide_border=true&include_all_commits=true&count_private=true&layout=compact&langs_count=10" alt="Top Languages" />
-      </td>
-    </tr>
-  </table>
-
-</div>
-
----
-
-### 🔝 Top Contributed Repos
-
-<div align="center">
-  <img src="https://github-contributor-stats.vercel.app/api?username=anmol0706&limit=5&theme=tokyonight&combine_all_yearly_contributions=true" alt="Top Contributed Repos" />
-</div>
-
----
-
-### 📈 Contribution Activity
-
-<div align="center">
-  <img src="https://github-readme-activity-graph.vercel.app/graph?username=anmol0706&theme=tokyo-night&hide_border=true&area=true" alt="Contribution Activity Graph" />
-</div>
-
----
-
-<div align="center">
-  <img src="https://raw.githubusercontent.com/ishandutta2007/snk/output-svg-only/github-contribution-grid-snake.svg" alt="GitHub Contribution Snake" style="max-width: 100%;" />
-</div>
-
----
-
-### ✍️ Random Dev Quote
-
-<div align="center">
-  <img src="https://quotes-github-readme.vercel.app/api?type=horizontal&theme=tokyonight" alt="Dev Quote" />
-</div>
-
----
-
+<!-- Fixed API failure by switching to GitHub Profile Summary Cards -->
 <p align="center">
-  <a href="https://gsap-portfolio-puce.vercel.app/">🌐 Visit My Portfolio</a>
+  <a href="https://github.com/vn7n24fzkq/github-profile-summary-cards">
+    <img src="https://github-profile-summary-cards.vercel.app/api/cards/profile-details?username=anmol0706&theme=tokyonight" alt="GitHub Stats Summary" />
+  </a>
+</p>
+<p align="center">
+  <a href="https://github.com/vn7n24fzkq/github-profile-summary-cards">
+    <img src="https://github-profile-summary-cards.vercel.app/api/cards/repos-per-language?username=anmol0706&theme=tokyonight" alt="Top Languages Map" />
+  </a>
+  <a href="https://github.com/vn7n24fzkq/github-profile-summary-cards">
+    <img src="https://github-profile-summary-cards.vercel.app/api/cards/productive-time?username=anmol0706&theme=tokyonight" alt="Productive Time" />
+  </a>
 </p>
 
-<!-- Proudly created with GPRM ( https://gprm.itsvg.in ) -->
+<!-- GitHub Streak Chart -->
+<p align="center">
+  <a href="https://github.com/DenverCoder1/github-readme-streak-stats">
+    <img src="https://github-readme-streak-stats.herokuapp.com/?user=anmol0706&theme=tokyonight&hide_border=true&background=0d1117" alt="GitHub Streak Stats" />
+  </a>
+</p>
+
+<!-- Beautiful Line Divider -->
+<img src="https://user-images.githubusercontent.com/73097560/115834477-dbab4500-a447-11eb-908a-139a6edaec5c.gif" width="100%">
+
+<!-- Random Programming Quote -->
+<h2 align="center">💡 Quote of the Day</h2>
+<p align="center">
+  <a href="https://github.com/piyushsuthar/github-readme-quotes">
+    <img src="https://quotes-github-readme.vercel.app/api?type=horizontal&theme=tokyonight" alt="Programming Quote" />
+  </a>
+</p>
+
+<!-- Beautiful Line Divider -->
+<img src="https://user-images.githubusercontent.com/73097560/115834477-dbab4500-a447-11eb-908a-139a6edaec5c.gif" width="100%">
+
+<h2 align="center">🔥 Contribution Graph</h2>
+
+<div align="center">
+  <img src="https://github-readme-activity-graph.vercel.app/graph?username=anmol0706&theme=tokyo-night&hide_border=true&area=true&bg_color=0d1117" width="100%" alt="Activity Graph" />
+</div>
+
+<br/>
+
+<!-- Footer -->
+<div align="center">
+  <img src="https://capsule-render.vercel.app/api?type=waving&color=timeAuto&height=150&section=footer&text=Thanks%20for%20visiting!&fontSize=35&fontAlignY=60&animation=twinkling&fontColor=ffffff" width="100%" alt="Footer Banner" />
+</div>
