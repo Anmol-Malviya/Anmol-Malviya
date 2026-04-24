@@ -1,91 +1,248 @@
-<svg width="800" height="400" viewBox="0 0 800 400" xmlns="http://www.w3.org/2000/svg">
+<svg width="800" height="360" viewBox="0 0 800 360" xmlns="http://www.w3.org/2000/svg">
   <defs>
-    <!-- Background Gradient to match the aesthetic -->
-    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
       <stop offset="0%" style="stop-color:#00020a"/>
       <stop offset="100%" style="stop-color:#050015"/>
     </linearGradient>
 
-    <!-- Neon Filters -->
-    <filter id="glowCyan" x="-20%" y="-20%" width="140%" height="140%">
-      <feGaussianBlur stdDeviation="3" result="b1"/>
-      <feGaussianBlur stdDeviation="6" result="b2"/>
+    <!-- Glow filters -->
+    <filter id="glowCyan" x="-25%" y="-25%" width="150%" height="150%">
+      <feGaussianBlur stdDeviation="2.5" result="b1"/>
+      <feGaussianBlur stdDeviation="5"   result="b2"/>
+      <feMerge><feMergeNode in="b2"/><feMergeNode in="b1"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+    <filter id="glowPink" x="-25%" y="-25%" width="150%" height="150%">
+      <feGaussianBlur stdDeviation="2.5" result="b1"/>
+      <feGaussianBlur stdDeviation="5"   result="b2"/>
+      <feMerge><feMergeNode in="b2"/><feMergeNode in="b1"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+    <filter id="glowYellow" x="-25%" y="-25%" width="150%" height="150%">
+      <feGaussianBlur stdDeviation="2.5" result="b1"/>
+      <feMerge><feMergeNode in="b1"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+    <filter id="glowGreen" x="-25%" y="-25%" width="150%" height="150%">
+      <feGaussianBlur stdDeviation="2.5" result="b1"/>
+      <feGaussianBlur stdDeviation="5"   result="b2"/>
       <feMerge><feMergeNode in="b2"/><feMergeNode in="b1"/><feMergeNode in="SourceGraphic"/></feMerge>
     </filter>
 
-    <filter id="glowPink" x="-20%" y="-20%" width="140%" height="140%">
-      <feGaussianBlur stdDeviation="3" result="b1"/>
-      <feGaussianBlur stdDeviation="6" result="b2"/>
-      <feMerge><feMergeNode in="b2"/><feMergeNode in="b1"/><feMergeNode in="SourceGraphic"/></feMerge>
-    </filter>
+    <!-- Grid pattern -->
+    <pattern id="grid" x="0" y="0" width="40" height="40" patternUnits="userSpaceOnUse">
+      <path d="M 40 0 L 0 0 0 40" fill="none" stroke="#00ffff" stroke-width="0.15" opacity="0.2"/>
+    </pattern>
+
+    <!-- Bar fill gradients -->
+    <linearGradient id="barCyan" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%"   style="stop-color:#00ffff;stop-opacity:1"/>
+      <stop offset="100%" style="stop-color:#0088ff;stop-opacity:0.8"/>
+    </linearGradient>
+    <linearGradient id="barPink" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%"   style="stop-color:#ff00ff;stop-opacity:1"/>
+      <stop offset="100%" style="stop-color:#ff0066;stop-opacity:0.8"/>
+    </linearGradient>
+    <linearGradient id="barYellow" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%"   style="stop-color:#ffff00;stop-opacity:1"/>
+      <stop offset="100%" style="stop-color:#ff9900;stop-opacity:0.8"/>
+    </linearGradient>
+    <linearGradient id="barGreen" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%"   style="stop-color:#00ff88;stop-opacity:1"/>
+      <stop offset="100%" style="stop-color:#00cc66;stop-opacity:0.8"/>
+    </linearGradient>
   </defs>
 
-  <rect width="800" height="400" fill="url(#bgGrad)" rx="10"/>
-  <rect width="798" height="398" x="1" y="1" rx="9" fill="none" stroke="#ff00ff" stroke-width="1" opacity="0.3"/>
+  <!-- Background -->
+  <rect width="800" height="360" fill="url(#bgGrad)" rx="10"/>
+  <rect width="800" height="360" fill="url(#grid)"   rx="10"/>
+  <!-- Outer neon border -->
+  <rect width="798" height="358" x="1" y="1" rx="9" fill="none" stroke="#00ffff" stroke-width="1.5" opacity="0.5" filter="url(#glowCyan)"/>
 
-  <!-- Title -->
-  <text x="400" y="45" fill="#ffffff" font-family="'Courier New', monospace" font-size="20" text-anchor="middle" font-weight="bold" letter-spacing="4" filter="url(#glowCyan)">> SYSTEM_SKILLS_CALIBRATION_</text>
-  <line x1="200" y1="55" x2="600" y2="55" stroke="#00ffff" stroke-width="2" opacity="0.5" filter="url(#glowCyan)"/>
+  <!-- ── Title ── -->
+  <text x="400" y="36" fill="#ffffff" font-family="'Courier New', monospace" font-size="18" text-anchor="middle" font-weight="bold" letter-spacing="5" filter="url(#glowCyan)">&gt; SYSTEM_SKILLS_CALIBRATION_</text>
+  <!-- Blinking cursor -->
+  <rect x="612" y="20" width="9" height="17" fill="#00ffff" filter="url(#glowCyan)">
+    <animate attributeName="opacity" values="1;0;1" dur="1s" repeatCount="indefinite"/>
+  </rect>
+  <line x1="60" y1="48" x2="740" y2="48" stroke="#00ffff" stroke-width="1" opacity="0.4"/>
 
-  <g transform="translate(50, 90)">
-    <!-- React / Next.js -->
-    <g transform="translate(0, 0)">
-      <text x="0" y="0" fill="#00ffff" font-family="'Courier New', monospace" font-size="14" font-weight="bold">React / Next.js</text>
-      <text x="700" y="0" fill="#00ffff" font-family="'Courier New', monospace" font-size="14" font-weight="bold" text-anchor="end">92%</text>
-      <rect x="0" y="10" width="700" height="14" fill="none" stroke="#00ffff" stroke-width="1" opacity="0.3" rx="2"/>
-      <rect x="2" y="12" width="0" height="10" fill="#00ffff" rx="1" filter="url(#glowCyan)">
-        <animate attributeName="width" values="0;0;640;640;0" keyTimes="0; 0.05; 0.2; 0.95; 1" dur="10s" repeatCount="indefinite" />
-      </rect>
-    </g>
+  <!-- ───────────── LEFT COLUMN (x=60) ───────────── -->
 
-    <!-- Node.js / Express -->
-    <g transform="translate(0, 50)">
-      <text x="0" y="0" fill="#ff00ff" font-family="'Courier New', monospace" font-size="14" font-weight="bold">Node.js / Express</text>
-      <text x="700" y="0" fill="#ff00ff" font-family="'Courier New', monospace" font-size="14" font-weight="bold" text-anchor="end">88%</text>
-      <rect x="0" y="10" width="700" height="14" fill="none" stroke="#ff00ff" stroke-width="1" opacity="0.3" rx="2"/>
-      <rect x="2" y="12" width="0" height="10" fill="#ff00ff" rx="1" filter="url(#glowPink)">
-        <animate attributeName="width" values="0;0;612;612;0" keyTimes="0; 0.1; 0.25; 0.95; 1" dur="10s" repeatCount="indefinite" />
-      </rect>
-    </g>
-
-    <!-- MongoDB / SQL -->
-    <g transform="translate(0, 100)">
-      <text x="0" y="0" fill="#00ffff" font-family="'Courier New', monospace" font-size="14" font-weight="bold">MongoDB / SQL</text>
-      <text x="700" y="0" fill="#00ffff" font-family="'Courier New', monospace" font-size="14" font-weight="bold" text-anchor="end">85%</text>
-      <rect x="0" y="10" width="700" height="14" fill="none" stroke="#00ffff" stroke-width="1" opacity="0.3" rx="2"/>
-      <rect x="2" y="12" width="0" height="10" fill="#00ffff" rx="1" filter="url(#glowCyan)">
-        <animate attributeName="width" values="0;0;591;591;0" keyTimes="0; 0.15; 0.3; 0.95; 1" dur="10s" repeatCount="indefinite" />
-      </rect>
-    </g>
-
-    <!-- TypeScript -->
-    <g transform="translate(0, 150)">
-      <text x="0" y="0" fill="#ff00ff" font-family="'Courier New', monospace" font-size="14" font-weight="bold">TypeScript</text>
-      <text x="700" y="0" fill="#ff00ff" font-family="'Courier New', monospace" font-size="14" font-weight="bold" text-anchor="end">82%</text>
-      <rect x="0" y="10" width="700" height="14" fill="none" stroke="#ff00ff" stroke-width="1" opacity="0.3" rx="2"/>
-      <rect x="2" y="12" width="0" height="10" fill="#ff00ff" rx="1" filter="url(#glowPink)">
-        <animate attributeName="width" values="0;0;570;570;0" keyTimes="0; 0.2; 0.35; 0.95; 1" dur="10s" repeatCount="indefinite" />
-      </rect>
-    </g>
-
-    <!-- Python / Django -->
-    <g transform="translate(0, 200)">
-      <text x="0" y="0" fill="#00ffff" font-family="'Courier New', monospace" font-size="14" font-weight="bold">Python / Django</text>
-      <text x="700" y="0" fill="#00ffff" font-family="'Courier New', monospace" font-size="14" font-weight="bold" text-anchor="end">78%</text>
-      <rect x="0" y="10" width="700" height="14" fill="none" stroke="#00ffff" stroke-width="1" opacity="0.3" rx="2"/>
-      <rect x="2" y="12" width="0" height="10" fill="#00ffff" rx="1" filter="url(#glowCyan)">
-        <animate attributeName="width" values="0;0;542;542;0" keyTimes="0; 0.25; 0.4; 0.95; 1" dur="10s" repeatCount="indefinite" />
-      </rect>
-    </g>
-
-    <!-- UI/UX / Figma -->
-    <g transform="translate(0, 250)">
-      <text x="0" y="0" fill="#ff00ff" font-family="'Courier New', monospace" font-size="14" font-weight="bold">UI/UX / Figma</text>
-      <text x="700" y="0" fill="#ff00ff" font-family="'Courier New', monospace" font-size="14" font-weight="bold" text-anchor="end">80%</text>
-      <rect x="0" y="10" width="700" height="14" fill="none" stroke="#ff00ff" stroke-width="1" opacity="0.3" rx="2"/>
-      <rect x="2" y="12" width="0" height="10" fill="#ff00ff" rx="1" filter="url(#glowPink)">
-        <animate attributeName="width" values="0;0;556;556;0" keyTimes="0; 0.3; 0.45; 0.95; 1" dur="10s" repeatCount="indefinite" />
-      </rect>
-    </g>
+  <!-- Skill 1: React / Next.js  92% -->
+  <g transform="translate(60, 68)">
+    <!-- Dot indicator -->
+    <circle cx="5" cy="5" r="4" fill="#00ffff" filter="url(#glowCyan)">
+      <animate attributeName="r" values="4;5.5;4" dur="2s" repeatCount="indefinite"/>
+    </circle>
+    <text x="18" y="10" fill="#00ffff" font-family="'Courier New', monospace" font-size="13" font-weight="bold">React / Next.js</text>
+    <text x="340" y="10" fill="#00ffff" font-family="'Courier New', monospace" font-size="13" font-weight="bold" text-anchor="end">92%</text>
+    <!-- Track -->
+    <rect x="0" y="17" width="340" height="10" rx="5" fill="#001a1a" stroke="#00ffff" stroke-width="0.8" opacity="0.5"/>
+    <!-- Fill bar -->
+    <rect x="0" y="17" width="0" height="10" rx="5" fill="url(#barCyan)" filter="url(#glowCyan)">
+      <animate attributeName="width" values="0;0;313;313" keyTimes="0;0.05;0.2;1" dur="8s" repeatCount="indefinite"/>
+    </rect>
+    <!-- Segment ticks -->
+    <line x1="85"  y1="17" x2="85"  y2="27" stroke="#000814" stroke-width="1.5"/>
+    <line x1="170" y1="17" x2="170" y2="27" stroke="#000814" stroke-width="1.5"/>
+    <line x1="255" y1="17" x2="255" y2="27" stroke="#000814" stroke-width="1.5"/>
   </g>
+
+  <!-- Skill 2: Node.js / Express  88% -->
+  <g transform="translate(60, 118)">
+    <circle cx="5" cy="5" r="4" fill="#ff00ff" filter="url(#glowPink)">
+      <animate attributeName="r" values="4;5.5;4" dur="2.4s" repeatCount="indefinite"/>
+    </circle>
+    <text x="18" y="10" fill="#ff00ff" font-family="'Courier New', monospace" font-size="13" font-weight="bold">Node.js / Express</text>
+    <text x="340" y="10" fill="#ff00ff" font-family="'Courier New', monospace" font-size="13" font-weight="bold" text-anchor="end">88%</text>
+    <rect x="0" y="17" width="340" height="10" rx="5" fill="#1a0011" stroke="#ff00ff" stroke-width="0.8" opacity="0.5"/>
+    <rect x="0" y="17" width="0" height="10" rx="5" fill="url(#barPink)" filter="url(#glowPink)">
+      <animate attributeName="width" values="0;0;299;299" keyTimes="0;0.1;0.25;1" dur="8s" repeatCount="indefinite"/>
+    </rect>
+    <line x1="85"  y1="17" x2="85"  y2="27" stroke="#000814" stroke-width="1.5"/>
+    <line x1="170" y1="17" x2="170" y2="27" stroke="#000814" stroke-width="1.5"/>
+    <line x1="255" y1="17" x2="255" y2="27" stroke="#000814" stroke-width="1.5"/>
+  </g>
+
+  <!-- Skill 3: MongoDB / SQL  85% -->
+  <g transform="translate(60, 168)">
+    <circle cx="5" cy="5" r="4" fill="#00ffff" filter="url(#glowCyan)">
+      <animate attributeName="r" values="4;5.5;4" dur="1.8s" repeatCount="indefinite"/>
+    </circle>
+    <text x="18" y="10" fill="#00ffff" font-family="'Courier New', monospace" font-size="13" font-weight="bold">MongoDB / SQL</text>
+    <text x="340" y="10" fill="#00ffff" font-family="'Courier New', monospace" font-size="13" font-weight="bold" text-anchor="end">85%</text>
+    <rect x="0" y="17" width="340" height="10" rx="5" fill="#001a1a" stroke="#00ffff" stroke-width="0.8" opacity="0.5"/>
+    <rect x="0" y="17" width="0" height="10" rx="5" fill="url(#barCyan)" filter="url(#glowCyan)">
+      <animate attributeName="width" values="0;0;289;289" keyTimes="0;0.15;0.3;1" dur="8s" repeatCount="indefinite"/>
+    </rect>
+    <line x1="85"  y1="17" x2="85"  y2="27" stroke="#000814" stroke-width="1.5"/>
+    <line x1="170" y1="17" x2="170" y2="27" stroke="#000814" stroke-width="1.5"/>
+    <line x1="255" y1="17" x2="255" y2="27" stroke="#000814" stroke-width="1.5"/>
+  </g>
+
+  <!-- Skill 4: TypeScript  82% -->
+  <g transform="translate(60, 218)">
+    <circle cx="5" cy="5" r="4" fill="#ffff00" filter="url(#glowYellow)">
+      <animate attributeName="r" values="4;5.5;4" dur="2.2s" repeatCount="indefinite"/>
+    </circle>
+    <text x="18" y="10" fill="#ffff00" font-family="'Courier New', monospace" font-size="13" font-weight="bold">TypeScript</text>
+    <text x="340" y="10" fill="#ffff00" font-family="'Courier New', monospace" font-size="13" font-weight="bold" text-anchor="end">82%</text>
+    <rect x="0" y="17" width="340" height="10" rx="5" fill="#1a1a00" stroke="#ffff00" stroke-width="0.8" opacity="0.5"/>
+    <rect x="0" y="17" width="0" height="10" rx="5" fill="url(#barYellow)" filter="url(#glowYellow)">
+      <animate attributeName="width" values="0;0;279;279" keyTimes="0;0.2;0.35;1" dur="8s" repeatCount="indefinite"/>
+    </rect>
+    <line x1="85"  y1="17" x2="85"  y2="27" stroke="#000814" stroke-width="1.5"/>
+    <line x1="170" y1="17" x2="170" y2="27" stroke="#000814" stroke-width="1.5"/>
+    <line x1="255" y1="17" x2="255" y2="27" stroke="#000814" stroke-width="1.5"/>
+  </g>
+
+  <!-- Skill 5: Python / Django  78% -->
+  <g transform="translate(60, 268)">
+    <circle cx="5" cy="5" r="4" fill="#ff00ff" filter="url(#glowPink)">
+      <animate attributeName="r" values="4;5.5;4" dur="2.6s" repeatCount="indefinite"/>
+    </circle>
+    <text x="18" y="10" fill="#ff00ff" font-family="'Courier New', monospace" font-size="13" font-weight="bold">Python / Django</text>
+    <text x="340" y="10" fill="#ff00ff" font-family="'Courier New', monospace" font-size="13" font-weight="bold" text-anchor="end">78%</text>
+    <rect x="0" y="17" width="340" height="10" rx="5" fill="#1a0011" stroke="#ff00ff" stroke-width="0.8" opacity="0.5"/>
+    <rect x="0" y="17" width="0" height="10" rx="5" fill="url(#barPink)" filter="url(#glowPink)">
+      <animate attributeName="width" values="0;0;265;265" keyTimes="0;0.25;0.4;1" dur="8s" repeatCount="indefinite"/>
+    </rect>
+    <line x1="85"  y1="17" x2="85"  y2="27" stroke="#000814" stroke-width="1.5"/>
+    <line x1="170" y1="17" x2="170" y2="27" stroke="#000814" stroke-width="1.5"/>
+    <line x1="255" y1="17" x2="255" y2="27" stroke="#000814" stroke-width="1.5"/>
+  </g>
+
+  <!-- ── Vertical divider ── -->
+  <line x1="430" y1="55" x2="430" y2="325" stroke="#00ffff" stroke-width="0.8" opacity="0.25" stroke-dasharray="4 4"/>
+
+  <!-- ───────────── RIGHT COLUMN (x=455) ───────────── -->
+
+  <!-- Skill 6: UI/UX / Figma  80% -->
+  <g transform="translate(455, 68)">
+    <circle cx="5" cy="5" r="4" fill="#00ff88" filter="url(#glowGreen)">
+      <animate attributeName="r" values="4;5.5;4" dur="2s" repeatCount="indefinite"/>
+    </circle>
+    <text x="18" y="10" fill="#00ff88" font-family="'Courier New', monospace" font-size="13" font-weight="bold">UI/UX &amp; Figma</text>
+    <text x="285" y="10" fill="#00ff88" font-family="'Courier New', monospace" font-size="13" font-weight="bold" text-anchor="end">80%</text>
+    <rect x="0" y="17" width="285" height="10" rx="5" fill="#001a0d" stroke="#00ff88" stroke-width="0.8" opacity="0.5"/>
+    <rect x="0" y="17" width="0" height="10" rx="5" fill="url(#barGreen)" filter="url(#glowGreen)">
+      <animate attributeName="width" values="0;0;228;228" keyTimes="0;0.08;0.22;1" dur="8s" repeatCount="indefinite"/>
+    </rect>
+    <line x1="71"  y1="17" x2="71"  y2="27" stroke="#000814" stroke-width="1.5"/>
+    <line x1="142" y1="17" x2="142" y2="27" stroke="#000814" stroke-width="1.5"/>
+    <line x1="214" y1="17" x2="214" y2="27" stroke="#000814" stroke-width="1.5"/>
+  </g>
+
+  <!-- Skill 7: Git / DevOps  75% -->
+  <g transform="translate(455, 118)">
+    <circle cx="5" cy="5" r="4" fill="#ffff00" filter="url(#glowYellow)">
+      <animate attributeName="r" values="4;5.5;4" dur="2.3s" repeatCount="indefinite"/>
+    </circle>
+    <text x="18" y="10" fill="#ffff00" font-family="'Courier New', monospace" font-size="13" font-weight="bold">Git / DevOps</text>
+    <text x="285" y="10" fill="#ffff00" font-family="'Courier New', monospace" font-size="13" font-weight="bold" text-anchor="end">75%</text>
+    <rect x="0" y="17" width="285" height="10" rx="5" fill="#1a1a00" stroke="#ffff00" stroke-width="0.8" opacity="0.5"/>
+    <rect x="0" y="17" width="0" height="10" rx="5" fill="url(#barYellow)" filter="url(#glowYellow)">
+      <animate attributeName="width" values="0;0;214;214" keyTimes="0;0.12;0.27;1" dur="8s" repeatCount="indefinite"/>
+    </rect>
+    <line x1="71"  y1="17" x2="71"  y2="27" stroke="#000814" stroke-width="1.5"/>
+    <line x1="142" y1="17" x2="142" y2="27" stroke="#000814" stroke-width="1.5"/>
+    <line x1="214" y1="17" x2="214" y2="27" stroke="#000814" stroke-width="1.5"/>
+  </g>
+
+  <!-- Skill 8: AWS / Cloud  70% -->
+  <g transform="translate(455, 168)">
+    <circle cx="5" cy="5" r="4" fill="#00ffff" filter="url(#glowCyan)">
+      <animate attributeName="r" values="4;5.5;4" dur="1.9s" repeatCount="indefinite"/>
+    </circle>
+    <text x="18" y="10" fill="#00ffff" font-family="'Courier New', monospace" font-size="13" font-weight="bold">AWS / Cloud</text>
+    <text x="285" y="10" fill="#00ffff" font-family="'Courier New', monospace" font-size="13" font-weight="bold" text-anchor="end">70%</text>
+    <rect x="0" y="17" width="285" height="10" rx="5" fill="#001a1a" stroke="#00ffff" stroke-width="0.8" opacity="0.5"/>
+    <rect x="0" y="17" width="0" height="10" rx="5" fill="url(#barCyan)" filter="url(#glowCyan)">
+      <animate attributeName="width" values="0;0;200;200" keyTimes="0;0.18;0.33;1" dur="8s" repeatCount="indefinite"/>
+    </rect>
+    <line x1="71"  y1="17" x2="71"  y2="27" stroke="#000814" stroke-width="1.5"/>
+    <line x1="142" y1="17" x2="142" y2="27" stroke="#000814" stroke-width="1.5"/>
+    <line x1="214" y1="17" x2="214" y2="27" stroke="#000814" stroke-width="1.5"/>
+  </g>
+
+  <!-- Skill 9: Docker / Linux  65% -->
+  <g transform="translate(455, 218)">
+    <circle cx="5" cy="5" r="4" fill="#ff00ff" filter="url(#glowPink)">
+      <animate attributeName="r" values="4;5.5;4" dur="2.5s" repeatCount="indefinite"/>
+    </circle>
+    <text x="18" y="10" fill="#ff00ff" font-family="'Courier New', monospace" font-size="13" font-weight="bold">Docker / Linux</text>
+    <text x="285" y="10" fill="#ff00ff" font-family="'Courier New', monospace" font-size="13" font-weight="bold" text-anchor="end">65%</text>
+    <rect x="0" y="17" width="285" height="10" rx="5" fill="#1a0011" stroke="#ff00ff" stroke-width="0.8" opacity="0.5"/>
+    <rect x="0" y="17" width="0" height="10" rx="5" fill="url(#barPink)" filter="url(#glowPink)">
+      <animate attributeName="width" values="0;0;185;185" keyTimes="0;0.22;0.38;1" dur="8s" repeatCount="indefinite"/>
+    </rect>
+    <line x1="71"  y1="17" x2="71"  y2="27" stroke="#000814" stroke-width="1.5"/>
+    <line x1="142" y1="17" x2="142" y2="27" stroke="#000814" stroke-width="1.5"/>
+    <line x1="214" y1="17" x2="214" y2="27" stroke="#000814" stroke-width="1.5"/>
+  </g>
+
+  <!-- Skill 10: AI / ML / LLMs  60% -->
+  <g transform="translate(455, 268)">
+    <circle cx="5" cy="5" r="4" fill="#00ff88" filter="url(#glowGreen)">
+      <animate attributeName="r" values="4;5.5;4" dur="2.1s" repeatCount="indefinite"/>
+    </circle>
+    <text x="18" y="10" fill="#00ff88" font-family="'Courier New', monospace" font-size="13" font-weight="bold">AI / ML / LLMs</text>
+    <text x="285" y="10" fill="#00ff88" font-family="'Courier New', monospace" font-size="13" font-weight="bold" text-anchor="end">60%</text>
+    <rect x="0" y="17" width="285" height="10" rx="5" fill="#001a0d" stroke="#00ff88" stroke-width="0.8" opacity="0.5"/>
+    <rect x="0" y="17" width="0" height="10" rx="5" fill="url(#barGreen)" filter="url(#glowGreen)">
+      <animate attributeName="width" values="0;0;171;171" keyTimes="0;0.28;0.44;1" dur="8s" repeatCount="indefinite"/>
+    </rect>
+    <line x1="71"  y1="17" x2="71"  y2="27" stroke="#000814" stroke-width="1.5"/>
+    <line x1="142" y1="17" x2="142" y2="27" stroke="#000814" stroke-width="1.5"/>
+    <line x1="214" y1="17" x2="214" y2="27" stroke="#000814" stroke-width="1.5"/>
+  </g>
+
+  <!-- ── Legend ── -->
+  <line x1="60" y1="330" x2="740" y2="330" stroke="#00ffff" stroke-width="0.5" opacity="0.25"/>
+  <text x="60"  y="347" fill="#444" font-family="'Courier New', monospace" font-size="10">0%</text>
+  <text x="143" y="347" fill="#444" font-family="'Courier New', monospace" font-size="10">25%</text>
+  <text x="226" y="347" fill="#444" font-family="'Courier New', monospace" font-size="10">50%</text>
+  <text x="309" y="347" fill="#444" font-family="'Courier New', monospace" font-size="10">75%</text>
+  <text x="385" y="347" fill="#444" font-family="'Courier New', monospace" font-size="10">100%</text>
+
+  <!-- Version watermark -->
+  <text x="740" y="350" fill="#222" font-family="'Courier New', monospace" font-size="9" text-anchor="end">v2.0 // Anmol-Malviya</text>
 </svg>

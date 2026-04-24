@@ -49,7 +49,7 @@ const anmol = {
 ## 🐍 Snake Eating My Contributions
 
 <div align="center">
-<img src="https://raw.githubusercontent.com/platane/snk/output/github-contribution-grid-snake-dark.svg" alt="Snake eating contributions" width="100%"/>
+<img src="https://raw.githubusercontent.com/Anmol-Malviya/Anmol-Malviya/output/github-contribution-grid-snake-dark.svg" alt="Snake eating contributions" width="100%"/>
 </div>
 
 ---
@@ -99,6 +99,14 @@ const anmol = {
 
 ---
 
+## 🚀 Featured Projects
+
+<div align="center">
+<img src="./assets/projects.svg" width="100%" alt="Featured Projects"/>
+</div>
+
+---
+
 ## 📈 GitHub Statistics
 
 <div align="center">
@@ -115,7 +123,7 @@ const anmol = {
 ## 🏆 GitHub Trophies
 
 <div align="center">
-<img src="https://github-profile-trophy.vercel.app/?username=Anmol-Malviya&theme=tokyonight&no-frame=true&no-bg=true&row=1&column=7" width="100%"/>
+<img src="./assets/trophies.svg" width="100%" alt="GitHub Trophies"/>
 </div>
 
 ---
