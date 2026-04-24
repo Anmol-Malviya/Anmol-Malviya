@@ -1,9 +1,16 @@
 <div align="center">
-<img src="./assets/header.svg" width="100%" alt="Anmol Malviya Header"/>
+<img src="./assets/header.svg" width="100%" alt="Anmol Malviya - Full Stack Web Developer and Software Engineer GitHub Profile"/>
 </div>
 
 <div align="center">
-<img src="https://readme-typing-svg.herokuapp.com?font=JetBrains+Mono&weight=700&size=22&duration=3000&pause=800&color=00D9FF&center=true&vCenter=true&width=600&lines=Hi!+I'm+Anmol+Malviya+👋;Full+Stack+Developer+🚀;React+%7C+Node.js+%7C+MongoDB;Building+real-world+apps+💻;Always+learning+%7C+Always+growing+🌱" alt="Typing SVG" />
+<img src="https://readme-typing-svg.herokuapp.com?font=JetBrains+Mono&weight=700&size=22&duration=3000&pause=800&color=00D9FF&center=true&vCenter=true&width=600&lines=Hi!+I'm+Anmol+Malviya+👋;Full+Stack+Developer+🚀;React+%7C+Node.js+%7C+MongoDB;Building+real-world+apps+💻;Always+learning+%7C+Always+growing+🌱" alt="Anmol Malviya Typing Text" />
+</div>
+
+<br/>
+
+<div align="center">
+<b>Anmol Malviya</b> | Full Stack Developer & Software Engineer based in India 🇮🇳<br>
+<i>Building modern, scalable web applications with React, Node.js, Next.js, and MongoDB.</i>
 </div>
 
 <br/>
@@ -36,10 +43,10 @@ const anmol = {
 
 ---
 
-## 🎮 Auto-Playing Space Invaders Game
+## 🎮 Anmol Malviya - Space Invaders
 
 <div align="center">
-<img src="./assets/space-game.svg" width="100%" alt="Auto-playing Space Invaders SVG Game"/>
+<img src="./assets/space-game.svg" width="100%" alt="Anmol Malviya Space Invaders Interactive SVG"/>
 
 > *Enemies march, lasers fire, ship dodges — all animated with pure SVG! 🚀*
 </div>
@@ -54,26 +61,26 @@ const anmol = {
 
 ---
 
-## 💻 Tech Stack
+## 💻 Anmol Malviya - Tech Stack
 
 <div align="center">
-<img src="./assets/tech-stack.svg" width="100%" alt="Tech Stack"/>
+<img src="./assets/tech-stack.svg" width="100%" alt="Anmol Malviya Tech Stack and Programming Languages"/>
 </div>
 
 ---
 
-## 📊 Skill Proficiency
+## 📊 Anmol Malviya - Skill Proficiency
 
 <div align="center">
-<img src="./assets/skills.svg" width="100%" alt="Skill Proficiency"/>
+<img src="./assets/skills.svg" width="100%" alt="Anmol Malviya Skill Proficiency and Expertise"/>
 </div>
 
 ---
 
-## 🚀 Featured Projects
+## 🚀 Anmol Malviya - Featured Projects
 
 <div align="center">
-<img src="./assets/projects.svg" width="100%" alt="Featured Projects"/>
+<img src="./assets/projects.svg" width="100%" alt="Anmol Malviya Featured Web Development Projects"/>
 </div>
 
 ---
@@ -91,10 +98,10 @@ const anmol = {
 
 ---
 
-## 🏆 GitHub Trophies
+## 🏆 Anmol Malviya - GitHub Trophies
 
 <div align="center">
-<img src="./assets/trophies.svg" width="100%" alt="GitHub Trophies"/>
+<img src="./assets/trophies.svg" width="100%" alt="Anmol Malviya GitHub Achievements and Trophies"/>
 </div>
 
 ---
