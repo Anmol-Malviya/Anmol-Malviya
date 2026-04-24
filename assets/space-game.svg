@@ -1,0 +1,132 @@
+<svg width="800" height="420" viewBox="0 0 800 420" xmlns="http://www.w3.org/2000/svg">
+<defs>
+  <filter id="glow"><feGaussianBlur stdDeviation="4" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+  <filter id="lg"><feGaussianBlur stdDeviation="2" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+  <linearGradient id="shipGrad" x1="0%" y1="0%" x2="0%" y2="100%"><stop offset="0%" style="stop-color:#00ffff"/><stop offset="100%" style="stop-color:#0066ff"/></linearGradient>
+</defs>
+
+<!-- BG -->
+<rect width="800" height="420" fill="#000814" rx="10"/>
+<rect width="798" height="418" x="1" y="1" rx="9" fill="none" stroke="#00d9ff" stroke-width="1.5"><animate attributeName="opacity" values="0.4;0.9;0.4" dur="2s" repeatCount="indefinite"/></rect>
+
+<!-- Stars -->
+<circle cx="40" cy="60" r="1" fill="white"><animate attributeName="opacity" values="1;0.2;1" dur="2.1s" repeatCount="indefinite"/></circle>
+<circle cx="90" cy="30" r="1.5" fill="white"><animate attributeName="opacity" values="0.5;1;0.5" dur="3.4s" repeatCount="indefinite"/></circle>
+<circle cx="160" cy="90" r="1" fill="white"><animate attributeName="opacity" values="1;0.3;1" dur="1.8s" repeatCount="indefinite"/></circle>
+<circle cx="250" cy="55" r="1" fill="#aaeeff"><animate attributeName="opacity" values="0.7;0.1;0.7" dur="2.7s" repeatCount="indefinite"/></circle>
+<circle cx="330" cy="120" r="1.5" fill="white"><animate attributeName="opacity" values="0.4;1;0.4" dur="4s" repeatCount="indefinite"/></circle>
+<circle cx="420" cy="40" r="1" fill="white"><animate attributeName="opacity" values="1;0.2;1" dur="2.3s" repeatCount="indefinite"/></circle>
+<circle cx="500" cy="100" r="1" fill="#ffaacc"><animate attributeName="opacity" values="0.6;1;0.6" dur="3.1s" repeatCount="indefinite"/></circle>
+<circle cx="600" cy="60" r="1.5" fill="white"><animate attributeName="opacity" values="1;0.3;1" dur="1.9s" repeatCount="indefinite"/></circle>
+<circle cx="680" cy="35" r="1" fill="white"><animate attributeName="opacity" values="0.8;0.2;0.8" dur="3.7s" repeatCount="indefinite"/></circle>
+<circle cx="750" cy="85" r="1" fill="white"><animate attributeName="opacity" values="1;0.4;1" dur="2.6s" repeatCount="indefinite"/></circle>
+<circle cx="70" cy="200" r="1" fill="white"><animate attributeName="opacity" values="0.5;1;0.5" dur="4.2s" repeatCount="indefinite"/></circle>
+<circle cx="190" cy="240" r="1.5" fill="#aaeeff"><animate attributeName="opacity" values="0.9;0.3;0.9" dur="2.9s" repeatCount="indefinite"/></circle>
+<circle cx="370" cy="220" r="1" fill="white"><animate attributeName="opacity" values="0.7;0.1;0.7" dur="3.5s" repeatCount="indefinite"/></circle>
+<circle cx="540" cy="260" r="1" fill="white"><animate attributeName="opacity" values="1;0.4;1" dur="2.2s" repeatCount="indefinite"/></circle>
+<circle cx="720" cy="210" r="1.5" fill="white"><animate attributeName="opacity" values="0.6;1;0.6" dur="3.8s" repeatCount="indefinite"/></circle>
+
+<!-- HUD -->
+<text x="20" y="28" fill="#00d9ff" font-family="monospace" font-size="12" font-weight="bold">SCORE</text>
+<text x="20" y="48" fill="#ffffff" font-family="monospace" font-size="18" font-weight="bold">01550</text>
+<text x="400" y="30" fill="#00d9ff" font-family="monospace" font-size="14" text-anchor="middle" font-weight="bold">◆ SPACE INVADERS ◆</text>
+<text x="780" y="28" fill="#00d9ff" font-family="monospace" font-size="12" text-anchor="end" font-weight="bold">LIVES</text>
+<text x="780" y="48" fill="#ff6b9d" font-family="monospace" font-size="16" text-anchor="end">♥ ♥ ♥</text>
+<line x1="10" y1="58" x2="790" y2="58" stroke="#00d9ff" stroke-width="0.5" opacity="0.4"/>
+
+<!-- ENEMY FLEET - moves left/right as group -->
+<g>
+  <animateTransform attributeName="transform" type="translate" values="0,0;120,0;120,0;0,0;-120,0;-120,0;0,0" keyTimes="0;0.2;0.35;0.5;0.7;0.85;1" dur="8s" repeatCount="indefinite" calcMode="spline" keySplines="0.4 0 0.6 1;0.4 0 0.6 1;0.4 0 0.6 1;0.4 0 0.6 1;0.4 0 0.6 1;0.4 0 0.6 1"/>
+  <!-- Row 1 - 6 pink aliens -->
+  <g fill="#ff6b9d" filter="url(#glow)">
+    <g transform="translate(120,80)"><ellipse rx="14" ry="10"/><rect x="-12" y="8" width="7" height="6" rx="2"/><rect x="-3" y="8" width="7" height="6" rx="2"/><rect x="6" y="8" width="7" height="6" rx="2"/><circle cx="-5" cy="-2" r="3" fill="#000814"/><circle cx="5" cy="-2" r="3" fill="#000814"/><animate attributeName="opacity" values="1;0.6;1" dur="1s" repeatCount="indefinite"/></g>
+    <g transform="translate(200,80)"><ellipse rx="14" ry="10"/><rect x="-12" y="8" width="7" height="6" rx="2"/><rect x="-3" y="8" width="7" height="6" rx="2"/><rect x="6" y="8" width="7" height="6" rx="2"/><circle cx="-5" cy="-2" r="3" fill="#000814"/><circle cx="5" cy="-2" r="3" fill="#000814"/><animate attributeName="opacity" values="1;0.6;1" dur="1s" begin="0.1s" repeatCount="indefinite"/></g>
+    <g transform="translate(280,80)"><ellipse rx="14" ry="10"/><rect x="-12" y="8" width="7" height="6" rx="2"/><rect x="-3" y="8" width="7" height="6" rx="2"/><rect x="6" y="8" width="7" height="6" rx="2"/><circle cx="-5" cy="-2" r="3" fill="#000814"/><circle cx="5" cy="-2" r="3" fill="#000814"/><animate attributeName="opacity" values="1;0.6;1" dur="1s" begin="0.2s" repeatCount="indefinite"/></g>
+    <g transform="translate(360,80)"><ellipse rx="14" ry="10"/><rect x="-12" y="8" width="7" height="6" rx="2"/><rect x="-3" y="8" width="7" height="6" rx="2"/><rect x="6" y="8" width="7" height="6" rx="2"/><circle cx="-5" cy="-2" r="3" fill="#000814"/><circle cx="5" cy="-2" r="3" fill="#000814"/><animate attributeName="opacity" values="1;0.6;1" dur="1s" begin="0.15s" repeatCount="indefinite"/></g>
+    <g transform="translate(440,80)"><ellipse rx="14" ry="10"/><rect x="-12" y="8" width="7" height="6" rx="2"/><rect x="-3" y="8" width="7" height="6" rx="2"/><rect x="6" y="8" width="7" height="6" rx="2"/><circle cx="-5" cy="-2" r="3" fill="#000814"/><circle cx="5" cy="-2" r="3" fill="#000814"/><animate attributeName="opacity" values="1;0.6;1" dur="1s" begin="0.3s" repeatCount="indefinite"/></g>
+    <g transform="translate(520,80)"><ellipse rx="14" ry="10"/><rect x="-12" y="8" width="7" height="6" rx="2"/><rect x="-3" y="8" width="7" height="6" rx="2"/><rect x="6" y="8" width="7" height="6" rx="2"/><circle cx="-5" cy="-2" r="3" fill="#000814"/><circle cx="5" cy="-2" r="3" fill="#000814"/><animate attributeName="opacity" values="1;0.6;1" dur="1s" begin="0.25s" repeatCount="indefinite"/></g>
+  </g>
+  <!-- Row 2 - 6 cyan aliens -->
+  <g fill="#00d9ff" filter="url(#glow)">
+    <g transform="translate(120,130)"><ellipse rx="12" ry="9"/><rect x="-10" y="7" width="6" height="5" rx="2"/><rect x="-2" y="7" width="6" height="5" rx="2"/><rect x="5" y="7" width="6" height="5" rx="2"/><circle cx="-4" cy="-1" r="2.5" fill="#000814"/><circle cx="4" cy="-1" r="2.5" fill="#000814"/><animate attributeName="opacity" values="1;0.5;1" dur="0.9s" repeatCount="indefinite"/></g>
+    <g transform="translate(200,130)"><ellipse rx="12" ry="9"/><rect x="-10" y="7" width="6" height="5" rx="2"/><rect x="-2" y="7" width="6" height="5" rx="2"/><rect x="5" y="7" width="6" height="5" rx="2"/><circle cx="-4" cy="-1" r="2.5" fill="#000814"/><circle cx="4" cy="-1" r="2.5" fill="#000814"/><animate attributeName="opacity" values="1;0.5;1" dur="0.9s" begin="0.1s" repeatCount="indefinite"/></g>
+    <g transform="translate(280,130)"><ellipse rx="12" ry="9"/><rect x="-10" y="7" width="6" height="5" rx="2"/><rect x="-2" y="7" width="6" height="5" rx="2"/><rect x="5" y="7" width="6" height="5" rx="2"/><circle cx="-4" cy="-1" r="2.5" fill="#000814"/><circle cx="4" cy="-1" r="2.5" fill="#000814"/><animate attributeName="opacity" values="1;0.5;1" dur="0.9s" begin="0.2s" repeatCount="indefinite"/></g>
+    <g transform="translate(360,130)"><ellipse rx="12" ry="9"/><rect x="-10" y="7" width="6" height="5" rx="2"/><rect x="-2" y="7" width="6" height="5" rx="2"/><rect x="5" y="7" width="6" height="5" rx="2"/><circle cx="-4" cy="-1" r="2.5" fill="#000814"/><circle cx="4" cy="-1" r="2.5" fill="#000814"/><animate attributeName="opacity" values="1;0.5;1" dur="0.9s" begin="0.15s" repeatCount="indefinite"/></g>
+    <g transform="translate(440,130)"><ellipse rx="12" ry="9"/><rect x="-10" y="7" width="6" height="5" rx="2"/><rect x="-2" y="7" width="6" height="5" rx="2"/><rect x="5" y="7" width="6" height="5" rx="2"/><circle cx="-4" cy="-1" r="2.5" fill="#000814"/><circle cx="4" cy="-1" r="2.5" fill="#000814"/><animate attributeName="opacity" values="1;0.5;1" dur="0.9s" begin="0.3s" repeatCount="indefinite"/></g>
+    <g transform="translate(520,130)"><ellipse rx="12" ry="9"/><rect x="-10" y="7" width="6" height="5" rx="2"/><rect x="-2" y="7" width="6" height="5" rx="2"/><rect x="5" y="7" width="6" height="5" rx="2"/><circle cx="-4" cy="-1" r="2.5" fill="#000814"/><circle cx="4" cy="-1" r="2.5" fill="#000814"/><animate attributeName="opacity" values="1;0.5;1" dur="0.9s" begin="0.25s" repeatCount="indefinite"/></g>
+  </g>
+  <!-- Row 3 - 6 yellow boss aliens -->
+  <g fill="#ffd700" filter="url(#glow)">
+    <g transform="translate(120,180)"><ellipse rx="16" ry="12"/><polygon points="-8,-14 -5,-8 5,-8 8,-14" /><circle cx="-5" cy="-1" r="4" fill="#000814"/><circle cx="5" cy="-1" r="4" fill="#000814"/><animate attributeName="opacity" values="1;0.4;1" dur="0.8s" repeatCount="indefinite"/></g>
+    <g transform="translate(200,180)"><ellipse rx="16" ry="12"/><polygon points="-8,-14 -5,-8 5,-8 8,-14" /><circle cx="-5" cy="-1" r="4" fill="#000814"/><circle cx="5" cy="-1" r="4" fill="#000814"/><animate attributeName="opacity" values="1;0.4;1" dur="0.8s" begin="0.13s" repeatCount="indefinite"/></g>
+    <g transform="translate(280,180)"><ellipse rx="16" ry="12"/><polygon points="-8,-14 -5,-8 5,-8 8,-14" /><circle cx="-5" cy="-1" r="4" fill="#000814"/><circle cx="5" cy="-1" r="4" fill="#000814"/><animate attributeName="opacity" values="1;0.4;1" dur="0.8s" begin="0.26s" repeatCount="indefinite"/></g>
+    <g transform="translate(360,180)"><ellipse rx="16" ry="12"/><polygon points="-8,-14 -5,-8 5,-8 8,-14" /><circle cx="-5" cy="-1" r="4" fill="#000814"/><circle cx="5" cy="-1" r="4" fill="#000814"/><animate attributeName="opacity" values="1;0.4;1" dur="0.8s" begin="0.2s" repeatCount="indefinite"/></g>
+    <g transform="translate(440,180)"><ellipse rx="16" ry="12"/><polygon points="-8,-14 -5,-8 5,-8 8,-14" /><circle cx="-5" cy="-1" r="4" fill="#000814"/><circle cx="5" cy="-1" r="4" fill="#000814"/><animate attributeName="opacity" values="1;0.4;1" dur="0.8s" begin="0.33s" repeatCount="indefinite"/></g>
+    <g transform="translate(520,180)"><ellipse rx="16" ry="12"/><polygon points="-8,-14 -5,-8 5,-8 8,-14" /><circle cx="-5" cy="-1" r="4" fill="#000814"/><circle cx="5" cy="-1" r="4" fill="#000814"/><animate attributeName="opacity" values="1;0.4;1" dur="0.8s" begin="0.06s" repeatCount="indefinite"/></g>
+  </g>
+
+  <!-- Enemy bombs dropping -->
+  <rect x="359" y="195" width="4" height="12" rx="2" fill="#ff4444" filter="url(#lg)">
+    <animate attributeName="y" values="195;380;195" dur="2s" repeatCount="indefinite"/>
+    <animate attributeName="opacity" values="1;0.8;0" dur="2s" repeatCount="indefinite"/>
+  </rect>
+  <rect x="279" y="195" width="4" height="12" rx="2" fill="#ff4444" filter="url(#lg)">
+    <animate attributeName="y" values="195;380;195" dur="2.5s" begin="0.8s" repeatCount="indefinite"/>
+    <animate attributeName="opacity" values="1;0.8;0" dur="2.5s" begin="0.8s" repeatCount="indefinite"/>
+  </rect>
+  <rect x="519" y="195" width="4" height="12" rx="2" fill="#ff4444" filter="url(#lg)">
+    <animate attributeName="y" values="195;380;195" dur="3s" begin="1.5s" repeatCount="indefinite"/>
+    <animate attributeName="opacity" values="1;0.8;0" dur="3s" begin="1.5s" repeatCount="indefinite"/>
+  </rect>
+</g>
+
+<!-- Explosion 1 (timed) -->
+<g transform="translate(280,130)" opacity="0">
+  <animate attributeName="opacity" values="0;0;0;1;0;0;0;0;0;0" dur="8s" repeatCount="indefinite"/>
+  <circle r="0" fill="#ff6b00" filter="url(#glow)"><animate attributeName="r" values="0;20;0" dur="0.5s" begin="2.5s" repeatCount="indefinite" repeatDur="0.5s"/></circle>
+  <text x="0" y="-25" text-anchor="middle" fill="#ffd700" font-family="monospace" font-size="12" font-weight="bold">+100</text>
+</g>
+<!-- Explosion 2 -->
+<g transform="translate(440,80)" opacity="0">
+  <animate attributeName="opacity" values="0;0;0;0;0;0;1;0;0;0" dur="8s" repeatCount="indefinite"/>
+  <circle r="0" fill="#ff6b00" filter="url(#glow)"><animate attributeName="r" values="0;18;0" dur="0.4s" begin="5.5s" repeatCount="indefinite" repeatDur="0.4s"/></circle>
+  <text x="0" y="-22" text-anchor="middle" fill="#ffd700" font-family="monospace" font-size="12" font-weight="bold">+50</text>
+</g>
+
+<!-- Ground line -->
+<line x1="10" y1="360" x2="790" y2="360" stroke="#00d9ff" stroke-width="0.5" opacity="0.3"/>
+
+<!-- PLAYER SHIP - moves left/right -->
+<g filter="url(#glow)">
+  <animateTransform attributeName="transform" type="translate" values="0,0;200,0;200,0;0,0;-180,0;-180,0;0,0" keyTimes="0;0.2;0.35;0.5;0.7;0.85;1" dur="10s" repeatCount="indefinite" calcMode="spline" keySplines="0.4 0 0.6 1;0.4 0 0.6 1;0.4 0 0.6 1;0.4 0 0.6 1;0.4 0 0.6 1;0.4 0 0.6 1"/>
+  <!-- Laser beam -->
+  <rect x="397" y="65" width="6" height="20" rx="3" fill="#ff3333" filter="url(#lg)">
+    <animate attributeName="y" values="375;60;375" dur="1.0s" repeatCount="indefinite"/>
+    <animate attributeName="height" values="6;25;6" dur="1.0s" repeatCount="indefinite"/>
+    <animate attributeName="opacity" values="0;1;0" dur="1.0s" repeatCount="indefinite"/>
+  </rect>
+  <!-- Ship body -->
+  <polygon points="400,340 380,385 420,385" fill="url(#shipGrad)"/>
+  <!-- Wings -->
+  <polygon points="380,385 355,395 375,375" fill="#0044cc" opacity="0.8"/>
+  <polygon points="420,385 445,395 425,375" fill="#0044cc" opacity="0.8"/>
+  <!-- Cockpit -->
+  <ellipse cx="400" cy="358" rx="8" ry="10" fill="#00ffff" opacity="0.6"/>
+  <!-- Engine glow -->
+  <ellipse cx="400" cy="390" rx="10" ry="6" fill="#ff6600" opacity="0.8">
+    <animate attributeName="ry" values="6;10;4;8;6" dur="0.25s" repeatCount="indefinite"/>
+    <animate attributeName="opacity" values="0.8;1;0.5;0.9;0.8" dur="0.25s" repeatCount="indefinite"/>
+  </ellipse>
+  <ellipse cx="400" cy="393" rx="5" ry="3" fill="#ffff00" opacity="0.9">
+    <animate attributeName="ry" values="3;5;2;4;3" dur="0.25s" repeatCount="indefinite"/>
+  </ellipse>
+</g>
+
+<!-- Shields -->
+<rect x="130" y="305" width="80" height="30" rx="4" fill="#004400" opacity="0.7"/>
+<rect x="345" y="305" width="80" height="30" rx="4" fill="#004400" opacity="0.7"/>
+<rect x="555" y="305" width="80" height="30" rx="4" fill="#004400" opacity="0.6"/>
+
+<!-- Bottom labels -->
+<text x="400" y="410" text-anchor="middle" fill="#1a3a4a" font-family="monospace" font-size="11" letter-spacing="6">AUTO-PLAY MODE · ANMOL MALVIYA</text>
+</svg>
