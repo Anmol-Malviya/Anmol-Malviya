@@ -1,237 +1,132 @@
-<svg width="800" height="480" viewBox="0 0 800 480" xmlns="http://www.w3.org/2000/svg">
+<svg width="900" height="420" viewBox="0 0 900 420" xmlns="http://www.w3.org/2000/svg">
   <defs>
-    <!-- Background Gradient -->
-    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="0%" y2="100%">
-      <stop offset="0%" style="stop-color:#00020a"/>
-      <stop offset="100%" style="stop-color:#050015"/>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#020916"/>
+      <stop offset="100%" style="stop-color:#0b1629"/>
     </linearGradient>
-
-    <!-- Universal Glow Filter -->
-    <filter id="glow" x="-20%" y="-20%" width="140%" height="140%">
-      <feGaussianBlur stdDeviation="3" result="blur"/>
-      <feMerge>
-        <feMergeNode in="blur"/>
-        <feMergeNode in="SourceGraphic"/>
-      </feMerge>
+    <linearGradient id="hdr" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:transparent"/>
+      <stop offset="30%" style="stop-color:#00d9ff"/>
+      <stop offset="70%" style="stop-color:#ff6b9d"/>
+      <stop offset="100%" style="stop-color:transparent"/>
+    </linearGradient>
+    <filter id="softglow">
+      <feGaussianBlur stdDeviation="2" result="b"/>
+      <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
     </filter>
-
-    <!-- Scanline Pattern -->
-    <pattern id="scanlines" x="0" y="0" width="800" height="4" patternUnits="userSpaceOnUse">
-      <line x1="0" y1="0" x2="800" y2="0" stroke="#ffffff" stroke-width="0.3" opacity="0.05"/>
-    </pattern>
-
-    <!-- Floating Animation Definition -->
-    <g id="float">
-      <animateTransform attributeName="transform" type="translate" values="0,0; 0,-3; 0,0" dur="4s" repeatCount="indefinite" />
-    </g>
   </defs>
 
   <!-- Background -->
-  <rect width="800" height="480" fill="url(#bgGrad)" rx="10"/>
-  <rect width="800" height="480" fill="url(#scanlines)" rx="10"/>
-  <rect width="798" height="478" x="1" y="1" rx="9" fill="none" stroke="#00ffff" stroke-width="1" opacity="0.2"/>
+  <rect width="900" height="420" fill="url(#bg)" rx="16"/>
+  <pattern id="dots" x="0" y="0" width="28" height="28" patternUnits="userSpaceOnUse">
+    <circle cx="14" cy="14" r="0.7" fill="#00d9ff" opacity="0.055"/>
+  </pattern>
+  <rect width="900" height="420" fill="url(#dots)" rx="16"/>
+  <rect width="898" height="418" x="1" y="1" rx="15" fill="none" stroke="rgba(0,217,255,0.22)" stroke-width="1"/>
+  <rect x="150" y="0" width="600" height="2" rx="1" fill="url(#hdr)"/>
 
-  <!-- Main Title -->
-  <text x="400" y="35" fill="#ffffff" font-family="'Courier New', monospace" font-size="18" text-anchor="middle" font-weight="bold" letter-spacing="4" filter="url(#glow)">> CORE_TECHNOLOGY_STACK_</text>
-  <line x1="250" y1="45" x2="550" y2="45" stroke="#ff00ff" stroke-width="1.5" opacity="0.5" filter="url(#glow)"/>
+  <!-- Title -->
+  <text x="450" y="42" text-anchor="middle" font-family="'Arial Black', sans-serif" font-size="13" fill="#00d9ff" letter-spacing="5" font-weight="900" filter="url(#softglow)">CORE TECHNOLOGY STACK</text>
+  <rect x="150" y="52" width="600" height="1" rx="0.5" fill="url(#hdr)" opacity="0.4"/>
 
+  <!-- ═══ FRONTEND ═══ -->
+  <text x="50" y="88" font-family="'Courier New', monospace" font-size="10" fill="#00d9ff" letter-spacing="3" opacity="0.7">🌐  FRONTEND</text>
+  <line x1="140" y1="84" x2="870" y2="84" stroke="rgba(0,217,255,0.12)" stroke-width="1"/>
 
-  <!-- ================= FRONTEND ================= -->
-  <g transform="translate(0, 80)">
-    <text x="400" y="0" fill="#00ffff" font-family="'Courier New', monospace" font-size="14" text-anchor="middle" font-weight="bold" letter-spacing="2" opacity="0.8">🚀 FRONTEND_MODULES</text>
-    <line x1="320" y1="8" x2="480" y2="8" stroke="#00ffff" stroke-width="1" opacity="0.3"/>
-    
+  <!-- Badge helper: each badge is 112x32 with 10px gap -->
+  <!-- Row 1: React, Next.js, TypeScript, JavaScript, TailwindCSS, Redux -->
+  <g transform="translate(50, 96)">
     <!-- React -->
-    <g transform="translate(40, 25)">
-      <animateTransform attributeName="transform" type="translate" values="40,25; 40,22; 40,25" dur="3.1s" repeatCount="indefinite"/>
-      <g filter="url(#glow)">
-        <rect width="105" height="26" rx="13" fill="#000814" stroke="#61DAFB" stroke-width="1.5"/>
-        <text x="52.5" y="17" fill="#61DAFB" font-family="'Courier New', monospace" font-size="12" font-weight="bold" text-anchor="middle">React</text>
-      </g>
-    </g>
+    <g><rect width="118" height="30" rx="8" fill="rgba(97,218,251,0.07)" stroke="#61DAFB" stroke-width="1" opacity="0.8"/>
+    <text x="59" y="20" text-anchor="middle" font-family="'Courier New', monospace" font-size="12" fill="#61DAFB" font-weight="bold">⚛ React</text></g>
     <!-- Next.js -->
-    <g transform="translate(160, 25)">
-      <animateTransform attributeName="transform" type="translate" values="160,25; 160,22; 160,25" dur="3.5s" repeatCount="indefinite"/>
-      <g filter="url(#glow)">
-        <rect width="105" height="26" rx="13" fill="#000814" stroke="#ffffff" stroke-width="1.5"/>
-        <text x="52.5" y="17" fill="#ffffff" font-family="'Courier New', monospace" font-size="12" font-weight="bold" text-anchor="middle">Next.js</text>
-      </g>
-    </g>
+    <g transform="translate(128,0)"><rect width="118" height="30" rx="8" fill="rgba(255,255,255,0.05)" stroke="#ffffff" stroke-width="1" opacity="0.7"/>
+    <text x="59" y="20" text-anchor="middle" font-family="'Courier New', monospace" font-size="12" fill="#ffffff" font-weight="bold">▲ Next.js</text></g>
     <!-- TypeScript -->
-    <g transform="translate(280, 25)">
-      <animateTransform attributeName="transform" type="translate" values="280,25; 280,22; 280,25" dur="2.8s" repeatCount="indefinite"/>
-      <g filter="url(#glow)">
-        <rect width="105" height="26" rx="13" fill="#000814" stroke="#3178C6" stroke-width="1.5"/>
-        <text x="52.5" y="17" fill="#3178C6" font-family="'Courier New', monospace" font-size="12" font-weight="bold" text-anchor="middle">TypeScript</text>
-      </g>
-    </g>
+    <g transform="translate(256,0)"><rect width="128" height="30" rx="8" fill="rgba(49,120,198,0.08)" stroke="#3178C6" stroke-width="1" opacity="0.8"/>
+    <text x="64" y="20" text-anchor="middle" font-family="'Courier New', monospace" font-size="12" fill="#3178C6" font-weight="bold">TS TypeScript</text></g>
     <!-- JavaScript -->
-    <g transform="translate(400, 25)">
-      <animateTransform attributeName="transform" type="translate" values="400,25; 400,22; 400,25" dur="3.3s" repeatCount="indefinite"/>
-      <g filter="url(#glow)">
-        <rect width="105" height="26" rx="13" fill="#000814" stroke="#F7DF1E" stroke-width="1.5"/>
-        <text x="52.5" y="17" fill="#F7DF1E" font-family="'Courier New', monospace" font-size="12" font-weight="bold" text-anchor="middle">JavaScript</text>
-      </g>
-    </g>
-    <!-- Tailwind -->
-    <g transform="translate(520, 25)">
-      <animateTransform attributeName="transform" type="translate" values="520,25; 520,22; 520,25" dur="3.7s" repeatCount="indefinite"/>
-      <g filter="url(#glow)">
-        <rect width="105" height="26" rx="13" fill="#000814" stroke="#38B2AC" stroke-width="1.5"/>
-        <text x="52.5" y="17" fill="#38B2AC" font-family="'Courier New', monospace" font-size="12" font-weight="bold" text-anchor="middle">Tailwind</text>
-      </g>
-    </g>
-    <!-- GSAP -->
-    <g transform="translate(640, 25)">
-      <animateTransform attributeName="transform" type="translate" values="640,25; 640,22; 640,25" dur="2.9s" repeatCount="indefinite"/>
-      <g filter="url(#glow)">
-        <rect width="105" height="26" rx="13" fill="#000814" stroke="#88CE02" stroke-width="1.5"/>
-        <text x="52.5" y="17" fill="#88CE02" font-family="'Courier New', monospace" font-size="12" font-weight="bold" text-anchor="middle">GSAP</text>
-      </g>
-    </g>
+    <g transform="translate(394,0)"><rect width="120" height="30" rx="8" fill="rgba(247,223,30,0.07)" stroke="#F7DF1E" stroke-width="1" opacity="0.8"/>
+    <text x="60" y="20" text-anchor="middle" font-family="'Courier New', monospace" font-size="12" fill="#F7DF1E" font-weight="bold">JS JavaScript</text></g>
+    <!-- TailwindCSS -->
+    <g transform="translate(524,0)"><rect width="130" height="30" rx="8" fill="rgba(6,182,212,0.07)" stroke="#06B6D4" stroke-width="1" opacity="0.8"/>
+    <text x="65" y="20" text-anchor="middle" font-family="'Courier New', monospace" font-size="12" fill="#06B6D4" font-weight="bold">~ TailwindCSS</text></g>
+    <!-- Redux -->
+    <g transform="translate(664,0)"><rect width="100" height="30" rx="8" fill="rgba(118,74,188,0.08)" stroke="#764ABC" stroke-width="1" opacity="0.8"/>
+    <text x="50" y="20" text-anchor="middle" font-family="'Courier New', monospace" font-size="12" fill="#764ABC" font-weight="bold">◈ Redux</text></g>
   </g>
 
+  <!-- ═══ BACKEND ═══ -->
+  <text x="50" y="170" font-family="'Courier New', monospace" font-size="10" fill="#ff6b9d" letter-spacing="3" opacity="0.7">⚙️  BACKEND &amp; DATABASE</text>
+  <line x1="220" y1="166" x2="870" y2="166" stroke="rgba(255,107,157,0.12)" stroke-width="1"/>
 
-  <!-- ================= BACKEND ================= -->
-  <g transform="translate(0, 180)">
-    <text x="400" y="0" fill="#ff00ff" font-family="'Courier New', monospace" font-size="14" text-anchor="middle" font-weight="bold" letter-spacing="2" opacity="0.8">⚙️ BACKEND_SYSTEMS</text>
-    <line x1="320" y1="8" x2="480" y2="8" stroke="#ff00ff" stroke-width="1" opacity="0.3"/>
-    
+  <g transform="translate(50, 178)">
     <!-- Node.js -->
-    <g transform="translate(100, 25)">
-      <animateTransform attributeName="transform" type="translate" values="100,25; 100,22; 100,25" dur="3.4s" repeatCount="indefinite"/>
-      <g filter="url(#glow)">
-        <rect width="105" height="26" rx="13" fill="#000814" stroke="#339933" stroke-width="1.5"/>
-        <text x="52.5" y="17" fill="#339933" font-family="'Courier New', monospace" font-size="12" font-weight="bold" text-anchor="middle">Node.js</text>
-      </g>
-    </g>
-    <!-- Express.js -->
-    <g transform="translate(220, 25)">
-      <animateTransform attributeName="transform" type="translate" values="220,25; 220,22; 220,25" dur="3.0s" repeatCount="indefinite"/>
-      <g filter="url(#glow)">
-        <rect width="105" height="26" rx="13" fill="#000814" stroke="#888888" stroke-width="1.5"/>
-        <text x="52.5" y="17" fill="#888888" font-family="'Courier New', monospace" font-size="12" font-weight="bold" text-anchor="middle">Express.js</text>
-      </g>
-    </g>
-    <!-- Python -->
-    <g transform="translate(340, 25)">
-      <animateTransform attributeName="transform" type="translate" values="340,25; 340,22; 340,25" dur="3.6s" repeatCount="indefinite"/>
-      <g filter="url(#glow)">
-        <rect width="105" height="26" rx="13" fill="#000814" stroke="#3776AB" stroke-width="1.5"/>
-        <text x="52.5" y="17" fill="#3776AB" font-family="'Courier New', monospace" font-size="12" font-weight="bold" text-anchor="middle">Python</text>
-      </g>
-    </g>
-    <!-- Django -->
-    <g transform="translate(460, 25)">
-      <animateTransform attributeName="transform" type="translate" values="460,25; 460,22; 460,25" dur="2.7s" repeatCount="indefinite"/>
-      <g filter="url(#glow)">
-        <rect width="105" height="26" rx="13" fill="#000814" stroke="#092E20" stroke-width="1.5"/>
-        <text x="52.5" y="17" fill="#00ffaa" font-family="'Courier New', monospace" font-size="12" font-weight="bold" text-anchor="middle">Django</text>
-      </g>
-    </g>
-    <!-- PHP -->
-    <g transform="translate(580, 25)">
-      <animateTransform attributeName="transform" type="translate" values="580,25; 580,22; 580,25" dur="3.2s" repeatCount="indefinite"/>
-      <g filter="url(#glow)">
-        <rect width="105" height="26" rx="13" fill="#000814" stroke="#777BB4" stroke-width="1.5"/>
-        <text x="52.5" y="17" fill="#777BB4" font-family="'Courier New', monospace" font-size="12" font-weight="bold" text-anchor="middle">PHP</text>
-      </g>
-    </g>
-  </g>
-
-
-  <!-- ================= DATABASES & CLOUD ================= -->
-  <g transform="translate(0, 280)">
-    <text x="400" y="0" fill="#ffff00" font-family="'Courier New', monospace" font-size="14" text-anchor="middle" font-weight="bold" letter-spacing="2" opacity="0.8">🗄️ DATA_&amp;_CLOUD</text>
-    <line x1="320" y1="8" x2="480" y2="8" stroke="#ffff00" stroke-width="1" opacity="0.3"/>
-    
+    <g><rect width="110" height="30" rx="8" fill="rgba(51,153,51,0.08)" stroke="#339933" stroke-width="1" opacity="0.8"/>
+    <text x="55" y="20" text-anchor="middle" font-family="'Courier New', monospace" font-size="12" fill="#339933" font-weight="bold">⬡ Node.js</text></g>
+    <!-- Express -->
+    <g transform="translate(120,0)"><rect width="118" height="30" rx="8" fill="rgba(150,150,150,0.06)" stroke="#888" stroke-width="1" opacity="0.7"/>
+    <text x="59" y="20" text-anchor="middle" font-family="'Courier New', monospace" font-size="12" fill="#aaa" font-weight="bold">≡ Express.js</text></g>
     <!-- MongoDB -->
-    <g transform="translate(100, 25)">
-      <animateTransform attributeName="transform" type="translate" values="100,25; 100,22; 100,25" dur="3.5s" repeatCount="indefinite"/>
-      <g filter="url(#glow)">
-        <rect width="105" height="26" rx="13" fill="#000814" stroke="#47A248" stroke-width="1.5"/>
-        <text x="52.5" y="17" fill="#47A248" font-family="'Courier New', monospace" font-size="12" font-weight="bold" text-anchor="middle">MongoDB</text>
-      </g>
-    </g>
-    <!-- MySQL -->
-    <g transform="translate(220, 25)">
-      <animateTransform attributeName="transform" type="translate" values="220,25; 220,22; 220,25" dur="2.9s" repeatCount="indefinite"/>
-      <g filter="url(#glow)">
-        <rect width="105" height="26" rx="13" fill="#000814" stroke="#4479A1" stroke-width="1.5"/>
-        <text x="52.5" y="17" fill="#4479A1" font-family="'Courier New', monospace" font-size="12" font-weight="bold" text-anchor="middle">MySQL</text>
-      </g>
-    </g>
+    <g transform="translate(248,0)"><rect width="116" height="30" rx="8" fill="rgba(71,162,72,0.08)" stroke="#47A248" stroke-width="1" opacity="0.8"/>
+    <text x="58" y="20" text-anchor="middle" font-family="'Courier New', monospace" font-size="12" fill="#47A248" font-weight="bold">🍃 MongoDB</text></g>
     <!-- PostgreSQL -->
-    <g transform="translate(340, 25)">
-      <animateTransform attributeName="transform" type="translate" values="340,25; 340,22; 340,25" dur="3.3s" repeatCount="indefinite"/>
-      <g filter="url(#glow)">
-        <rect width="105" height="26" rx="13" fill="#000814" stroke="#4169E1" stroke-width="1.5"/>
-        <text x="52.5" y="17" fill="#4169E1" font-family="'Courier New', monospace" font-size="12" font-weight="bold" text-anchor="middle">PostgreSQL</text>
-      </g>
-    </g>
-    <!-- AWS -->
-    <g transform="translate(460, 25)">
-      <animateTransform attributeName="transform" type="translate" values="460,25; 460,22; 460,25" dur="3.7s" repeatCount="indefinite"/>
-      <g filter="url(#glow)">
-        <rect width="105" height="26" rx="13" fill="#000814" stroke="#FF9900" stroke-width="1.5"/>
-        <text x="52.5" y="17" fill="#FF9900" font-family="'Courier New', monospace" font-size="12" font-weight="bold" text-anchor="middle">AWS</text>
-      </g>
-    </g>
-    <!-- Vercel -->
-    <g transform="translate(580, 25)">
-      <animateTransform attributeName="transform" type="translate" values="580,25; 580,22; 580,25" dur="2.8s" repeatCount="indefinite"/>
-      <g filter="url(#glow)">
-        <rect width="105" height="26" rx="13" fill="#000814" stroke="#ffffff" stroke-width="1.5"/>
-        <text x="52.5" y="17" fill="#ffffff" font-family="'Courier New', monospace" font-size="12" font-weight="bold" text-anchor="middle">Vercel</text>
-      </g>
-    </g>
+    <g transform="translate(374,0)"><rect width="122" height="30" rx="8" fill="rgba(51,103,145,0.08)" stroke="#336791" stroke-width="1" opacity="0.8"/>
+    <text x="61" y="20" text-anchor="middle" font-family="'Courier New', monospace" font-size="12" fill="#336791" font-weight="bold">🐘 PostgreSQL</text></g>
+    <!-- MySQL -->
+    <g transform="translate(506,0)"><rect width="100" height="30" rx="8" fill="rgba(68,121,161,0.08)" stroke="#4479A1" stroke-width="1" opacity="0.8"/>
+    <text x="50" y="20" text-anchor="middle" font-family="'Courier New', monospace" font-size="12" fill="#4479A1" font-weight="bold">🗄 MySQL</text></g>
+    <!-- Redis -->
+    <g transform="translate(616,0)"><rect width="100" height="30" rx="8" fill="rgba(220,56,45,0.08)" stroke="#DC382D" stroke-width="1" opacity="0.8"/>
+    <text x="50" y="20" text-anchor="middle" font-family="'Courier New', monospace" font-size="12" fill="#DC382D" font-weight="bold">⚡ Redis</text></g>
+    <!-- Firebase -->
+    <g transform="translate(726,0)"><rect width="108" height="30" rx="8" fill="rgba(255,202,40,0.07)" stroke="#FFCA28" stroke-width="1" opacity="0.8"/>
+    <text x="54" y="20" text-anchor="middle" font-family="'Courier New', monospace" font-size="12" fill="#FFCA28" font-weight="bold">🔥 Firebase</text></g>
   </g>
 
+  <!-- ═══ TOOLS ═══ -->
+  <text x="50" y="252" font-family="'Courier New', monospace" font-size="10" fill="#00ff88" letter-spacing="3" opacity="0.7">🛠️  TOOLS &amp; PLATFORMS</text>
+  <line x1="205" y1="248" x2="870" y2="248" stroke="rgba(0,255,136,0.12)" stroke-width="1"/>
 
-  <!-- ================= TOOLS ================= -->
-  <g transform="translate(0, 380)">
-    <text x="400" y="0" fill="#00ff88" font-family="'Courier New', monospace" font-size="14" text-anchor="middle" font-weight="bold" letter-spacing="2" opacity="0.8">🛠️ DEVELOPMENT_TOOLS</text>
-    <line x1="320" y1="8" x2="480" y2="8" stroke="#00ff88" stroke-width="1" opacity="0.3"/>
-    
+  <g transform="translate(50, 260)">
     <!-- Git -->
-    <g transform="translate(100, 25)">
-      <animateTransform attributeName="transform" type="translate" values="100,25; 100,22; 100,25" dur="3.1s" repeatCount="indefinite"/>
-      <g filter="url(#glow)">
-        <rect width="105" height="26" rx="13" fill="#000814" stroke="#F05032" stroke-width="1.5"/>
-        <text x="52.5" y="17" fill="#F05032" font-family="'Courier New', monospace" font-size="12" font-weight="bold" text-anchor="middle">Git</text>
-      </g>
-    </g>
-    <!-- VS Code -->
-    <g transform="translate(220, 25)">
-      <animateTransform attributeName="transform" type="translate" values="220,25; 220,22; 220,25" dur="3.5s" repeatCount="indefinite"/>
-      <g filter="url(#glow)">
-        <rect width="105" height="26" rx="13" fill="#000814" stroke="#007ACC" stroke-width="1.5"/>
-        <text x="52.5" y="17" fill="#007ACC" font-family="'Courier New', monospace" font-size="12" font-weight="bold" text-anchor="middle">VS Code</text>
-      </g>
-    </g>
-    <!-- Figma -->
-    <g transform="translate(340, 25)">
-      <animateTransform attributeName="transform" type="translate" values="340,25; 340,22; 340,25" dur="2.7s" repeatCount="indefinite"/>
-      <g filter="url(#glow)">
-        <rect width="105" height="26" rx="13" fill="#000814" stroke="#F24E1E" stroke-width="1.5"/>
-        <text x="52.5" y="17" fill="#F24E1E" font-family="'Courier New', monospace" font-size="12" font-weight="bold" text-anchor="middle">Figma</text>
-      </g>
-    </g>
-    <!-- Postman -->
-    <g transform="translate(460, 25)">
-      <animateTransform attributeName="transform" type="translate" values="460,25; 460,22; 460,25" dur="3.4s" repeatCount="indefinite"/>
-      <g filter="url(#glow)">
-        <rect width="105" height="26" rx="13" fill="#000814" stroke="#FF6C37" stroke-width="1.5"/>
-        <text x="52.5" y="17" fill="#FF6C37" font-family="'Courier New', monospace" font-size="12" font-weight="bold" text-anchor="middle">Postman</text>
-      </g>
-    </g>
+    <g><rect width="90" height="30" rx="8" fill="rgba(240,80,50,0.08)" stroke="#F05032" stroke-width="1" opacity="0.8"/>
+    <text x="45" y="20" text-anchor="middle" font-family="'Courier New', monospace" font-size="12" fill="#F05032" font-weight="bold">⑂ Git</text></g>
+    <!-- GitHub -->
+    <g transform="translate(100,0)"><rect width="108" height="30" rx="8" fill="rgba(255,255,255,0.05)" stroke="#888" stroke-width="1" opacity="0.7"/>
+    <text x="54" y="20" text-anchor="middle" font-family="'Courier New', monospace" font-size="12" fill="#ccc" font-weight="bold">◎ GitHub</text></g>
     <!-- Docker -->
-    <g transform="translate(580, 25)">
-      <animateTransform attributeName="transform" type="translate" values="580,25; 580,22; 580,25" dur="3.0s" repeatCount="indefinite"/>
-      <g filter="url(#glow)">
-        <rect width="105" height="26" rx="13" fill="#000814" stroke="#2496ED" stroke-width="1.5"/>
-        <text x="52.5" y="17" fill="#2496ED" font-family="'Courier New', monospace" font-size="12" font-weight="bold" text-anchor="middle">Docker</text>
-      </g>
-    </g>
+    <g transform="translate(218,0)"><rect width="108" height="30" rx="8" fill="rgba(36,150,237,0.08)" stroke="#2496ED" stroke-width="1" opacity="0.8"/>
+    <text x="54" y="20" text-anchor="middle" font-family="'Courier New', monospace" font-size="12" fill="#2496ED" font-weight="bold">🐳 Docker</text></g>
+    <!-- VS Code -->
+    <g transform="translate(336,0)"><rect width="112" height="30" rx="8" fill="rgba(0,122,204,0.08)" stroke="#007ACC" stroke-width="1" opacity="0.8"/>
+    <text x="56" y="20" text-anchor="middle" font-family="'Courier New', monospace" font-size="12" fill="#007ACC" font-weight="bold">◧ VS Code</text></g>
+    <!-- Figma -->
+    <g transform="translate(458,0)"><rect width="104" height="30" rx="8" fill="rgba(242,78,30,0.07)" stroke="#F24E1E" stroke-width="1" opacity="0.8"/>
+    <text x="52" y="20" text-anchor="middle" font-family="'Courier New', monospace" font-size="12" fill="#F24E1E" font-weight="bold">✦ Figma</text></g>
+    <!-- Vercel -->
+    <g transform="translate(572,0)"><rect width="104" height="30" rx="8" fill="rgba(255,255,255,0.05)" stroke="#fff" stroke-width="1" opacity="0.6"/>
+    <text x="52" y="20" text-anchor="middle" font-family="'Courier New', monospace" font-size="12" fill="#fff" font-weight="bold">▲ Vercel</text></g>
+    <!-- Postman -->
+    <g transform="translate(686,0)"><rect width="112" height="30" rx="8" fill="rgba(255,108,55,0.08)" stroke="#FF6C37" stroke-width="1" opacity="0.8"/>
+    <text x="56" y="20" text-anchor="middle" font-family="'Courier New', monospace" font-size="12" fill="#FF6C37" font-weight="bold">⬡ Postman</text></g>
   </g>
+
+  <!-- ═══ LEARNING ═══ -->
+  <text x="50" y="334" font-family="'Courier New', monospace" font-size="10" fill="#9d4edd" letter-spacing="3" opacity="0.7">🌱  CURRENTLY LEARNING</text>
+  <line x1="225" y1="330" x2="870" y2="330" stroke="rgba(157,78,221,0.12)" stroke-width="1"/>
+
+  <g transform="translate(50, 342)">
+    <g><rect width="138" height="30" rx="8" fill="rgba(157,78,221,0.07)" stroke="#9d4edd" stroke-width="1" opacity="0.8"/>
+    <text x="69" y="20" text-anchor="middle" font-family="'Courier New', monospace" font-size="12" fill="#9d4edd" font-weight="bold">🤖 AI Integration</text></g>
+    <g transform="translate(148,0)"><rect width="138" height="30" rx="8" fill="rgba(157,78,221,0.07)" stroke="#9d4edd" stroke-width="1" opacity="0.8"/>
+    <text x="69" y="20" text-anchor="middle" font-family="'Courier New', monospace" font-size="12" fill="#9d4edd" font-weight="bold">⚙ System Design</text></g>
+    <g transform="translate(296,0)"><rect width="158" height="30" rx="8" fill="rgba(157,78,221,0.07)" stroke="#9d4edd" stroke-width="1" opacity="0.8"/>
+    <text x="79" y="20" text-anchor="middle" font-family="'Courier New', monospace" font-size="12" fill="#9d4edd" font-weight="bold">☁ Cloud Architecture</text></g>
+    <g transform="translate(464,0)"><rect width="168" height="30" rx="8" fill="rgba(157,78,221,0.07)" stroke="#9d4edd" stroke-width="1" opacity="0.8"/>
+    <text x="84" y="20" text-anchor="middle" font-family="'Courier New', monospace" font-size="12" fill="#9d4edd" font-weight="bold">📈 Performance Opt.</text></g>
+  </g>
+
+  <!-- Bottom accent -->
+  <rect x="150" y="418" width="600" height="2" rx="1" fill="url(#hdr)" opacity="0.5"/>
 </svg>
