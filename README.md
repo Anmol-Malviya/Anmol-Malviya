@@ -125,3 +125,10 @@ const anmol = {
 <div align="center">
 <img width="100%" src="https://capsule-render.vercel.app/api?type=waving&color=0:000814,50:00d9ff,100:ff6b9d&height=120&section=footer&text=Thanks+for+Visiting!+⭐&fontSize=28&fontColor=ffffff&animation=twinkling&fontAlignY=65"/>
 </div>
+
+
+---
+
+## Maintainer
+
+Maintained by [Anmol Malviya](https://github.com/Anmol-Malviya). Issues and focused pull requests are welcome.
