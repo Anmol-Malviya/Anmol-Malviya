@@ -41,11 +41,13 @@ THEMES = {
         'bg': '#070B16', 'panel': '#0A101F', 'chrome': '#22D3EE', 'portrait': '#A78BFA',
         'accent': '#10B981', 'primary': '#F8FAFC', 'muted': '#94A3B8', 'subtle': '#475569',
         'line': '#233149', 'bar': '#0B1222', 'chip': '#10192B', 'portrait_bg': '#08111F',
+        'hud': '#0D1728', 'soft': '#111C30',
     },
     'light': {
         'bg': '#F8FAFC', 'panel': '#FFFFFF', 'chrome': '#0891B2', 'portrait': '#7C3AED',
         'accent': '#059669', 'primary': '#0F172A', 'muted': '#475569', 'subtle': '#94A3B8',
         'line': '#CBD5E1', 'bar': '#F1F5F9', 'chip': '#F8FAFC', 'portrait_bg': '#F8FAFC',
+        'hud': '#F1F5F9', 'soft': '#F8FAFC',
     },
 }
 
@@ -173,18 +175,25 @@ def logo_layer(theme: dict[str, str]) -> str:
     '''
 
 
+def corner_brackets(theme: dict[str, str]) -> str:
+    c = theme['chrome']
+    return f'''
+      <path d="M54 119v-13h13 M405 106h13v13 M54 531v13h13 M405 544h13v-13" fill="none" stroke="{c}" stroke-width="2" stroke-linecap="round" opacity=".75"/>
+    '''
+
+
 def row_svg(label: str, value: str, y: int, theme: dict[str, str]) -> str:
     label_x = 490
     value_x = 1138
-    approx_label_end = label_x + len(label) * 7.2 + 10
-    approx_value_start = value_x - len(value) * 7.0 - 10
+    approx_label_end = label_x + len(label) * 7.0 + 10
+    approx_value_start = value_x - len(value) * 6.8 - 10
     line_start = min(approx_label_end, 760)
     line_end = max(approx_value_start, line_start + 18)
-    value_length = min(max(len(value) * 7.2, 60), 420)
+    value_length = min(max(len(value) * 7.0, 60), 420)
     return (
-        f'<text x="{label_x}" y="{y}" font-size="14" fill="{theme["muted"]}">{html.escape(label)}</text>'
+        f'<text x="{label_x}" y="{y}" font-size="13" fill="{theme["muted"]}">{html.escape(label)}</text>'
         f'<line x1="{line_start:.1f}" y1="{y - 4}" x2="{line_end:.1f}" y2="{y - 4}" stroke="{theme["line"]}" stroke-width="1" stroke-dasharray="2 5"/>'
-        f'<text x="{value_x}" y="{y}" text-anchor="end" font-size="14" fill="{theme["primary"]}" textLength="{value_length:.1f}" lengthAdjust="spacingAndGlyphs">{html.escape(value)}</text>'
+        f'<text x="{value_x}" y="{y}" text-anchor="end" font-size="13" fill="{theme["primary"]}" textLength="{value_length:.1f}" lengthAdjust="spacingAndGlyphs">{html.escape(value)}</text>'
     )
 
 
@@ -199,13 +208,14 @@ def build_svg(mode: str, groups: list[str]) -> str:
         )
 
     rows = []
-    start_y = 153
+    start_y = 152
     for index, (label, value) in enumerate(DETAILS):
-        rows.append(row_svg(label, value, start_y + index * 25, theme))
+        rows.append(row_svg(label, value, start_y + index * 23, theme))
 
-    return f'''<svg xmlns="http://www.w3.org/2000/svg" width="1180" height="610" viewBox="0 0 1180 610" font-family="ui-monospace,SFMono-Regular,Menlo,Consolas,'Liberation Mono',monospace" role="img" aria-label="Anmol Malviya — profile.sh --live">
+    return f'''<svg xmlns="http://www.w3.org/2000/svg" width="1180" height="610" viewBox="0 0 1180 610" font-family="ui-monospace,SFMono-Regular,Menlo,Consolas,'Liberation Mono',monospace" role="img" aria-label="Anmol Malviya — developer HUD profile">
 <defs>
   <linearGradient id="accent" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="{theme['portrait']}"/><stop offset="0.5" stop-color="{theme['chrome']}"/><stop offset="1" stop-color="{theme['accent']}"/></linearGradient>
+  <linearGradient id="hudLine" x1="0" y1="0" x2="1" y2="0"><stop stop-color="{theme['portrait']}" stop-opacity=".05"/><stop offset=".5" stop-color="{theme['chrome']}" stop-opacity=".75"/><stop offset="1" stop-color="{theme['accent']}" stop-opacity=".05"/></linearGradient>
   <clipPath id="window"><rect x="2" y="2" width="1176" height="606" rx="18"/></clipPath>
 </defs>
 <rect x="2" y="2" width="1176" height="606" rx="18" fill="{theme['bg']}" stroke="{theme['line']}" stroke-width="2"/>
@@ -215,9 +225,13 @@ def build_svg(mode: str, groups: list[str]) -> str:
   <line x1="2" y1="48" x2="1178" y2="48" stroke="{theme['line']}"/>
   <circle cx="30" cy="25" r="5.5" fill="#ff5f56"/><circle cx="50" cy="25" r="5.5" fill="#ffbd2e"/><circle cx="70" cy="25" r="5.5" fill="#27c93f"/>
   <text x="590" y="29" text-anchor="middle" font-size="12" fill="{theme['muted']}">anmolmalviya4328@gmail.com — % ./profile.sh --live</text>
+  <text x="1138" y="29" text-anchor="end" font-size="10" fill="{theme['subtle']}">HUD v2.0</text>
 
-  <text x="38" y="74" font-size="10" letter-spacing="3" fill="{theme['subtle']}">VISUAL.MAP</text>
-  <rect x="36" y="84" width="400" height="492" rx="10" fill="{theme['portrait_bg']}" stroke="{theme['chrome']}" stroke-opacity=".35"/>
+  <text x="38" y="74" font-size="10" letter-spacing="3" fill="{theme['subtle']}">PLAYER.VISUAL</text>
+  <rect x="36" y="84" width="400" height="492" rx="10" fill="{theme['portrait_bg']}" stroke="{theme['chrome']}" stroke-opacity=".34">
+    <animate attributeName="stroke-opacity" values=".28;.58;.28" dur="6s" repeatCount="indefinite"/>
+  </rect>
+  {corner_brackets(theme)}
   <g transform="translate(50 112) scale(1.24 1.27)" fill="none" stroke="{theme['portrait']}" stroke-width="0.72" stroke-linecap="round" shape-rendering="crispEdges">
     <g id="portrait">
       <animate attributeName="opacity" begin="3.2s" dur="14.2s" repeatCount="indefinite" values="1;1;1;0;0;0;0;0;1" keyTimes="0;0.16;0.22;0.30;0.52;0.75;0.90;0.96;1"/>
@@ -225,12 +239,36 @@ def build_svg(mode: str, groups: list[str]) -> str:
     </g>
     {logo_layer(theme)}
   </g>
-  <text x="236" y="552" text-anchor="middle" font-size="11" fill="{theme['muted']}">portrait → code → vercel → react → portrait</text>
 
-  <text x="486" y="78" font-size="13" letter-spacing="3" fill="{theme['subtle']}">SYSTEM.INFO</text>
-  <g transform="translate(1000 61)"><circle r="5" fill="#EF4444"><animate attributeName="opacity" values="1;.25;1" dur="1.2s" repeatCount="indefinite"/></circle><text x="12" y="4" font-size="12" fill="{theme['primary']}">LIVE</text></g>
-  <g transform="translate(1048 57)"><rect width="102" height="25" rx="12.5" fill="{theme['chip']}" stroke="{theme['chrome']}" stroke-opacity=".45"/><text x="51" y="17" text-anchor="middle" font-size="14" fill="{theme['chrome']}">@Anmol-Malviya</text></g>
+  <g transform="translate(54 98)">
+    <rect width="104" height="22" rx="11" fill="{theme['hud']}" stroke="{theme['portrait']}" stroke-opacity=".35"/>
+    <circle cx="13" cy="11" r="3.5" fill="{theme['accent']}"><animate attributeName="opacity" values="1;.35;1" dur="1.7s" repeatCount="indefinite"/></circle>
+    <text x="25" y="15" font-size="9.5" fill="{theme['muted']}">DEV SIGNAL</text>
+  </g>
+  <g transform="translate(308 98)">
+    <rect width="108" height="22" rx="11" fill="{theme['hud']}" stroke="{theme['chrome']}" stroke-opacity=".32"/>
+    <text x="54" y="15" text-anchor="middle" font-size="9.5" fill="{theme['chrome']}">MODE // CREATE</text>
+  </g>
+  <line x1="74" y1="527" x2="398" y2="527" stroke="url(#hudLine)"/>
+  <text x="236" y="552" text-anchor="middle" font-size="10.5" fill="{theme['muted']}">portrait → code → vercel → react → portrait</text>
+  <text x="236" y="568" text-anchor="middle" font-size="9" letter-spacing="1.6" fill="{theme['subtle']}">LOADOUT // CODE · DESIGN · SHIP</text>
+
+  <text x="486" y="78" font-size="13" letter-spacing="3" fill="{theme['subtle']}">PLAYER.SYSTEM</text>
+  <g transform="translate(986 61)"><circle r="5" fill="#EF4444"><animate attributeName="opacity" values="1;.25;1" dur="1.2s" repeatCount="indefinite"/></circle><text x="12" y="4" font-size="12" fill="{theme['primary']}">LIVE</text></g>
+  <g transform="translate(1040 57)"><rect width="110" height="25" rx="12.5" fill="{theme['chip']}" stroke="{theme['chrome']}" stroke-opacity=".45"/><text x="55" y="17" text-anchor="middle" font-size="13" fill="{theme['chrome']}">@Anmol-Malviya</text></g>
+
   {''.join(rows)}
+
+  <g transform="translate(486 530)">
+    <rect width="652" height="42" rx="9" fill="{theme['hud']}" stroke="{theme['line']}"/>
+    <text x="14" y="17" font-size="9" letter-spacing="2" fill="{theme['subtle']}">PRIMARY QUEST</text>
+    <text x="14" y="33" font-size="12" fill="{theme['primary']}">Build useful products. Learn fast. Ship polished experiences.</text>
+    <g transform="translate(543 11)">
+      <rect width="94" height="20" rx="10" fill="{theme['soft']}" stroke="{theme['accent']}" stroke-opacity=".45"/>
+      <circle cx="13" cy="10" r="3" fill="{theme['accent']}"><animate attributeName="opacity" values=".4;1;.4" dur="2.3s" repeatCount="indefinite"/></circle>
+      <text x="24" y="14" font-size="9.5" fill="{theme['accent']}">IN PROGRESS</text>
+    </g>
+  </g>
 </g>
 </svg>'''
 
