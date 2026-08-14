@@ -40,12 +40,27 @@
 
 </div>
 
-<!-- ===== PROJECTS ===== -->
+<!-- ===== PROJECTS / MISSION BOARD ===== -->
 
 <br/>
 <br/>
 <div align="center">
-  <img width="100%" src="https://raw.githubusercontent.com/Anmol-Malviya/Anmol-Malviya/main/projects.svg" alt="Anmol Malviya featured projects" />
+  <img width="100%" src="https://raw.githubusercontent.com/Anmol-Malviya/Anmol-Malviya/main/projects.svg" alt="Anmol Malviya developer mission board" />
+</div>
+
+<br/>
+<div align="center">
+  <a href="https://github.com/Anmol-Malviya/AI-Interviewer"><img src="https://img.shields.io/badge/OPEN_AI_INTERVIEWER-0A101F?style=for-the-badge&logo=github&logoColor=A78BFA" alt="Open AI Interviewer" /></a>
+  &nbsp;
+  <a href="https://github.com/Anmol-Malviya/LUXE"><img src="https://img.shields.io/badge/OPEN_LUXE-0A101F?style=for-the-badge&logo=github&logoColor=22D3EE" alt="Open LUXE" /></a>
+  &nbsp;
+  <a href="https://github.com/Anmol-Malviya/GPC-Itarsi"><img src="https://img.shields.io/badge/OPEN_GPC_ITARSI-0A101F?style=for-the-badge&logo=github&logoColor=10B981" alt="Open GPC Itarsi" /></a>
+  <br/><br/>
+  <a href="https://github.com/Anmol-Malviya/ProjectX"><img src="https://img.shields.io/badge/OPEN_PROJECTX-0A101F?style=for-the-badge&logo=github&logoColor=22D3EE" alt="Open ProjectX" /></a>
+  &nbsp;
+  <a href="https://github.com/Anmol-Malviya/UIUX"><img src="https://img.shields.io/badge/OPEN_UIUX-0A101F?style=for-the-badge&logo=github&logoColor=A78BFA" alt="Open UIUX" /></a>
+  &nbsp;
+  <a href="https://github.com/Anmol-Malviya/AI-Danger-Kinetic"><img src="https://img.shields.io/badge/OPEN_AI_DANGER_KINETIC-0A101F?style=for-the-badge&logo=github&logoColor=10B981" alt="Open AI Danger Kinetic" /></a>
 </div>
 
 <!-- ===== SOCIAL BADGES ===== -->
