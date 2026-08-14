@@ -1,0 +1,72 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1180" height="610" viewBox="0 0 1180 610" role="img" aria-label="Anmol Malviya developer profile">
+  <defs>
+    <linearGradient id="accent" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#7C3AED"><animate attributeName="stop-color" values="#7C3AED;#0891B2;#059669;#7C3AED" dur="9s" repeatCount="indefinite"/></stop>
+      <stop offset="0.5" stop-color="#0891B2"><animate attributeName="stop-color" values="#0891B2;#059669;#7C3AED;#0891B2" dur="9s" repeatCount="indefinite"/></stop>
+      <stop offset="1" stop-color="#059669"><animate attributeName="stop-color" values="#059669;#7C3AED;#0891B2;#059669" dur="9s" repeatCount="indefinite"/></stop>
+    </linearGradient>
+    <linearGradient id="panel" x1="0" y1="0" x2="0" y2="1"><stop stop-color="#FFFFFF"/><stop offset="1" stop-color="#F8FAFC"/></linearGradient>
+    <pattern id="grid" width="28" height="28" patternUnits="userSpaceOnUse"><path d="M 28 0 L 0 0 0 28" fill="none" stroke="#E2E8F0" stroke-width="1"/></pattern>
+    <filter id="glow"><feGaussianBlur stdDeviation="3" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+    <clipPath id="clip"><rect x="2" y="2" width="1176" height="606" rx="18"/></clipPath>
+  </defs>
+
+  <rect x="2" y="2" width="1176" height="606" rx="18" fill="#FFFFFF" stroke="#CBD5E1" stroke-width="2"/>
+  <g clip-path="url(#clip)">
+    <rect x="2" y="2" width="1176" height="606" fill="url(#panel)"/>
+    <rect x="2" y="2" width="1176" height="46" fill="#F1F5F9"/>
+    <line x1="2" y1="48" x2="1178" y2="48" stroke="#CBD5E1"/>
+    <circle cx="30" cy="25" r="5.5" fill="#ff5f56"/><circle cx="50" cy="25" r="5.5" fill="#ffbd2e"/><circle cx="70" cy="25" r="5.5" fill="#27c93f"/>
+    <text x="590" y="30" text-anchor="middle" font-family="ui-monospace,SFMono-Regular,Menlo,Consolas,monospace" font-size="12" fill="#64748B">anmolmalviya4328@gmail.com — % ./profile.sh --live</text>
+
+    <text x="38" y="74" font-family="ui-monospace,SFMono-Regular,Menlo,Consolas,monospace" font-size="10" letter-spacing="3" fill="#94A3B8">VISUAL.MAP</text>
+    <rect x="36" y="84" width="400" height="492" rx="12" fill="#FFFFFF" stroke="#0891B2" stroke-opacity=".28"/>
+    <rect x="48" y="96" width="376" height="468" rx="9" fill="url(#grid)" opacity=".9"/>
+    <line x1="52" y1="210" x2="420" y2="210" stroke="#0891B2" stroke-opacity=".16"><animate attributeName="y1" values="110;540;110" dur="8s" repeatCount="indefinite"/><animate attributeName="y2" values="110;540;110" dur="8s" repeatCount="indefinite"/></line>
+
+    <g transform="translate(236 320)">
+      <circle r="128" fill="none" stroke="#7C3AED" stroke-opacity=".20" stroke-dasharray="4 10"><animateTransform attributeName="transform" type="rotate" from="0" to="360" dur="24s" repeatCount="indefinite"/></circle>
+      <circle r="94" fill="none" stroke="#0891B2" stroke-opacity=".28" stroke-dasharray="2 8"><animateTransform attributeName="transform" type="rotate" from="360" to="0" dur="18s" repeatCount="indefinite"/></circle>
+      <circle r="62" fill="#FFFFFF" stroke="url(#accent)" stroke-width="2" filter="url(#glow)"/>
+      <text x="0" y="13" text-anchor="middle" font-family="ui-monospace,SFMono-Regular,Menlo,Consolas,monospace" font-size="42" font-weight="800" fill="url(#accent)">&lt;AM/&gt;</text>
+      <circle cx="0" cy="-128" r="5" fill="#0891B2"><animate attributeName="opacity" values=".35;1;.35" dur="2s" repeatCount="indefinite"/></circle>
+      <circle cx="94" cy="0" r="5" fill="#059669"><animate attributeName="opacity" values="1;.35;1" dur="2.4s" repeatCount="indefinite"/></circle>
+      <circle cx="-94" cy="0" r="5" fill="#7C3AED"><animate attributeName="opacity" values=".45;1;.45" dur="1.8s" repeatCount="indefinite"/></circle>
+    </g>
+
+    <g font-family="ui-monospace,SFMono-Regular,Menlo,Consolas,monospace" font-size="10" fill="#475569">
+      <rect x="67" y="119" width="88" height="24" rx="12" fill="#F8FAFC" stroke="#7C3AED" stroke-opacity=".28"/><text x="111" y="135" text-anchor="middle">BUILD</text>
+      <rect x="316" y="119" width="88" height="24" rx="12" fill="#F8FAFC" stroke="#0891B2" stroke-opacity=".28"/><text x="360" y="135" text-anchor="middle">SHIP</text>
+      <rect x="67" y="517" width="88" height="24" rx="12" fill="#F8FAFC" stroke="#059669" stroke-opacity=".28"/><text x="111" y="533" text-anchor="middle">LEARN</text>
+      <rect x="316" y="517" width="88" height="24" rx="12" fill="#F8FAFC" stroke="#7C3AED" stroke-opacity=".28"/><text x="360" y="533" text-anchor="middle">CREATE</text>
+    </g>
+
+    <g font-family="ui-monospace,SFMono-Regular,Menlo,Consolas,monospace">
+      <text x="486" y="86" font-size="11" letter-spacing="3" fill="#94A3B8">IDENTITY.SNAPSHOT</text>
+      <text x="486" y="122" font-size="14" fill="#059669">➜  ~ whoami</text>
+      <text x="486" y="178" font-size="46" font-weight="800" fill="url(#accent)">ANMOL MALVIYA</text>
+      <text x="488" y="211" font-size="17" fill="#0F172A">Full-Stack Developer  •  Software Engineer</text>
+      <text x="488" y="240" font-size="13" fill="#475569">Building modern web products, AI experiences and polished interfaces.</text>
+
+      <text x="486" y="286" font-size="12" fill="#94A3B8">$ cat current_focus.json</text>
+      <text x="510" y="316" font-size="13" fill="#334155">"focus"  : ["Web", "AI", "UI/UX", "Open Source"],</text>
+      <text x="510" y="342" font-size="13" fill="#334155">"status" : "Building + Learning + Shipping",</text>
+      <text x="510" y="368" font-size="13" fill="#334155">"base"   : "India 🇮🇳"</text>
+
+      <text x="486" y="416" font-size="11" letter-spacing="3" fill="#94A3B8">TOOLCHAIN</text>
+      <g font-size="12" text-anchor="middle">
+        <rect x="486" y="430" width="86" height="30" rx="7" fill="#F8FAFC" stroke="#0891B2" stroke-opacity=".30"/><text x="529" y="450" fill="#0F172A">Next.js</text>
+        <rect x="580" y="430" width="82" height="30" rx="7" fill="#F8FAFC" stroke="#7C3AED" stroke-opacity=".30"/><text x="621" y="450" fill="#0F172A">React</text>
+        <rect x="670" y="430" width="84" height="30" rx="7" fill="#F8FAFC" stroke="#059669" stroke-opacity=".30"/><text x="712" y="450" fill="#0F172A">Node.js</text>
+        <rect x="762" y="430" width="98" height="30" rx="7" fill="#F8FAFC" stroke="#0891B2" stroke-opacity=".30"/><text x="811" y="450" fill="#0F172A">MongoDB</text>
+        <rect x="868" y="430" width="92" height="30" rx="7" fill="#F8FAFC" stroke="#7C3AED" stroke-opacity=".30"/><text x="914" y="450" fill="#0F172A">Tailwind</text>
+        <rect x="968" y="430" width="74" height="30" rx="7" fill="#F8FAFC" stroke="#059669" stroke-opacity=".30"/><text x="1005" y="450" fill="#0F172A">GSAP</text>
+      </g>
+
+      <text x="486" y="501" font-size="12" fill="#94A3B8">$ git status --short</text>
+      <circle cx="497" cy="532" r="5" fill="#059669"><animate attributeName="opacity" values="1;.3;1" dur="1.4s" repeatCount="indefinite"/></circle>
+      <text x="512" y="537" font-size="13" fill="#334155">Ready to collaborate on useful, ambitious products.</text>
+      <text x="486" y="566" font-size="13" fill="#0891B2">anmol@github:~$ <tspan fill="#0F172A">_</tspan><animate attributeName="opacity" values="1;1;0;0;1" dur="1s" repeatCount="indefinite"/></text>
+    </g>
+  </g>
+</svg>
