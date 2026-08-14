@@ -1,0 +1,71 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1180" height="560" viewBox="0 0 1180 560" role="img" aria-label="Anmol Malviya featured projects">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#090E1A"/><stop offset="1" stop-color="#0B1424"/></linearGradient>
+    <linearGradient id="accent" x1="0" y1="0" x2="1" y2="0"><stop stop-color="#8B5CF6"/><stop offset=".5" stop-color="#22D3EE"/><stop offset="1" stop-color="#10B981"/></linearGradient>
+    <filter id="glow"><feGaussianBlur stdDeviation="4" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+  </defs>
+  <rect x="2" y="2" width="1176" height="556" rx="18" fill="url(#bg)" stroke="#1E293B" stroke-width="2"/>
+  <text x="38" y="52" font-family="ui-monospace,SFMono-Regular,Menlo,Consolas,monospace" font-size="11" letter-spacing="3" fill="#64748B">FEATURED.PROJECTS</text>
+  <text x="38" y="88" font-family="ui-monospace,SFMono-Regular,Menlo,Consolas,monospace" font-size="26" font-weight="800" fill="url(#accent)">Selected builds from my GitHub</text>
+  <text x="38" y="114" font-family="ui-monospace,SFMono-Regular,Menlo,Consolas,monospace" font-size="12" fill="#94A3B8">Web products • AI experiments • interfaces • student projects</text>
+
+  <g font-family="ui-monospace,SFMono-Regular,Menlo,Consolas,monospace">
+    <g transform="translate(38 146)">
+      <rect width="350" height="160" rx="14" fill="#0E1728" stroke="#8B5CF6" stroke-opacity=".35"/>
+      <circle cx="28" cy="28" r="8" fill="#8B5CF6" filter="url(#glow)"/>
+      <text x="48" y="34" font-size="17" font-weight="700" fill="#F8FAFC">AI Interviewer</text>
+      <text x="22" y="70" font-size="12" fill="#94A3B8">Adaptive AI-powered mock interview platform</text>
+      <text x="22" y="94" font-size="12" fill="#64748B">with feedback, analytics and daily practice.</text>
+      <rect x="22" y="116" width="60" height="24" rx="12" fill="#161F33"/><text x="52" y="132" text-anchor="middle" font-size="10" fill="#22D3EE">React</text>
+      <rect x="90" y="116" width="66" height="24" rx="12" fill="#161F33"/><text x="123" y="132" text-anchor="middle" font-size="10" fill="#10B981">Node.js</text>
+      <rect x="164" y="116" width="76" height="24" rx="12" fill="#161F33"/><text x="202" y="132" text-anchor="middle" font-size="10" fill="#8B5CF6">MongoDB</text>
+    </g>
+
+    <g transform="translate(415 146)">
+      <rect width="350" height="160" rx="14" fill="#0E1728" stroke="#22D3EE" stroke-opacity=".35"/>
+      <circle cx="28" cy="28" r="8" fill="#22D3EE" filter="url(#glow)"/>
+      <text x="48" y="34" font-size="17" font-weight="700" fill="#F8FAFC">LUXE</text>
+      <text x="22" y="70" font-size="12" fill="#94A3B8">Premium lifestyle storefront with cinematic</text>
+      <text x="22" y="94" font-size="12" fill="#64748B">animations and immersive dark-mode design.</text>
+      <rect x="22" y="116" width="58" height="24" rx="12" fill="#161F33"/><text x="51" y="132" text-anchor="middle" font-size="10" fill="#22D3EE">HTML</text>
+      <rect x="88" y="116" width="52" height="24" rx="12" fill="#161F33"/><text x="114" y="132" text-anchor="middle" font-size="10" fill="#8B5CF6">CSS</text>
+      <rect x="148" y="116" width="58" height="24" rx="12" fill="#161F33"/><text x="177" y="132" text-anchor="middle" font-size="10" fill="#10B981">GSAP</text>
+    </g>
+
+    <g transform="translate(792 146)">
+      <rect width="350" height="160" rx="14" fill="#0E1728" stroke="#10B981" stroke-opacity=".35"/>
+      <circle cx="28" cy="28" r="8" fill="#10B981" filter="url(#glow)"/>
+      <text x="48" y="34" font-size="17" font-weight="700" fill="#F8FAFC">GPC Itarsi</text>
+      <text x="22" y="70" font-size="12" fill="#94A3B8">A college-focused web project built to make</text>
+      <text x="22" y="94" font-size="12" fill="#64748B">information and digital access more useful.</text>
+      <rect x="22" y="116" width="74" height="24" rx="12" fill="#161F33"/><text x="59" y="132" text-anchor="middle" font-size="10" fill="#22D3EE">Web App</text>
+      <rect x="104" y="116" width="64" height="24" rx="12" fill="#161F33"/><text x="136" y="132" text-anchor="middle" font-size="10" fill="#10B981">College</text>
+    </g>
+
+    <g transform="translate(38 330)">
+      <rect width="350" height="160" rx="14" fill="#0E1728" stroke="#22D3EE" stroke-opacity=".25"/>
+      <text x="22" y="38" font-size="17" font-weight="700" fill="#F8FAFC">ProjectX</text>
+      <text x="22" y="70" font-size="12" fill="#94A3B8">Full-stack product experiments and practical</text>
+      <text x="22" y="94" font-size="12" fill="#64748B">engineering explorations.</text>
+      <text x="22" y="132" font-size="11" fill="#22D3EE">github.com/Anmol-Malviya/ProjectX →</text>
+    </g>
+
+    <g transform="translate(415 330)">
+      <rect width="350" height="160" rx="14" fill="#0E1728" stroke="#8B5CF6" stroke-opacity=".25"/>
+      <text x="22" y="38" font-size="17" font-weight="700" fill="#F8FAFC">UIUX</text>
+      <text x="22" y="70" font-size="12" fill="#94A3B8">Interface explorations, interaction ideas and</text>
+      <text x="22" y="94" font-size="12" fill="#64748B">visual design experiments.</text>
+      <text x="22" y="132" font-size="11" fill="#8B5CF6">github.com/Anmol-Malviya/UIUX →</text>
+    </g>
+
+    <g transform="translate(792 330)">
+      <rect width="350" height="160" rx="14" fill="#0E1728" stroke="#10B981" stroke-opacity=".25"/>
+      <text x="22" y="38" font-size="17" font-weight="700" fill="#F8FAFC">AI Danger Kinetic</text>
+      <text x="22" y="70" font-size="12" fill="#94A3B8">An AI-focused experimental build from my</text>
+      <text x="22" y="94" font-size="12" fill="#64748B">growing collection of applied projects.</text>
+      <text x="22" y="132" font-size="11" fill="#10B981">github.com/Anmol-Malviya/AI-Danger-Kinetic →</text>
+    </g>
+  </g>
+
+  <text x="590" y="532" text-anchor="middle" font-family="ui-monospace,SFMono-Regular,Menlo,Consolas,monospace" font-size="11" fill="#64748B">Explore more repositories on github.com/Anmol-Malviya</text>
+</svg>
