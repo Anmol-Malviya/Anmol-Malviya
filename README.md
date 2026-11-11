@@ -7,9 +7,7 @@
 
 <img width="100%" src="https://capsule-render.vercel.app/api?type=waving&height=220&color=0:071426,45:123B66,100:1D78A5&text=ANMOL%20MALVIYA&fontColor=FFFFFF&fontSize=48&fontAlignY=38&desc=BUILDING%20PRODUCTS%20THAT%20MOVE%20IDEAS%20FORWARD&descAlignY=58&descSize=13&animation=fadeIn" alt="Anmol Malviya profile banner" />
 
-<a href="https://readme-typing-svg.demolab.com">
-  <img src="https://readme-typing-svg.demolab.com?font=Space+Grotesk&weight=600&size=22&duration=2800&pause=900&color=55C2E8&center=true&vCenter=true&width=760&lines=Aspiring+Founder+%26+Product+Builder;Turning+Ideas+Into+Useful+Software;Exploring+AI%2C+Automation+%26+Cybersecurity;Building+With+Curiosity.+Shipping+With+Purpose." alt="Typing introduction" />
-</a>
+<h3>BUILDING PRODUCTS. SOLVING REAL PROBLEMS. CREATING WHAT'S NEXT.</h3>
 
 <br/>
 
