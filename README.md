@@ -18,6 +18,7 @@ I’m interested in building technology ventures from the ground up — identify
 <br/>
 
 <a href="https://github.com/Anmol-Malviya"><img src="https://img.shields.io/badge/GitHub-Explore%20my%20work-111827?style=for-the-badge&logo=github&logoColor=white" alt="GitHub"/></a>
+<a href="https://github.com/Anmol-Malviya/Anmol-Malviya/tree/main/portfolio"><img src="https://img.shields.io/badge/3D%20Portfolio-View%20source-123B66?style=for-the-badge&logo=three.js&logoColor=white" alt="3D Portfolio source"/></a>
 <a href="https://vyorai.com"><img src="https://img.shields.io/badge/VyorAI-Explore%20the%20product-123B66?style=for-the-badge&logo=googleassistant&logoColor=white" alt="VyorAI"/></a>
 
 </div>
