@@ -22,7 +22,7 @@ export default function Home() {
   return <main>
     <nav className="nav shell">
       <a className="brand" href="#top"><span className="brand-mark">A<span>.</span></span><span>ANMOL MALVIYA<small>INDEPENDENT BUILDER</small></span></a>
-      <div className="nav-links"><a href="#about">About</a><a href="#work">Selected work</a><a href="#approach">Approach</a><a href="#journey">Journey</a><a className="nav-contact" href="mailto:hello@anmolmalviya.com">Let’s talk <ArrowUpRight size={14}/></a></div>
+      <div className="nav-links"><a href="#about">About</a><a href="#work">Selected work</a><a href="#approach">Approach</a><a href="#journey">Journey</a><a className="nav-contact" href="mailto:anmolcloud7@gmail.com">Let’s talk <ArrowUpRight size={14}/></a></div>
     </nav>
 
     <section className="hero shell" id="top">
@@ -79,8 +79,8 @@ export default function Home() {
       </div>
     </div></section>
 
-    <section className="contact-section shell"><div className="section-index">06 / THE NEXT CHAPTER</div><h2>Have a problem<br/>worth <em>building for?</em></h2><p>I’m always interested in meeting thoughtful founders, builders, and people working on meaningful ideas.</p><a className="button primary" href="mailto:hello@anmolmalviya.com">Start a conversation <ArrowUpRight size={16}/></a><div className="contact-orb"><Sparkles/></div></section>
+    <section className="contact-section shell"><div className="section-index">06 / THE NEXT CHAPTER</div><h2>Have a problem<br/>worth <em>building for?</em></h2><p>I’m always interested in meeting thoughtful founders, builders, and people working on meaningful ideas.</p><a className="button primary" href="mailto:anmolcloud7@gmail.com">Start a conversation <ArrowUpRight size={16}/></a><div className="contact-orb"><Sparkles/></div></section>
 
-    <footer className="footer shell"><a className="brand" href="#top"><span className="brand-mark">A<span>.</span></span><span>ANMOL MALVIYA<small>BUILD · LEARN · SHIP · REPEAT</small></span></a><div className="socials"><a href="https://github.com/Anmol-Malviya" aria-label="GitHub"><Github/></a><a href="https://www.linkedin.com/" aria-label="LinkedIn"><Linkedin/></a><a href="mailto:hello@anmolmalviya.com" aria-label="Email"><Mail/></a></div><span className="copyright">© {new Date().getFullYear()} ANMOL MALVIYA</span></footer>
+    <footer className="footer shell"><a className="brand" href="#top"><span className="brand-mark">A<span>.</span></span><span>ANMOL MALVIYA<small>BUILD · LEARN · SHIP · REPEAT</small></span></a><div className="socials"><a href="https://github.com/Anmol-Malviya" aria-label="GitHub"><Github/></a><a href="https://www.linkedin.com/" aria-label="LinkedIn"><Linkedin/></a><a href="mailto:anmolcloud7@gmail.com" aria-label="Email"><Mail/></a></div><span className="copyright">© {new Date().getFullYear()} ANMOL MALVIYA</span></footer>
   </main>;
 }
