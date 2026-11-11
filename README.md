@@ -52,18 +52,15 @@ Currently working as a **Project Manager at AV Technologies (AdhritVerse)** whil
 
 <div align="center">
 
-<a href="https://github.com/Anmol-Malviya/AV-SAFE">
-  <img src="https://github-readme-stats.vercel.app/api/pin/?username=Anmol-Malviya&repo=AV-SAFE&theme=github_dark&hide_border=true" alt="AV-SAFE repository card"/>
-</a>
-<a href="https://github.com/Anmol-Malviya/SafeCodium">
-  <img src="https://github-readme-stats.vercel.app/api/pin/?username=Anmol-Malviya&repo=SafeCodium&theme=github_dark&hide_border=true" alt="SafeCodium repository card"/>
-</a>
-<a href="https://github.com/Anmol-Malviya/Voice-Expression">
-  <img src="https://github-readme-stats.vercel.app/api/pin/?username=Anmol-Malviya&repo=Voice-Expression&theme=github_dark&hide_border=true" alt="Voice-Expression repository card"/>
-</a>
-<a href="https://github.com/Anmol-Malviya/Whether-app">
-  <img src="https://github-readme-stats.vercel.app/api/pin/?username=Anmol-Malviya&repo=Whether-app&theme=github_dark&hide_border=true" alt="WeatherPulse repository card"/>
-</a>
+| **AV-SAFE** | **SafeCodium** |
+|:---:|:---:|
+| [Open repository ↗](https://github.com/Anmol-Malviya/AV-SAFE) | [Open repository ↗](https://github.com/Anmol-Malviya/SafeCodium) |
+| Multi-platform phishing and threat defense | AI-assisted IoT firmware vulnerability detection and repair |
+
+| **Voice-Expression** | **WeatherPulse** |
+|:---:|:---:|
+| [Open repository ↗](https://github.com/Anmol-Malviya/Voice-Expression) | [Open repository ↗](https://github.com/Anmol-Malviya/Whether-app) |
+| Accessible multimodal communication | Weather intelligence and ML inference |
 
 </div>
 
