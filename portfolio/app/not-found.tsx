@@ -1,0 +1,2 @@
+import Link from "next/link";
+export default function NotFound() { return <main style={{minHeight:"100vh",display:"grid",placeItems:"center",background:"#070d15",color:"#e9f2f8",fontFamily:"sans-serif"}}><div><h1>Page not found</h1><Link href="/" style={{color:"#65dfff"}}>Return home →</Link></div></main>; }
