@@ -1,9 +1,8 @@
 "use client";
 
-import { useEffect, useRef } from "react";
+
 import dynamic from "next/dynamic";
 import { ArrowDownRight, ArrowUpRight, Github, Linkedin, Mail, MoveUpRight, Sparkles } from "lucide-react";
-import gsap from "gsap";
 
 const FounderScene = dynamic(() => import("../components/FounderScene"), { ssr: false });
 
@@ -15,16 +14,7 @@ const projects = [
 ];
 
 export default function Home() {
-  const root = useRef<HTMLElement>(null);
-  useEffect(() => {
-    const ctx = gsap.context(() => {
-      gsap.from(".reveal", { y: 28, opacity: 0, duration: 0.9, stagger: 0.12, ease: "power3.out" });
-      gsap.from(".project", { y: 34, opacity: 0, duration: 0.7, stagger: 0.12, ease: "power2.out", scrollTrigger: undefined });
-    }, root);
-    return () => ctx.revert();
-  }, []);
-
-  return <main ref={root}>
+  return <main>
     <nav className="nav shell">
       <a className="brand" href="#top"><span className="brand-mark">A<span>.</span></span><span>ANMOL MALVIYA<small>INDEPENDENT BUILDER</small></span></a>
       <div className="nav-links"><a href="#about">About</a><a href="#work">Selected work</a><a href="#approach">Approach</a><a className="nav-contact" href="mailto:hello@anmolmalviya.com">Let’s talk <ArrowUpRight size={14}/></a></div>
@@ -48,8 +38,8 @@ export default function Home() {
       <div className="intro-bottom"><p>I’m interested in building a multi-product technology company: starting with focused products, learning from real users, and growing through trust and execution.</p><div className="role-card"><span className="mini-label">CURRENTLY</span><b>Project Manager</b><span>AV Technologies · AdhritVerse</span></div></div></div>
     </div></section>
 
-    <section className="work-section shell" id="work"><div className="section-heading"><div><div className="section-index">02 / SELECTED WORK</div><h2>Experiments, ideas<br/> & <em>things in progress.</em></h2></div><p>A few projects that reflect the problems I’m curious about. Each one is a chance to learn, test, and make something useful.</p></div>
-      <div className="project-grid">{projects.map(p => <a className={`project ${p.color}`} href={p.href} target="_blank" rel="noreferrer" key={p.n}><div className="project-top"><span>{p.n} / CASE STUDY</span><MoveUpRight size={18}/></div><div className="project-art"><div className="art-orbit"/><div className="art-core">{p.n}</div><div className="art-cross"/></div><div className="project-info"><span className="mini-label">{p.type}</span><h3>{p.name}</h3><p>{p.desc}</p><div className="project-foot"><span>{p.stack}</span><ArrowUpRight size={16}/></div></div></a>)}</div>
+    <section className="work-section shell" id="work"><div className="section-heading"><div><div className="section-index">02 / SELECTED WORK</div><h2>Experiments, ideas<br/> & <em>things in progress.</em></h2></div><p>A few projects that reflect the problems I’m curious about. Each one is a chance to learn, test, and make something useful.</p></div><div className="work-note"><span className="work-note-dot"/> A selection of explorations — open a project to explore its repository.</div>
+      <div className="project-grid">{projects.map(p => <a className={`project ${p.color}`} href={p.href} target="_blank" rel="noreferrer" key={p.n}><div className="project-top"><span>{p.n} / CASE STUDY</span><MoveUpRight size={18}/></div><div className="project-art"><div className="art-orbit"/><div className="art-core">{p.n}</div><div className="art-cross"/></div><div className="project-info"><span className="mini-label">{p.type}</span><h3>{p.name}</h3><p>{p.desc}</p><div className="project-foot"><span>{p.stack}</span><span className="project-cta">VIEW REPOSITORY <ArrowUpRight size={15}/></span></div></div></a>)}</div>
     </section>
 
     <section className="approach-section" id="approach"><div className="shell approach-grid"><div><div className="section-index">03 / HOW I THINK</div><h2>Founder mindset.<br/><em>Builder’s hands.</em></h2></div><div className="principles"><article><span>01</span><div><h3>Find the signal.</h3><p>Understand the user, the friction, and the problem worth solving before reaching for a solution.</p></div></article><article><span>02</span><div><h3>Build with intent.</h3><p>Turn the idea into a focused product with thoughtful UX and dependable engineering.</p></div></article><article><span>03</span><div><h3>Learn in the open.</h3><p>Ship, listen, measure, and improve. Progress comes from feedback, not assumptions.</p></div></article></div></div></section>
