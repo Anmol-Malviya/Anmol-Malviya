@@ -3,7 +3,6 @@ import CinematicStage from "@/components/CinematicStage";
 import AboutSection from "@/components/AboutSection";
 import TechnologySection from "@/components/TechnologySection";
 import ProjectsSection from "@/components/ProjectsSection";
-import EveryRealmSection from "@/components/EveryRealmSection";
 import JourneySection from "@/components/JourneySection";
 import WorkspaceSection from "@/components/WorkspaceSection";
 import ContactSection from "@/components/ContactSection";
@@ -27,9 +26,6 @@ export default function Home() {
 
         {/* Section 03: Project Showcase (Things I've brought to life) */}
         <ProjectsSection />
-
-        {/* Section 04: Every Realm Has Its Own Sound (Interactive 3D Glass Soundstage) */}
-        <EveryRealmSection />
 
         {/* Section 05: Career Journey (Every chapter builds the next) */}
         <JourneySection />

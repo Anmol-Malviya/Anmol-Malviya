@@ -12,7 +12,7 @@ export default function Navigation() {
       const scrollY = window.scrollY;
       setIsScrolled(scrollY > 80);
 
-      const sections = ["contact", "workspace", "journey", "every-realm", "projects", "technology", "cinematic", "home"];
+      const sections = ["contact", "workspace", "journey", "projects", "technology", "cinematic", "home"];
       for (const section of sections) {
         const el = document.getElementById(section);
         if (el) {
@@ -79,20 +79,6 @@ export default function Navigation() {
           }`}
         >
           Projects
-        </Link>
-        <Link
-          href="#every-realm"
-          className={`relative transition-colors duration-200 pb-1 ${
-            activeSection === "every-realm"
-              ? isScrolled
-                ? "text-[#4B4B4B] font-semibold after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-full after:h-[2px] after:bg-[#8FBF7A] after:rounded-full after:shadow-[0_0_8px_#8FBF7A]"
-                : "text-white font-semibold drop-shadow-[0_2px_8px_rgba(0,0,0,0.8)] after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-full after:h-[2px] after:bg-[#8FBF7A] after:rounded-full after:shadow-[0_0_8px_#8FBF7A]"
-              : isScrolled
-              ? "text-[#8D857E] hover:text-[#4B4B4B]"
-              : "text-white/80 hover:text-white drop-shadow-[0_2px_8px_rgba(0,0,0,0.8)]"
-          }`}
-        >
-          Realms
         </Link>
         <Link
           href="#journey"
