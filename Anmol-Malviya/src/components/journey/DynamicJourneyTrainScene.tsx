@@ -10,49 +10,85 @@ interface TrainSceneProps {
   onHoverMilestone?: (index: number | null) => void;
 }
 
-// 3D LOCOMOTIVE HEAD — Warm Ivory Luxury Architectural Train
-function Locomotive({ xPos }: { xPos: number }) {
+// -------------------------------------------------------------
+// 1. BESPOKE HIGH-SPEED STREAMLINED LOCOMOTIVE
+// Exactly matching the reference image:
+// - Aerodynamic rounded bullet-train nose
+// - Front glowing circular headlight with warm amber rim
+// - Tinted gold-reflection panoramic windshield
+// - Forest sage green aerodynamic racing stripe (#4D7C45)
+// - Olive sage green roof cap (#4D7C45)
+// - Crisp side branding: 3D cube logo + "ANMOL MALVIYA" + "DEVELOPER • BUILDER • LEARNER"
+// - Three illuminated glowing-ring wheels with black centers
+// -------------------------------------------------------------
+function HighSpeedLocomotive({ xPos }: { xPos: number }) {
   const groupRef = useRef<THREE.Group>(null);
 
-  // High-res Locomotive front nameplate canvas
-  const logoTexture = useMemo(() => {
+  // Side Branding Canvas Texture (High resolution)
+  const brandingTexture = useMemo(() => {
     if (typeof document === "undefined") return null;
     const canvas = document.createElement("canvas");
-    canvas.width = 600;
-    canvas.height = 320;
+    canvas.width = 800;
+    canvas.height = 400;
     const ctx = canvas.getContext("2d");
     if (!ctx) return null;
 
-    // Warm ivory plate background with soft beige border
+    // Warm ivory ceramic background matching the train body
     ctx.fillStyle = "#FFFDF8";
-    ctx.beginPath();
-    ctx.roundRect(10, 10, 580, 300, 24);
-    ctx.fill();
+    ctx.fillRect(0, 0, 800, 400);
 
-    ctx.strokeStyle = "#D8C8AD";
-    ctx.lineWidth = 5;
+    // 1. Minimal 3D Wireframe Cube Logo in charcoal/gold
+    const cx = 400;
+    const cy = 110;
+    const s = 34;
+    ctx.strokeStyle = "#292821";
+    ctx.lineWidth = 4;
+    ctx.lineJoin = "round";
+
+    // Top face
+    ctx.beginPath();
+    ctx.moveTo(cx, cy - s);
+    ctx.lineTo(cx + s * 0.866, cy - s * 0.5);
+    ctx.lineTo(cx, cy);
+    ctx.lineTo(cx - s * 0.866, cy - s * 0.5);
+    ctx.closePath();
     ctx.stroke();
 
-    // Subtle gold trim interior line
-    ctx.strokeStyle = "#EAE2D6";
-    ctx.lineWidth = 2;
+    // Bottom vertical lines
     ctx.beginPath();
-    ctx.roundRect(24, 24, 552, 272, 16);
+    ctx.moveTo(cx - s * 0.866, cy - s * 0.5);
+    ctx.lineTo(cx - s * 0.866, cy + s * 0.5);
+    ctx.lineTo(cx, cy + s);
+    ctx.lineTo(cx, cy);
     ctx.stroke();
 
-    // Locomotive Branding Typography
+    ctx.beginPath();
+    ctx.moveTo(cx + s * 0.866, cy - s * 0.5);
+    ctx.lineTo(cx + s * 0.866, cy + s * 0.5);
+    ctx.lineTo(cx, cy + s);
+    ctx.stroke();
+
+    // 2. Bold Brand Typography: ANMOL MALVIYA
     ctx.fillStyle = "#292821";
-    ctx.font = "bold 52px -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif";
+    ctx.font = "800 50px -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif";
     ctx.textAlign = "center";
-    ctx.fillText("ANMOL MALVIYA", 300, 130);
+    ctx.fillText("ANMOL MALVIYA", 400, 205);
 
-    ctx.fillStyle = "#8FBF7A";
-    ctx.font = "600 28px monospace";
-    ctx.fillText("CAREER ODYSSEY • 2022–2026+", 300, 195);
-
+    // 3. Subtitle: DEVELOPER • BUILDER • LEARNER
     ctx.fillStyle = "#858174";
-    ctx.font = "20px monospace";
-    ctx.fillText("LOCOMOTIVE NO. 01 • PROTOTYPE", 300, 245);
+    ctx.font = "600 22px monospace";
+    ctx.letterSpacing = "4px";
+    ctx.fillText("DEVELOPER • BUILDER • LEARNER", 400, 250);
+
+    // 4. Forest Green Swoosh Stripe at bottom of side texture
+    ctx.fillStyle = "#4D7C45";
+    ctx.beginPath();
+    ctx.moveTo(60, 340);
+    ctx.bezierCurveTo(250, 340, 450, 305, 740, 305);
+    ctx.lineTo(740, 345);
+    ctx.bezierCurveTo(450, 345, 250, 380, 60, 380);
+    ctx.closePath();
+    ctx.fill();
 
     const texture = new THREE.CanvasTexture(canvas);
     texture.generateMipmaps = true;
@@ -61,97 +97,144 @@ function Locomotive({ xPos }: { xPos: number }) {
 
   return (
     <group ref={groupRef} position={[xPos, 0, 0]}>
-      {/* Main Streamlined Locomotive Body in Warm Ceramic Ivory */}
+      {/* 1. Main Bullet Train Locomotive Body (Rounded Warm Ivory) */}
       <mesh position={[0, 0.45, 0]} castShadow receiveShadow>
-        <boxGeometry args={[4.4, 2.2, 2.3]} />
-        <meshStandardMaterial
-          color="#FFFDF8"
-          roughness={0.25}
-          metalness={0.15}
-        />
+        <boxGeometry args={[4.8, 2.1, 2.2]} />
+        <meshStandardMaterial color="#FFFDF8" roughness={0.22} metalness={0.08} />
       </mesh>
 
-      {/* Aerodynamic Sleek Nose Cone (Front of train) */}
-      <mesh position={[-2.4, 0.15, 0]} rotation={[0, 0, Math.PI / 2]} castShadow>
-        <cylinderGeometry args={[0.95, 1.15, 0.9, 32]} />
-        <meshStandardMaterial color="#F4EFE6" roughness={0.28} metalness={0.2} />
+      {/* Aerodynamic Curving Nose (Front bullet contour) */}
+      <mesh position={[-2.4, 0.2, 0]} rotation={[0, 0, Math.PI / 2]} castShadow>
+        <cylinderGeometry args={[0.92, 1.12, 1.1, 32]} />
+        <meshStandardMaterial color="#FFFDF8" roughness={0.22} metalness={0.08} />
+      </mesh>
+      <mesh position={[-2.85, 0.05, 0]} rotation={[0, 0, Math.PI / 2]} castShadow>
+        <sphereGeometry args={[0.9, 32, 24, 0, Math.PI * 2, 0, Math.PI * 0.5]} />
+        <meshStandardMaterial color="#FFFDF8" roughness={0.25} metalness={0.08} />
       </mesh>
 
-      {/* Front Glowing Champagne Xenon Headlight */}
-      <mesh position={[-2.88, 0.15, 0]}>
-        <sphereGeometry args={[0.28, 24, 24]} />
-        <meshBasicMaterial color="#FFE0C2" />
+      {/* 2. Forest Green Roof Trim & Aerodynamic Pod (#4D7C45) */}
+      <mesh position={[-0.2, 1.56, 0]}>
+        <boxGeometry args={[3.8, 0.18, 1.7]} />
+        <meshStandardMaterial color="#4D7C45" roughness={0.3} metalness={0.2} />
       </mesh>
-      <pointLight position={[-3.4, 0.25, 0]} intensity={4.5} distance={12} color="#FFE0C2" />
-
-      {/* Roof Polished Champagne Gold Accent Trim */}
-      <mesh position={[0, 1.58, 0]}>
-        <boxGeometry args={[4.2, 0.14, 2.0]} />
-        <meshStandardMaterial color="#D8C8AD" roughness={0.15} metalness={0.8} />
+      <mesh position={[0.2, 1.68, 0]}>
+        <cylinderGeometry args={[0.4, 0.55, 0.22, 24]} />
+        <meshStandardMaterial color="#4A5844" roughness={0.4} metalness={0.3} />
       </mesh>
 
-      {/* Streamlined Panoramic Glass Windows with Champagne Frame */}
-      <mesh position={[-0.3, 0.85, 1.16]}>
-        <planeGeometry args={[3.0, 0.68]} />
-        <meshStandardMaterial color="#292821" roughness={0.1} metalness={0.9} />
-      </mesh>
-      <mesh position={[-0.3, 0.85, -1.16]} rotation={[0, Math.PI, 0]}>
-        <planeGeometry args={[3.0, 0.68]} />
-        <meshStandardMaterial color="#292821" roughness={0.1} metalness={0.9} />
+      {/* 3. Aerodynamic Tinted Cockpit Windshield */}
+      <mesh position={[-2.1, 0.85, 0]} rotation={[0, 0, -0.42]}>
+        <boxGeometry args={[1.5, 0.88, 1.85]} />
+        <meshStandardMaterial color="#24221E" roughness={0.1} metalness={0.85} />
       </mesh>
 
-      {/* Locomotive Nameplate Emblem */}
-      {logoTexture && (
-        <mesh position={[0.2, 0.05, 1.165]}>
-          <planeGeometry args={[2.4, 1.25]} />
-          <meshBasicMaterial map={logoTexture} />
+      {/* Side Cabin Passenger Window */}
+      <mesh position={[-0.9, 0.82, 1.11]}>
+        <planeGeometry args={[1.6, 0.72]} />
+        <meshStandardMaterial color="#24221E" roughness={0.1} metalness={0.85} />
+      </mesh>
+      <mesh position={[-0.9, 0.82, -1.11]} rotation={[0, Math.PI, 0]}>
+        <planeGeometry args={[1.6, 0.72]} />
+        <meshStandardMaterial color="#24221E" roughness={0.1} metalness={0.85} />
+      </mesh>
+
+      {/* 4. Large Circular Front Headlight with Warm Halo Ring */}
+      <group position={[-3.15, -0.05, 0]}>
+        {/* Outer Champagne Bezel Ring */}
+        <mesh rotation={[0, 0, Math.PI / 2]}>
+          <cylinderGeometry args={[0.55, 0.55, 0.22, 32]} />
+          <meshStandardMaterial color="#D8C8AD" roughness={0.2} metalness={0.8} />
         </mesh>
+        {/* Glowing Illuminated Center Disc */}
+        <mesh position={[-0.12, 0, 0]} rotation={[0, 0, Math.PI / 2]}>
+          <cylinderGeometry args={[0.42, 0.42, 0.08, 32]} />
+          <meshBasicMaterial color="#FFF1CC" />
+        </mesh>
+        {/* Powerful Forward Warm Light Beam */}
+        <pointLight position={[-0.8, 0, 0]} intensity={6.0} distance={15} color="#FFE6AA" />
+      </group>
+
+      {/* 5. Locomotive Side Branding Panel */}
+      {brandingTexture && (
+        <>
+          <mesh position={[0.7, 0.45, 1.11]}>
+            <planeGeometry args={[3.2, 1.6]} />
+            <meshBasicMaterial map={brandingTexture} />
+          </mesh>
+          <mesh position={[0.7, 0.45, -1.11]} rotation={[0, Math.PI, 0]}>
+            <planeGeometry args={[3.2, 1.6]} />
+            <meshBasicMaterial map={brandingTexture} />
+          </mesh>
+        </>
       )}
 
-      {/* Lower Chassis Skirt with Champagne Accent Ribbon */}
+      {/* 6. Lower Sleek Chassis Skirt with Olive Underside */}
       <mesh position={[0, -0.42, 0]} castShadow>
-        <boxGeometry args={[4.6, 0.35, 2.2]} />
-        <meshStandardMaterial color="#EAE2D6" roughness={0.35} metalness={0.3} />
+        <boxGeometry args={[4.9, 0.35, 2.05]} />
+        <meshStandardMaterial color="#3C4B39" roughness={0.4} metalness={0.2} />
       </mesh>
 
-      {/* Undercarriage Metallic Bogie & Elegant Dark Slate Wheels */}
-      {[-1.4, -0.6, 0.6, 1.4].map((wheelX, idx) => (
+      {/* 7. THREE ILLUMINATED GLOWING-RING WHEELS (Exactly matching reference) */}
+      {[-1.35, 0.0, 1.35].map((wX, idx) => (
         <group key={idx}>
-          {/* Left Wheels */}
-          <mesh position={[wheelX, -0.7, 1.1]} rotation={[Math.PI / 2, 0, 0]}>
-            <cylinderGeometry args={[0.42, 0.42, 0.16, 24]} />
-            <meshStandardMaterial color="#4A463E" roughness={0.3} metalness={0.7} />
-          </mesh>
-          {/* Champagne Center Wheel Rim */}
-          <mesh position={[wheelX, -0.7, 1.19]} rotation={[Math.PI / 2, 0, 0]}>
-            <cylinderGeometry args={[0.2, 0.2, 0.04, 24]} />
-            <meshStandardMaterial color="#D8C8AD" roughness={0.2} metalness={0.9} />
-          </mesh>
+          {/* Left Side Wheel (Front facing camera) */}
+          <group position={[wX, -0.68, 1.08]}>
+            {/* Dark graphite tire core */}
+            <mesh rotation={[Math.PI / 2, 0, 0]}>
+              <cylinderGeometry args={[0.44, 0.44, 0.16, 32]} />
+              <meshStandardMaterial color="#292821" roughness={0.3} metalness={0.7} />
+            </mesh>
+            {/* Illuminated Glowing Champagne-White Ring Rim */}
+            <mesh position={[0, 0, 0.09]} rotation={[Math.PI / 2, 0, 0]}>
+              <ringGeometry args={[0.26, 0.38, 32]} />
+              <meshBasicMaterial color="#FFF5D6" side={THREE.DoubleSide} />
+            </mesh>
+            {/* Center Hub */}
+            <mesh position={[0, 0, 0.09]} rotation={[Math.PI / 2, 0, 0]}>
+              <cylinderGeometry args={[0.16, 0.16, 0.05, 24]} />
+              <meshStandardMaterial color="#D8C8AD" roughness={0.2} metalness={0.9} />
+            </mesh>
+            {/* Soft Wheel Contact Glow */}
+            <pointLight position={[0, 0, 0.25]} intensity={0.9} distance={1.8} color="#FFE6AA" />
+          </group>
 
-          {/* Right Wheels */}
-          <mesh position={[wheelX, -0.7, -1.1]} rotation={[Math.PI / 2, 0, 0]}>
-            <cylinderGeometry args={[0.42, 0.42, 0.16, 24]} />
-            <meshStandardMaterial color="#4A463E" roughness={0.3} metalness={0.7} />
-          </mesh>
-          {/* Champagne Center Wheel Rim */}
-          <mesh position={[wheelX, -0.7, -1.19]} rotation={[Math.PI / 2, 0, 0]}>
-            <cylinderGeometry args={[0.2, 0.2, 0.04, 24]} />
-            <meshStandardMaterial color="#D8C8AD" roughness={0.2} metalness={0.9} />
-          </mesh>
+          {/* Right Side Wheel (Back side) */}
+          <group position={[wX, -0.68, -1.08]}>
+            <mesh rotation={[Math.PI / 2, 0, 0]}>
+              <cylinderGeometry args={[0.44, 0.44, 0.16, 32]} />
+              <meshStandardMaterial color="#292821" roughness={0.3} metalness={0.7} />
+            </mesh>
+            <mesh position={[0, 0, -0.09]} rotation={[Math.PI / 2, 0, 0]}>
+              <ringGeometry args={[0.26, 0.38, 32]} />
+              <meshBasicMaterial color="#FFF5D6" side={THREE.DoubleSide} />
+            </mesh>
+          </group>
         </group>
       ))}
 
-      {/* Rear Coupler in Champagne Metal */}
-      <mesh position={[2.35, -0.42, 0]}>
-        <boxGeometry args={[0.3, 0.2, 0.3]} />
-        <meshStandardMaterial color="#D8C8AD" roughness={0.3} metalness={0.8} />
+      {/* Rear Heavy-Duty Mechanical Coupler */}
+      <mesh position={[2.5, -0.42, 0]} rotation={[0, 0, Math.PI / 2]}>
+        <cylinderGeometry args={[0.1, 0.1, 0.5, 16]} />
+        <meshStandardMaterial color="#D8C8AD" roughness={0.25} metalness={0.8} />
       </mesh>
     </group>
   );
 }
 
-// 3D CARRIAGE WAGON CARRYING THE JOURNEY CARD
-function CarriageWagon({
+// -------------------------------------------------------------
+// 2. BESPOKE CARRIAGE WAGONS CARRYING MINIMAL WARM-IVORY CARDS
+// Exactly matching the reference image:
+// - Capsule-like carriage body with olive green front/rear curved caps
+// - Olive sage green lower carriage tray (#3C4B39)
+// - Floating minimal warm-ivory card face:
+//   * Header: "02 | ACHIEVEMENT" or "03 | EXPERIENCE"
+//   * Bold title: "IUCEE Student Project Competition"
+//   * Subtitle: "Presenting innovative student engineering solutions."
+//   * Right side: Elegant soft pastel purple/lavender waveform graphic
+// - Glowing illuminated ring wheels matching locomotive
+// -------------------------------------------------------------
+function HighSpeedCarriage({
   milestone,
   index,
   xPos,
@@ -162,119 +245,105 @@ function CarriageWagon({
   xPos: number;
   scrollProgress: number;
 }) {
-  // High-Resolution Card Face Canvas — Matching the Minimal Warm-Ivory Reference
+  // High-Resolution Card Face Canvas matching the reference image layout
   const cardTexture = useMemo(() => {
     if (typeof document === "undefined") return null;
     const canvas = document.createElement("canvas");
     canvas.width = 1100;
-    canvas.height = 680;
+    canvas.height = 620;
     const ctx = canvas.getContext("2d");
     if (!ctx) return null;
 
     const W = 1100;
-    const H = 680;
-    const R = 44;
+    const H = 620;
+    const R = 36;
 
-    // 1. Soft Ambient Drop Shadow under card surface
-    ctx.shadowColor = "rgba(180, 160, 140, 0.25)";
-    ctx.shadowBlur = 30;
-    ctx.shadowOffsetY = 12;
-
-    // 2. Warm Ivory Surface (#FFFDF8)
+    // 1. Warm Ivory Card Surface (#FFFDF8)
     ctx.fillStyle = "#FFFDF8";
     ctx.beginPath();
-    ctx.roundRect(16, 16, W - 32, H - 32, R);
+    ctx.roundRect(14, 14, W - 28, H - 28, R);
     ctx.fill();
 
-    // Reset shadow
-    ctx.shadowColor = "transparent";
-    ctx.shadowBlur = 0;
-    ctx.shadowOffsetY = 0;
-
-    // 3. Thin Warm Beige Border (#EAE2D6) or Highlight Champagne Accent
-    ctx.strokeStyle = milestone.highlight ? "#D8C8AD" : "#EAE2D6";
-    ctx.lineWidth = milestone.highlight ? 4.5 : 3.0;
-    ctx.beginPath();
-    ctx.roundRect(16, 16, W - 32, H - 32, R);
+    // 2. Soft Gold / Beige Border (#EAE2D6)
+    ctx.strokeStyle = milestone.highlight ? "#FFD6A6" : "#EAE2D6";
+    ctx.lineWidth = milestone.highlight ? 4.5 : 2.5;
     ctx.stroke();
 
-    // 4. TOP ROW: Project Number / Wagon Number & Category
-    const leftPad = 65;
-    const topPad = 80;
+    // 3. TOP ROW: "02  |  ACHIEVEMENT"
+    const leftPad = 75;
+    const topPad = 95;
 
+    // Small circular bullet
+    ctx.fillStyle = "#4D7C45";
+    ctx.beginPath();
+    ctx.arc(leftPad - 20, topPad - 8, 7, 0, Math.PI * 2);
+    ctx.fill();
+
+    const carNum = String(index + 2).padStart(2, "0");
     ctx.fillStyle = "#292821";
-    ctx.font = "600 26px -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif";
+    ctx.font = "700 26px -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif";
     ctx.textAlign = "left";
-    ctx.fillText(milestone.wagonNumber, leftPad, topPad);
+    ctx.fillText(carNum, leftPad, topPad);
 
-    const numWidth = ctx.measureText(milestone.wagonNumber).width;
+    const numW = ctx.measureText(carNum).width;
     ctx.fillStyle = "#B3ACA0";
     ctx.font = "400 24px -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif";
-    ctx.fillText(" / ", leftPad + numWidth + 6, topPad - 1);
+    ctx.fillText(" | ", leftPad + numW + 8, topPad - 1);
 
-    const slashWidth = ctx.measureText(" / ").width;
-    ctx.fillStyle = "#6E6A60";
-    ctx.font = "500 24px -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif";
-    ctx.fillText(milestone.category, leftPad + numWidth + slashWidth + 6, topPad);
+    const slashW = ctx.measureText(" | ").width;
+    ctx.fillStyle = "#858174";
+    ctx.font = "600 24px -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif";
+    ctx.fillText(milestone.category.toUpperCase(), leftPad + numW + slashW + 8, topPad);
 
-    // Northeast Diagonal Arrow at Top-Right (↗)
-    const arrowX = W - 80;
-    const arrowY = topPad - 8;
-    ctx.strokeStyle = "#292821";
-    ctx.lineWidth = 3.2;
-    ctx.lineCap = "round";
-    ctx.lineJoin = "round";
-    ctx.beginPath();
-    ctx.moveTo(arrowX - 18, arrowY + 18);
-    ctx.lineTo(arrowX, arrowY);
-    ctx.moveTo(arrowX - 12, arrowY);
-    ctx.lineTo(arrowX, arrowY);
-    ctx.lineTo(arrowX, arrowY + 12);
-    ctx.stroke();
-
-    // 5. RIGHT SIDE ABSTRACT ARTWORK THUMBNAIL (Harmonized with reference)
-    const thumbW = 280;
-    const thumbH = 200;
-    const thumbX = W - leftPad - thumbW;
-    const thumbY = 145;
+    // 4. RIGHT SIDE ABSTRACT ARTWORK (Soft lavender waveform matching reference)
+    const thumbW = 340;
+    const thumbH = 260;
+    const thumbX = W - leftPad - thumbW + 10;
+    const thumbY = 160;
 
     ctx.save();
     ctx.beginPath();
-    ctx.roundRect(thumbX, thumbY, thumbW, thumbH, 20);
+    ctx.roundRect(thumbX, thumbY, thumbW, thumbH, 24);
     ctx.clip();
 
-    // Thumbnail background gradient
-    const thumbGrad = ctx.createLinearGradient(thumbX, thumbY, thumbX, thumbY + thumbH);
-    if (index === 0) {
-      thumbGrad.addColorStop(0, "#F1EBF9");
-      thumbGrad.addColorStop(1, "#E4D5F2");
-    } else if (index === 1) {
-      thumbGrad.addColorStop(0, "#FBF6EE");
-      thumbGrad.addColorStop(1, "#EFE2CD");
-    } else if (index === 2) {
-      thumbGrad.addColorStop(0, "#EDF4EB");
-      thumbGrad.addColorStop(1, "#DDE8D9");
-    } else if (index === 3) {
-      thumbGrad.addColorStop(0, "#F5EFE6");
-      thumbGrad.addColorStop(1, "#E5DCD0");
-    } else {
-      thumbGrad.addColorStop(0, "#FAF5EE");
-      thumbGrad.addColorStop(1, "#EFE4D2");
-    }
-    ctx.fillStyle = thumbGrad;
+    // Subtle gradient base
+    const grad = ctx.createLinearGradient(thumbX, thumbY, thumbX, thumbY + thumbH);
+    grad.addColorStop(0, "#FBF9FE");
+    grad.addColorStop(1, "#F3EDFC");
+    ctx.fillStyle = grad;
     ctx.fillRect(thumbX, thumbY, thumbW, thumbH);
 
-    // Decorative smooth abstract ribbon inside thumbnail
-    ctx.fillStyle = index % 2 === 0 ? "rgba(186, 155, 222, 0.55)" : "rgba(216, 178, 133, 0.55)";
+    // Flowing lavender ribbons (like the reference image)
+    const waveGrad = ctx.createLinearGradient(thumbX, thumbY, thumbX + thumbW, thumbY + thumbH);
+    waveGrad.addColorStop(0, "rgba(215, 195, 240, 0.55)");
+    waveGrad.addColorStop(1, "rgba(175, 140, 220, 0.85)");
+    ctx.fillStyle = waveGrad;
     ctx.beginPath();
-    ctx.moveTo(thumbX, thumbY + thumbH * 0.7);
+    ctx.moveTo(thumbX, thumbY + thumbH * 0.75);
     ctx.bezierCurveTo(
       thumbX + thumbW * 0.4,
       thumbY + thumbH * 0.25,
       thumbX + thumbW * 0.65,
-      thumbY + thumbH * 0.85,
+      thumbY + thumbH * 0.9,
       thumbX + thumbW,
-      thumbY + thumbH * 0.45
+      thumbY + thumbH * 0.4
+    );
+    ctx.lineTo(thumbX + thumbW, thumbY + thumbH);
+    ctx.lineTo(thumbX, thumbY + thumbH);
+    ctx.closePath();
+    ctx.fill();
+
+    // Second softer wave
+    ctx.fillStyle = "rgba(255, 255, 255, 0.6)";
+    ctx.beginPath();
+    ctx.moveTo(thumbX, thumbY + thumbH * 0.55);
+    ctx.bezierCurveTo(
+      thumbX + thumbW * 0.35,
+      thumbY + thumbH * 0.85,
+      thumbX + thumbW * 0.75,
+      thumbY + thumbH * 0.35,
+      thumbX + thumbW,
+      thumbY + thumbH * 0.65
     );
     ctx.lineTo(thumbX + thumbW, thumbY + thumbH);
     ctx.lineTo(thumbX, thumbY + thumbH);
@@ -283,22 +352,15 @@ function CarriageWagon({
 
     ctx.restore();
 
-    // Thumbnail subtle border
-    ctx.strokeStyle = "rgba(234, 226, 214, 0.9)";
-    ctx.lineWidth = 1.5;
-    ctx.beginPath();
-    ctx.roundRect(thumbX, thumbY, thumbW, thumbH, 20);
-    ctx.stroke();
-
-    // 6. MAIN CONTENT (LEFT SIDE)
+    // 5. MAIN CONTENT (LEFT SIDE)
     // Milestone Role / Title in Bold Typography
-    const titleY = 185;
+    const titleY = 215;
     ctx.fillStyle = "#292821";
-    ctx.font = "700 44px -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif";
+    ctx.font = "800 48px -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif";
     ctx.textAlign = "left";
 
     // Clean word wrapping
-    const maxWidth = thumbX - leftPad - 35;
+    const maxWidth = thumbX - leftPad - 30;
     const titleWords = milestone.role.split(" ");
     let tLine1 = "";
     let tLine2 = "";
@@ -311,19 +373,19 @@ function CarriageWagon({
     }
     ctx.fillText(tLine1, leftPad, titleY);
     if (tLine2) {
-      ctx.fillText(tLine2, leftPad, titleY + 50);
+      ctx.fillText(tLine2, leftPad, titleY + 56);
     }
 
-    // Institution in soft green / charcoal
-    const instY = tLine2 ? titleY + 105 : titleY + 58;
-    ctx.fillStyle = "#8FBF7A";
+    // Institution
+    const instY = tLine2 ? titleY + 115 : titleY + 62;
+    ctx.fillStyle = "#4D7C45";
     ctx.font = "600 26px -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif";
     ctx.fillText(`↳ ${milestone.institution}`, leftPad, instY);
 
-    // Details Paragraph in Secondary Text (#858174)
+    // Short Details Description (#858174)
     ctx.fillStyle = "#858174";
     ctx.font = "400 24px -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif";
-    const descY = instY + 55;
+    const descY = instY + 54;
     const descWords = milestone.details.split(" ");
     let dLine1 = "";
     let dLine2 = "";
@@ -339,42 +401,20 @@ function CarriageWagon({
       ctx.fillText(dLine2, leftPad, descY + 36);
     }
 
-    // 7. BOTTOM ROW: SMALL TECHNOLOGY / PERIOD PILLS (#F4EFE6)
-    const bottomY = H - 80;
-    const tagPaddingX = 24;
-    const tagHeight = 44;
-    const tagRadius = 14;
-
-    // Period Badge Pill
+    // 6. BOTTOM ROW: Small Period Pill (#F4EFE6)
+    const bottomY = H - 75;
     ctx.font = "600 22px monospace";
-    const periodWidth = ctx.measureText(milestone.period).width + tagPaddingX * 2;
+    const periodW = ctx.measureText(milestone.period).width + 48;
     ctx.fillStyle = "#F4EFE6";
     ctx.beginPath();
-    ctx.roundRect(leftPad, bottomY - 30, periodWidth, tagHeight, tagRadius);
+    ctx.roundRect(leftPad, bottomY - 30, periodW, 44, 14);
     ctx.fill();
     ctx.strokeStyle = "#E8E0D2";
     ctx.lineWidth = 1.2;
     ctx.stroke();
 
     ctx.fillStyle = "#292821";
-    ctx.fillText(milestone.period, leftPad + tagPaddingX, bottomY);
-
-    // Status Pill
-    const statusText = milestone.highlight ? "FEATURED VICTORY" : "ACADEMIC MILESTONE";
-    const statusX = leftPad + periodWidth + 14;
-    ctx.font = "500 20px -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif";
-    const statusWidth = ctx.measureText(statusText).width + tagPaddingX * 2;
-
-    ctx.fillStyle = milestone.highlight ? "#FFE0C2" : "#F4EFE6";
-    ctx.beginPath();
-    ctx.roundRect(statusX, bottomY - 30, statusWidth, tagHeight, tagRadius);
-    ctx.fill();
-    ctx.strokeStyle = milestone.highlight ? "#FFD6A6" : "#E8E0D2";
-    ctx.lineWidth = 1.2;
-    ctx.stroke();
-
-    ctx.fillStyle = milestone.highlight ? "#D9A46F" : "#858174";
-    ctx.fillText(statusText, statusX + tagPaddingX, bottomY);
+    ctx.fillText(milestone.period, leftPad + 24, bottomY);
 
     const texture = new THREE.CanvasTexture(canvas);
     texture.generateMipmaps = true;
@@ -385,60 +425,82 @@ function CarriageWagon({
 
   return (
     <group position={[xPos, 0, 0]}>
-      {/* Lower Flatbed Carriage Chassis in Warm Beige with Champagne Accents */}
+      {/* 1. Lower Carriage Flatbed Skirt in Olive Green (#3C4B39) */}
       <mesh position={[0, -0.42, 0]} castShadow receiveShadow>
-        <boxGeometry args={[4.8, 0.32, 2.2]} />
-        <meshStandardMaterial color="#FFFDF8" roughness={0.3} metalness={0.2} />
+        <boxGeometry args={[5.2, 0.32, 2.05]} />
+        <meshStandardMaterial color="#3C4B39" roughness={0.35} metalness={0.2} />
       </mesh>
 
-      {/* Mechanical Coupler connecting to next car in Champagne Gold */}
-      <mesh position={[2.65, -0.42, 0]} rotation={[0, 0, Math.PI / 2]}>
-        <cylinderGeometry args={[0.07, 0.07, 0.6, 12]} />
-        <meshStandardMaterial color="#D8C8AD" roughness={0.3} metalness={0.8} />
+      {/* 2. Forest Green End-Caps on Wagon Frame (Curved olive border ends) */}
+      <mesh position={[-2.6, 0.9, 0]} castShadow>
+        <cylinderGeometry args={[0.25, 0.25, 2.4, 24]} />
+        <meshStandardMaterial color="#4D7C45" roughness={0.3} metalness={0.3} />
+      </mesh>
+      <mesh position={[2.6, 0.9, 0]} castShadow>
+        <cylinderGeometry args={[0.25, 0.25, 2.4, 24]} />
+        <meshStandardMaterial color="#4D7C45" roughness={0.3} metalness={0.3} />
       </mesh>
 
-      {/* Undercarriage Bogie Wheels with Golden Rims */}
-      {[-1.6, -0.9, 0.9, 1.6].map((wX, idx) => (
+      {/* 3. Mechanical Coupler to Next Car */}
+      <mesh position={[2.85, -0.42, 0]} rotation={[0, 0, Math.PI / 2]}>
+        <cylinderGeometry args={[0.08, 0.08, 0.55, 16]} />
+        <meshStandardMaterial color="#D8C8AD" roughness={0.25} metalness={0.8} />
+      </mesh>
+
+      {/* 4. TWO ILLUMINATED GLOWING-RING WHEELS PER CARRIAGE (Matching reference) */}
+      {[-1.6, 1.6].map((wX, idx) => (
         <group key={idx}>
-          {/* Wheel Disc */}
-          <mesh position={[wX, -0.72, 1.05]} rotation={[Math.PI / 2, 0, 0]}>
-            <cylinderGeometry args={[0.36, 0.36, 0.14, 24]} />
-            <meshStandardMaterial color="#4A463E" roughness={0.35} metalness={0.7} />
-          </mesh>
-          <mesh position={[wX, -0.72, 1.13]} rotation={[Math.PI / 2, 0, 0]}>
-            <cylinderGeometry args={[0.18, 0.18, 0.03, 24]} />
-            <meshStandardMaterial color="#D8C8AD" roughness={0.2} metalness={0.9} />
-          </mesh>
+          {/* Front Wheel */}
+          <group position={[wX, -0.68, 1.05]}>
+            <mesh rotation={[Math.PI / 2, 0, 0]}>
+              <cylinderGeometry args={[0.42, 0.42, 0.15, 32]} />
+              <meshStandardMaterial color="#292821" roughness={0.3} metalness={0.7} />
+            </mesh>
+            {/* Glowing Champagne-White Ring Rim */}
+            <mesh position={[0, 0, 0.085]} rotation={[Math.PI / 2, 0, 0]}>
+              <ringGeometry args={[0.24, 0.36, 32]} />
+              <meshBasicMaterial color="#FFF5D6" side={THREE.DoubleSide} />
+            </mesh>
+            {/* Center Hub */}
+            <mesh position={[0, 0, 0.085]} rotation={[Math.PI / 2, 0, 0]}>
+              <cylinderGeometry args={[0.15, 0.15, 0.04, 24]} />
+              <meshStandardMaterial color="#D8C8AD" roughness={0.2} metalness={0.9} />
+            </mesh>
+            <pointLight position={[0, 0, 0.2]} intensity={0.8} distance={1.6} color="#FFE6AA" />
+          </group>
 
-          <mesh position={[wX, -0.72, -1.05]} rotation={[Math.PI / 2, 0, 0]}>
-            <cylinderGeometry args={[0.36, 0.36, 0.14, 24]} />
-            <meshStandardMaterial color="#4A463E" roughness={0.35} metalness={0.7} />
-          </mesh>
-          <mesh position={[wX, -0.72, -1.13]} rotation={[Math.PI / 2, 0, 0]}>
-            <cylinderGeometry args={[0.18, 0.18, 0.03, 24]} />
-            <meshStandardMaterial color="#D8C8AD" roughness={0.2} metalness={0.9} />
-          </mesh>
+          {/* Back Wheel */}
+          <group position={[wX, -0.68, -1.05]}>
+            <mesh rotation={[Math.PI / 2, 0, 0]}>
+              <cylinderGeometry args={[0.42, 0.42, 0.15, 32]} />
+              <meshStandardMaterial color="#292821" roughness={0.3} metalness={0.7} />
+            </mesh>
+            <mesh position={[0, 0, -0.085]} rotation={[Math.PI / 2, 0, 0]}>
+              <ringGeometry args={[0.24, 0.36, 32]} />
+              <meshBasicMaterial color="#FFF5D6" side={THREE.DoubleSide} />
+            </mesh>
+          </group>
         </group>
       ))}
 
-      {/* 3D Showcase Card Mounted On Top of Carriage (Dimensions: 4.4 x 2.72) */}
+      {/* 5. 3D Capsule-Style Showcase Card (Mounted seamlessly on the carriage) */}
       {cardTexture && (
-        <group position={[0, 1.35, 0]}>
-          {/* Card Physical Depth Box in Warm White */}
+        <group position={[0, 1.25, 0]}>
+          {/* Physical 3D Card Thickness Box in Warm White */}
           <mesh castShadow receiveShadow>
-            <boxGeometry args={[4.4, 2.72, 0.12]} />
-            <meshStandardMaterial color="#FFFDF8" roughness={0.25} metalness={0.1} />
+            <boxGeometry args={[4.8, 2.7, 0.12]} />
+            <meshStandardMaterial color="#FFFDF8" roughness={0.2} metalness={0.08} />
           </mesh>
 
           {/* Front Face Texture */}
           <mesh position={[0, 0, 0.065]}>
-            <planeGeometry args={[4.35, 2.68]} />
+            <planeGeometry args={[4.75, 2.65]} />
             <meshBasicMaterial map={cardTexture} />
           </mesh>
 
           {/* Back Face Texture */}
           <mesh position={[0, 0, -0.065]} rotation={[0, Math.PI, 0]}>
-            <planeGeometry args={[4.35, 2.68]} />
+            <planeGeometry args={[4.75, 2.65]} />
             <meshBasicMaterial map={cardTexture} />
           </mesh>
         </group>
@@ -447,23 +509,26 @@ function CarriageWagon({
   );
 }
 
-// 3D RAILROAD TRACKS (Continuous metallic champagne rails with warm ties)
+// -------------------------------------------------------------
+// 3. 3D RAILROAD TRACKS (Continuous metallic rails + cross-ties)
+// Matching reference image with warm track reflection
+// -------------------------------------------------------------
 function RailroadTracks() {
   return (
     <group position={[0, -0.88, 0]}>
       {/* Front Polished Champagne Rail */}
       <mesh position={[0, 0, 1.05]}>
-        <boxGeometry args={[140, 0.08, 0.08]} />
+        <boxGeometry args={[160, 0.08, 0.08]} />
         <meshStandardMaterial color="#D8C8AD" roughness={0.15} metalness={0.9} />
       </mesh>
       {/* Back Polished Champagne Rail */}
       <mesh position={[0, 0, -1.05]}>
-        <boxGeometry args={[140, 0.08, 0.08]} />
+        <boxGeometry args={[160, 0.08, 0.08]} />
         <meshStandardMaterial color="#D8C8AD" roughness={0.15} metalness={0.9} />
       </mesh>
-      {/* Sleepers / Cross-Ties in Warm Earth Tone */}
-      {Array.from({ length: 85 }).map((_, i) => (
-        <mesh key={i} position={[-55 + i * 1.3, -0.05, 0]}>
+      {/* Cross-ties / Sleepers */}
+      {Array.from({ length: 95 }).map((_, i) => (
+        <mesh key={i} position={[-60 + i * 1.3, -0.05, 0]}>
           <boxGeometry args={[0.22, 0.06, 2.7]} />
           <meshStandardMaterial color="#EAE2D6" roughness={0.7} metalness={0.1} />
         </mesh>
@@ -472,17 +537,20 @@ function RailroadTracks() {
   );
 }
 
-// Master Train Assembly
+// -------------------------------------------------------------
+// 4. MASTER 3D TRAIN ASSEMBLY
+// Moves smoothly right-to-left as scrollProgress advances from 0 to 1
+// -------------------------------------------------------------
 function TrainAssembly({ scrollProgress }: { scrollProgress: number }) {
   const trainGroupRef = useRef<THREE.Group>(null);
 
-  // Spacing between train cars
-  const carSpacing = 5.8;
+  // Spacing between train carriages
+  const carSpacing = 6.2;
   const totalLength = JOURNEY_MILESTONES.length * carSpacing;
 
   useFrame((_, delta) => {
     if (!trainGroupRef.current) return;
-    // Moves right-to-left across viewport as scroll advances from 0 to 1
+    // Glides right-to-left across viewport matching scroll progress
     const targetX = 14 - scrollProgress * (totalLength + 20);
     trainGroupRef.current.position.x = THREE.MathUtils.damp(
       trainGroupRef.current.position.x,
@@ -494,12 +562,12 @@ function TrainAssembly({ scrollProgress }: { scrollProgress: number }) {
 
   return (
     <group ref={trainGroupRef}>
-      {/* Locomotive Engine at Front */}
-      <Locomotive xPos={0} />
+      {/* Bullet-Train Locomotive Head */}
+      <HighSpeedLocomotive xPos={0} />
 
-      {/* 8 Connected Carriages carrying the journey cards */}
+      {/* 8 Connected Carriage Wagons carrying the Journey Cards */}
       {JOURNEY_MILESTONES.map((milestone, idx) => (
-        <CarriageWagon
+        <HighSpeedCarriage
           key={milestone.wagonNumber}
           milestone={milestone}
           index={idx}
@@ -517,7 +585,7 @@ export default function DynamicJourneyTrainScene({
   return (
     <div className="relative w-full h-full flex items-center justify-center">
       <Canvas
-        camera={{ position: [0, 1.2, 10.5], fov: 40 }}
+        camera={{ position: [0, 1.1, 10.2], fov: 40 }}
         dpr={[1, 1.75]}
         gl={{
           antialias: true,
@@ -526,17 +594,17 @@ export default function DynamicJourneyTrainScene({
         }}
         shadows
       >
-        {/* Warm Architectural Studio Lighting */}
+        {/* Warm Architectural Studio Sunlight Lighting */}
         <ambientLight intensity={1.8} color="#FFFDF8" />
         <directionalLight
-          position={[10, 14, 10]}
-          intensity={2.0}
+          position={[10, 15, 10]}
+          intensity={2.2}
           color="#FFFDF8"
           castShadow
           shadow-mapSize-width={1024}
           shadow-mapSize-height={1024}
         />
-        <directionalLight position={[-10, 8, -6]} intensity={0.8} color="#FFE0C2" />
+        <directionalLight position={[-10, 8, -6]} intensity={0.7} color="#FFE0C2" />
         <pointLight position={[0, -2, 5]} intensity={1.2} color="#FFFDF8" />
 
         {/* 3D Railroad System */}
