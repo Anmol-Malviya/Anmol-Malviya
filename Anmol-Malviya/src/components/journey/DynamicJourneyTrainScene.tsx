@@ -357,7 +357,16 @@ function FuturisticLocomotive({ xPos, wheelRotation }: { xPos: number; wheelRota
 }
 
 // -------------------------------------------------------------
-// 2. LUXURY PASSENGER COACHES & CLEAN ACHIEVEMENT PANELS
+// 2. LUXURY PASSENGER COACHES & ENCLOSED CAPSULE CARTS
+// Exact Match to Reference Image (media_1794478838506_da4a2a63.jpg):
+// - Full-body 3D capsule carriage in warm ivory/pearl white (#FFFDF8)
+// - Smooth curved rounded corners with beveled edges (ExtrudeGeometry/roundRect)
+// - Sage Green (#4D7C45 / #A8BE91) roof crown / upper racing stripe
+// - Champagne Gold (#D9C5A3) accent trim outline
+// - Large flush-mounted display window displaying milestone card & purple-lavender abstract graphic
+// - Under-chassis lower skirting in warm ivory (#F8F5EE) with sage base
+// - Mechanical connecting coupler between carriages
+// - 2 sets of charcoal wheels with glowing amber-white halo rims
 // -------------------------------------------------------------
 function LuxuryPassengerCoach({
   milestone,
@@ -372,255 +381,281 @@ function LuxuryPassengerCoach({
   wheelRotation: number;
   scrollProgress: number;
 }) {
+  // Custom 2D Extruded Profile for the Coach Body (Rounded Capsule)
+  const coachBodyGeo = useMemo(() => {
+    const shape = new THREE.Shape();
+    const w = 5.4;
+    const h = 2.3;
+    const r = 0.45; // Smooth rounded corners
+    const x = -w / 2;
+    const y = -0.45;
+
+    shape.moveTo(x + r, y);
+    shape.lineTo(x + w - r, y);
+    shape.quadraticCurveTo(x + w, y, x + w, y + r);
+    shape.lineTo(x + w, y + h - r);
+    shape.quadraticCurveTo(x + w, y + h, x + w - r, y + h);
+    shape.lineTo(x + r, y + h);
+    shape.quadraticCurveTo(x, y + h, x, y + h - r);
+    shape.lineTo(x, y + r);
+    shape.quadraticCurveTo(x, y, x + r, y);
+
+    const extrudeSettings = {
+      steps: 1,
+      depth: 2.1,
+      bevelEnabled: true,
+      bevelThickness: 0.12,
+      bevelSize: 0.12,
+      bevelSegments: 6,
+    };
+
+    const geo = new THREE.ExtrudeGeometry(shape, extrudeSettings);
+    geo.translate(0, 0, -1.05);
+    return geo;
+  }, []);
+
   const cardTexture = useMemo(() => {
     if (typeof document === "undefined") return null;
     const canvas = document.createElement("canvas");
     canvas.width = 1100;
-    canvas.height = 620;
+    canvas.height = 560;
     const ctx = canvas.getContext("2d");
     if (!ctx) return null;
 
     const W = 1100;
-    const H = 620;
-    const R = 36;
+    const H = 560;
+    const R = 32;
 
-    // 1. Warm-White Translucent Surface (#FFFDF8)
+    // 1. Warm-White Surface (#FFFDF8)
     ctx.fillStyle = "#FFFDF8";
     ctx.beginPath();
-    ctx.roundRect(14, 14, W - 28, H - 28, R);
+    ctx.roundRect(10, 10, W - 20, H - 20, R);
     ctx.fill();
 
-    // 2. Subtle Champagne Border (#E8DFD1 / #D9C5A3)
+    // 2. Subtle Champagne Gold Border (#E8DFD1 / #D9C5A3)
     ctx.strokeStyle = milestone.highlight ? "#D9C5A3" : "#E8DFD1";
-    ctx.lineWidth = milestone.highlight ? 4.5 : 2.5;
+    ctx.lineWidth = 3.5;
     ctx.stroke();
 
-    // 3. TOP ROW: Milestone Number + Category + Small Year Label
-    const leftPad = 75;
-    const topPad = 95;
+    // 3. TOP ROW: Milestone Number + Category (Matching reference image: "◎ 02 | ACHIEVEMENT")
+    const leftPad = 65;
+    const topPad = 80;
 
-    // Small Sage-Green Bullet (#4D7C45)
+    // Outer circle icon (like "◎")
+    ctx.strokeStyle = "#4D7C45";
+    ctx.lineWidth = 2.5;
+    ctx.beginPath();
+    ctx.arc(leftPad + 8, topPad - 8, 9, 0, Math.PI * 2);
+    ctx.stroke();
+    // Inner dot
     ctx.fillStyle = "#4D7C45";
     ctx.beginPath();
-    ctx.arc(leftPad - 20, topPad - 8, 7, 0, Math.PI * 2);
+    ctx.arc(leftPad + 8, topPad - 8, 4, 0, Math.PI * 2);
     ctx.fill();
 
-    // Milestone Number
+    // Wagon Number e.g. "02"
     ctx.fillStyle = "#292821";
-    ctx.font = "700 26px -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif";
+    ctx.font = "700 24px -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif";
     ctx.textAlign = "left";
-    ctx.fillText(milestone.wagonNumber, leftPad, topPad);
+    ctx.fillText(milestone.wagonNumber, leftPad + 30, topPad);
 
     const numW = ctx.measureText(milestone.wagonNumber).width;
-    ctx.fillStyle = "#D9C5A3";
-    ctx.font = "400 24px -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif";
-    ctx.fillText(" | ", leftPad + numW + 8, topPad - 1);
-
-    const slashW = ctx.measureText(" | ").width;
-    // Category in Sage Green (#4D7C45)
     ctx.fillStyle = "#858174";
-    ctx.font = "600 24px -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif";
-    ctx.fillText(milestone.category, leftPad + numW + slashW + 8, topPad);
+    ctx.font = "400 22px -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif";
+    ctx.fillText("  |  " + milestone.category.toUpperCase(), leftPad + 30 + numW, topPad - 1);
 
-    // Small Year Label on Top-Right Pill (#F8F5EE)
-    const yearText = milestone.period;
-    ctx.font = "600 22px monospace";
-    const yearW = ctx.measureText(yearText).width + 36;
-    const yearX = W - leftPad - yearW + 15;
-    ctx.fillStyle = "#F8F5EE";
-    ctx.beginPath();
-    ctx.roundRect(yearX, topPad - 32, yearW, 44, 14);
-    ctx.fill();
-    ctx.strokeStyle = "#E8DFD1";
-    ctx.lineWidth = 1.2;
-    ctx.stroke();
-
-    ctx.fillStyle = "#292821";
-    ctx.fillText(yearText, yearX + 18, topPad - 3);
-
-    // 4. RIGHT SIDE MINIMAL ABSTRACT BEIGE / SAGE ILLUSTRATION
-    const thumbW = 320;
-    const thumbH = 260;
-    const thumbX = W - leftPad - thumbW + 10;
-    const thumbY = 160;
+    // 4. RIGHT SIDE ABSTRACT ARTWORK (Flowing Purple/Lavender Waves - exact match to reference image!)
+    const thumbW = 340;
+    const thumbH = 340;
+    const thumbX = W - thumbW - 55;
+    const thumbY = 110;
 
     ctx.save();
     ctx.beginPath();
     ctx.roundRect(thumbX, thumbY, thumbW, thumbH, 24);
     ctx.clip();
 
-    // Subtle ivory base
-    const grad = ctx.createLinearGradient(thumbX, thumbY, thumbX, thumbY + thumbH);
-    grad.addColorStop(0, "#FAF6EE");
-    grad.addColorStop(1, "#F0E9DD");
-    ctx.fillStyle = grad;
+    // Soft subtle purple/white background gradient
+    const bgGrad = ctx.createLinearGradient(thumbX, thumbY, thumbX + thumbW, thumbY + thumbH);
+    bgGrad.addColorStop(0, "#FAF8FC");
+    bgGrad.addColorStop(1, "#F3EFF8");
+    ctx.fillStyle = bgGrad;
     ctx.fillRect(thumbX, thumbY, thumbW, thumbH);
 
-    // Flowing champagne & sage ribbon artwork
-    const waveGrad = ctx.createLinearGradient(thumbX, thumbY, thumbX + thumbW, thumbY + thumbH);
-    waveGrad.addColorStop(0, "rgba(217, 197, 163, 0.45)");
-    waveGrad.addColorStop(1, "rgba(168, 190, 145, 0.65)");
-    ctx.fillStyle = waveGrad;
+    // Dynamic wave curves in purple / lavender hues (#9B72CF, #C8B6E2, #7B68EE)
+    // 1st Layer Wave
+    const wave1 = ctx.createLinearGradient(thumbX, thumbY + 150, thumbX + thumbW, thumbY + 340);
+    wave1.addColorStop(0, "rgba(155, 114, 207, 0.45)");
+    wave1.addColorStop(1, "rgba(200, 182, 226, 0.2)");
+    ctx.fillStyle = wave1;
     ctx.beginPath();
-    ctx.moveTo(thumbX, thumbY + thumbH * 0.72);
+    ctx.moveTo(thumbX - 20, thumbY + 280);
     ctx.bezierCurveTo(
-      thumbX + thumbW * 0.4,
-      thumbY + thumbH * 0.25,
-      thumbX + thumbW * 0.65,
-      thumbY + thumbH * 0.88,
-      thumbX + thumbW,
-      thumbY + thumbH * 0.4
+      thumbX + 90,
+      thumbY + 140,
+      thumbX + 180,
+      thumbY + 310,
+      thumbX + thumbW + 20,
+      thumbY + 180
     );
-    ctx.lineTo(thumbX + thumbW, thumbY + thumbH);
-    ctx.lineTo(thumbX, thumbY + thumbH);
+    ctx.lineTo(thumbX + thumbW + 20, thumbY + thumbH + 20);
+    ctx.lineTo(thumbX - 20, thumbY + thumbH + 20);
     ctx.closePath();
     ctx.fill();
 
-    // Translucent soft ivory overlay
-    ctx.fillStyle = "rgba(255, 253, 248, 0.75)";
+    // 2nd Layer Ribbon
+    const wave2 = ctx.createLinearGradient(thumbX + 60, thumbY + 80, thumbX + thumbW, thumbY + 260);
+    wave2.addColorStop(0, "rgba(123, 104, 238, 0.6)");
+    wave2.addColorStop(1, "rgba(186, 164, 235, 0.35)");
+    ctx.fillStyle = wave2;
     ctx.beginPath();
-    ctx.moveTo(thumbX, thumbY + thumbH * 0.55);
+    ctx.moveTo(thumbX - 20, thumbY + 230);
     ctx.bezierCurveTo(
-      thumbX + thumbW * 0.35,
-      thumbY + thumbH * 0.85,
-      thumbX + thumbW * 0.75,
-      thumbY + thumbH * 0.35,
-      thumbX + thumbW,
-      thumbY + thumbH * 0.65
+      thumbX + 110,
+      thumbY + 90,
+      thumbX + 220,
+      thumbY + 260,
+      thumbX + thumbW + 20,
+      thumbY + 130
     );
-    ctx.lineTo(thumbX + thumbW, thumbY + thumbH);
-    ctx.lineTo(thumbX, thumbY + thumbH);
+    ctx.lineTo(thumbX + thumbW + 20, thumbY + 250);
+    ctx.bezierCurveTo(
+      thumbX + 220,
+      thumbY + 330,
+      thumbX + 110,
+      thumbY + 160,
+      thumbX - 20,
+      thumbY + 290
+    );
     ctx.closePath();
     ctx.fill();
 
     ctx.restore();
 
-    ctx.strokeStyle = "#E8DFD1";
-    ctx.lineWidth = 1.5;
-    ctx.beginPath();
-    ctx.roundRect(thumbX, thumbY, thumbW, thumbH, 24);
-    ctx.stroke();
-
-    // 5. MIDDLE CONTENT (LEFT SIDE)
-    // Achievement or Experience Title in Dark Charcoal Typography (#292821)
-    const titleY = 215;
+    // 5. MIDDLE TEXT (LEFT SIDE)
+    // Title in Bold Charcoal
+    const titleY = 195;
     ctx.fillStyle = "#292821";
-    ctx.font = "800 46px -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif";
+    ctx.font = "800 44px -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif";
     ctx.textAlign = "left";
 
-    // Clean word wrapping
-    const maxWidth = thumbX - leftPad - 30;
-    const titleWords = milestone.role.split(" ");
-    let tLine1 = "";
-    let tLine2 = "";
-    for (const tw of titleWords) {
-      if ((tLine1 + " " + tw).length < 24) {
-        tLine1 += (tLine1 ? " " : "") + tw;
+    const maxTitleW = thumbX - leftPad - 35;
+    const words = milestone.role.split(" ");
+    let l1 = "";
+    let l2 = "";
+    for (const w of words) {
+      if ((l1 + " " + w).length < 24) {
+        l1 += (l1 ? " " : "") + w;
       } else {
-        tLine2 += (tLine2 ? " " : "") + tw;
+        l2 += (l2 ? " " : "") + w;
       }
     }
-    ctx.fillText(tLine1, leftPad, titleY);
-    if (tLine2) {
-      ctx.fillText(tLine2, leftPad, titleY + 54);
+    ctx.fillText(l1, leftPad, titleY);
+    if (l2) {
+      ctx.fillText(l2, leftPad, titleY + 52);
     }
 
-    // Organization Name in Sage Green / Muted Bronze (#4D7C45)
-    const instY = tLine2 ? titleY + 112 : titleY + 60;
+    // Institution / Organization
+    const instY = l2 ? titleY + 110 : titleY + 60;
     ctx.fillStyle = "#4D7C45";
-    ctx.font = "600 26px -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif";
-    ctx.fillText(`↳ ${milestone.institution}`, leftPad, instY);
+    ctx.font = "600 24px -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif";
+    ctx.fillText(milestone.institution, leftPad, instY);
 
-    // Short Description in Secondary Charcoal (#858174)
+    // Description text
     ctx.fillStyle = "#858174";
-    ctx.font = "400 24px -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif";
-    const descY = instY + 54;
+    ctx.font = "400 22px -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif";
+    const descY = instY + 44;
     const descWords = milestone.details.split(" ");
-    let dLine1 = "";
-    let dLine2 = "";
+    let d1 = "";
+    let d2 = "";
     for (const dw of descWords) {
-      if ((dLine1 + " " + dw).length < 38) {
-        dLine1 += (dLine1 ? " " : "") + dw;
+      if ((d1 + " " + dw).length < 34) {
+        d1 += (d1 ? " " : "") + dw;
       } else {
-        dLine2 += (dLine2 ? " " : "") + dw;
+        d2 += (d2 ? " " : "") + dw;
       }
     }
-    ctx.fillText(dLine1, leftPad, descY);
-    if (dLine2) {
-      ctx.fillText(dLine2, leftPad, descY + 36);
+    ctx.fillText(d1, leftPad, descY);
+    if (d2) {
+      ctx.fillText(d2, leftPad, descY + 32);
     }
 
-    // 6. BOTTOM ROW: Category Tag & Verified Indicator
-    const bottomY = H - 75;
-    ctx.font = "600 20px -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif";
-    const tagText = milestone.category;
-    const tagW = ctx.measureText(tagText).width + 36;
-    ctx.fillStyle = "#F8F5EE";
-    ctx.beginPath();
-    ctx.roundRect(leftPad, bottomY - 28, tagW, 40, 12);
-    ctx.fill();
-    ctx.strokeStyle = "#E8DFD1";
-    ctx.lineWidth = 1.2;
-    ctx.stroke();
-
+    // 6. BOTTOM ROW: Period & Category Badge
+    const bottomY = H - 60;
     ctx.fillStyle = "#858174";
-    ctx.fillText(tagText, leftPad + 18, bottomY);
-
-    // Verified Certificate / Achievement Indicator
-    const statusText = milestone.highlight ? "VERIFIED VICTORY" : "ACADEMIC RECORD";
-    const statusX = leftPad + tagW + 14;
-    ctx.font = "600 20px -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif";
-    const statusW = ctx.measureText(statusText).width + 36;
-
-    ctx.fillStyle = milestone.highlight ? "#FFE0C2" : "#F4EFE6";
-    ctx.beginPath();
-    ctx.roundRect(statusX, bottomY - 28, statusW, 40, 12);
-    ctx.fill();
-    ctx.strokeStyle = milestone.highlight ? "#FFD6A6" : "#E8DFD1";
-    ctx.lineWidth = 1.2;
-    ctx.stroke();
-
-    ctx.fillStyle = milestone.highlight ? "#B9A16F" : "#4D7C45";
-    ctx.fillText(statusText, statusX + 18, bottomY);
+    ctx.font = "600 20px monospace";
+    ctx.fillText(milestone.period, leftPad, bottomY);
 
     const texture = new THREE.CanvasTexture(canvas);
     texture.generateMipmaps = true;
     texture.minFilter = THREE.LinearMipmapLinearFilter;
     texture.magFilter = THREE.LinearFilter;
     return texture;
-  }, [milestone, index]);
+  }, [milestone]);
 
   return (
     <group position={[xPos, 0, 0]}>
-      {/* 1. Lower Carriage Flatbed Skirt in Olive Green (#3C4B39) */}
-      <mesh position={[0, -0.45, 0]} castShadow receiveShadow>
-        <boxGeometry args={[5.2, 0.28, 2.05]} />
+      {/* 1. Main Unified Rounded Carriage Shell in Pearl White Satin (#FFFDF8) */}
+      <mesh geometry={coachBodyGeo} castShadow receiveShadow>
         <meshPhysicalMaterial
-          color="#3C4B39"
-          roughness={0.4}
-          metalness={0.2}
-          clearcoat={0.2}
+          color="#FFFDF8"
+          roughness={0.2}
+          metalness={0.06}
+          clearcoat={0.3}
+          clearcoatRoughness={0.15}
         />
       </mesh>
 
-      {/* 2. Forest Green End-Caps on Wagon Frame (#4D7C45) */}
-      <mesh position={[-2.6, 0.9, 0]} castShadow>
-        <cylinderGeometry args={[0.22, 0.22, 2.4, 24]} />
+      {/* 2. Roof Aerodynamic Accent Fairing in Forest Sage (#4D7C45) */}
+      <mesh position={[0, 1.9, 0]}>
+        <boxGeometry args={[4.4, 0.12, 1.65]} />
+        <meshStandardMaterial color="#4D7C45" roughness={0.3} metalness={0.3} />
+      </mesh>
+
+      {/* 3. Lower Chassis Trim Strip in Sage Green & Champagne */}
+      <mesh position={[0, -0.42, 1.18]}>
+        <boxGeometry args={[4.8, 0.06, 0.02]} />
         <meshStandardMaterial color="#4D7C45" roughness={0.3} metalness={0.4} />
       </mesh>
-      <mesh position={[2.6, 0.9, 0]} castShadow>
-        <cylinderGeometry args={[0.22, 0.22, 2.4, 24]} />
+      <mesh position={[0, -0.42, -1.18]}>
+        <boxGeometry args={[4.8, 0.06, 0.02]} />
         <meshStandardMaterial color="#4D7C45" roughness={0.3} metalness={0.4} />
       </mesh>
 
-      {/* 3. Mechanical Coupler to Next Car in Champagne Metal */}
-      <mesh position={[2.85, -0.42, 0]} rotation={[0, 0, Math.PI / 2]}>
+      {/* 4. Display Window Inset Frame in Champagne Gold (#D9C5A3) */}
+      <mesh position={[0, 0.72, 1.18]}>
+        <planeGeometry args={[4.86, 2.48]} />
+        <meshStandardMaterial color="#D9C5A3" roughness={0.25} metalness={0.8} />
+      </mesh>
+      <mesh position={[0, 0.72, -1.18]} rotation={[0, Math.PI, 0]}>
+        <planeGeometry args={[4.86, 2.48]} />
+        <meshStandardMaterial color="#D9C5A3" roughness={0.25} metalness={0.8} />
+      </mesh>
+
+      {/* 5. Clean Milestone Card Texture on Side Glass Window */}
+      {cardTexture && (
+        <>
+          {/* Front Face (Camera Facing) */}
+          <mesh position={[0, 0.72, 1.185]}>
+            <planeGeometry args={[4.76, 2.38]} />
+            <meshBasicMaterial map={cardTexture} />
+          </mesh>
+          {/* Back Face */}
+          <mesh position={[0, 0.72, -1.185]} rotation={[0, Math.PI, 0]}>
+            <planeGeometry args={[4.76, 2.38]} />
+            <meshBasicMaterial map={cardTexture} />
+          </mesh>
+        </>
+      )}
+
+      {/* 6. Mechanical Coupler to Next Wagon in Champagne Metal */}
+      <mesh position={[2.85, -0.38, 0]} rotation={[0, 0, Math.PI / 2]}>
         <cylinderGeometry args={[0.08, 0.08, 0.55, 16]} />
         <meshStandardMaterial color="#D9C5A3" roughness={0.25} metalness={0.85} />
       </mesh>
 
-      {/* 4. TWO ROTATING WHEEL ASSEMBLIES: Charcoal Rubber (#292821) + Halo Rims */}
-      {[-1.6, 1.6].map((wX, idx) => (
+      {/* 7. TWO ROTATING WHEEL ASSEMBLIES: Charcoal Rubber (#292821) + Halo Rims */}
+      {[-1.65, 1.65].map((wX, idx) => (
         <group key={idx}>
           {/* Front Wheel */}
           <group position={[wX, -0.68, 1.05]} rotation={[0, 0, wheelRotation]}>
@@ -663,34 +698,6 @@ function LuxuryPassengerCoach({
           </group>
         </group>
       ))}
-
-      {/* 5. 3D Showcase Card in Pearl-White (#FFFDF8) */}
-      {cardTexture && (
-        <group position={[0, 1.25, 0]}>
-          {/* Physical 3D Card Thickness Box in Warm White */}
-          <mesh castShadow receiveShadow>
-            <boxGeometry args={[4.8, 2.7, 0.12]} />
-            <meshPhysicalMaterial
-              color="#FFFDF8"
-              roughness={0.18}
-              metalness={0.06}
-              clearcoat={0.3}
-            />
-          </mesh>
-
-          {/* Front Face Texture */}
-          <mesh position={[0, 0, 0.065]}>
-            <planeGeometry args={[4.75, 2.65]} />
-            <meshBasicMaterial map={cardTexture} />
-          </mesh>
-
-          {/* Back Face Texture */}
-          <mesh position={[0, 0, -0.065]} rotation={[0, Math.PI, 0]}>
-            <planeGeometry args={[4.75, 2.65]} />
-            <meshBasicMaterial map={cardTexture} />
-          </mesh>
-        </group>
-      )}
     </group>
   );
 }
