@@ -109,7 +109,7 @@ export default function TechnologySection() {
     <section
       id="technology"
       ref={containerRef}
-      className="relative min-h-screen w-full bg-[#FAF5EE] text-[#292929] py-28 sm:py-36 px-4 sm:px-8 md:px-14 lg:px-20 overflow-hidden"
+      className="relative min-h-screen w-full bg-[#F8F3EB] text-[#292929] py-20 sm:py-24 px-4 sm:px-8 md:px-10 lg:px-14 overflow-hidden"
     >
       {/* Background Soft Lighting Gradients (Ivory, Champagne, Warm Beige) */}
       <div className="absolute top-1/4 left-1/2 -translate-x-1/2 w-[850px] h-[850px] bg-[#E9DED0]/40 blur-[180px] rounded-full pointer-events-none" />
@@ -118,7 +118,7 @@ export default function TechnologySection() {
       {/* Subtle Warm Grid Mask */}
       <div className="absolute inset-0 bg-[linear-gradient(to_right,#E9DED035_1px,transparent_1px),linear-gradient(to_bottom,#E9DED035_1px,transparent_1px)] bg-[size:4rem_4rem] [mask-image:radial-gradient(ellipse_75%_50%_at_50%_50%,#000_65%,transparent_100%)] pointer-events-none" />
 
-      <div className="max-w-[1440px] mx-auto relative z-10">
+      <div className="max-w-[1540px] mx-auto relative z-10">
         
         {/* =========================================================================
             MASTER EDITORIAL PANORAMIC CARD CONTAINER (Exact match to reference image)
@@ -128,16 +128,16 @@ export default function TechnologySection() {
            ========================================================================= */}
         <div
           ref={mainBoardRef}
-          className="relative rounded-[2.5rem] bg-gradient-to-b from-[#FFFFFF] to-[#FBF8F3] border border-[#E9DED0] shadow-[0_30px_70px_rgba(38,58,80,0.06)] p-6 sm:p-10 lg:p-14 overflow-hidden"
+          className="relative rounded-[2rem] bg-gradient-to-br from-[#FFFEFC] via-[#FCF8F2] to-[#F7F0E7] border border-white shadow-[0_24px_70px_rgba(91,69,45,0.10)] p-5 sm:p-7 lg:p-7 overflow-hidden"
         >
           {/* Subtle Inner Ambient Glow Behind 3D Center */}
           <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[350px] bg-[#C59B62]/8 blur-[120px] rounded-full pointer-events-none" />
 
           {/* DESKTOP 3-PANEL COMPOSITION */}
-          <div className="hidden lg:grid grid-cols-12 gap-6 items-center min-h-[580px]">
+          <div className="hidden lg:grid grid-cols-12 gap-3 xl:gap-5 items-center min-h-[520px]">
             
             {/* 1. LEFT COLUMN: Headline & Narrative (3 Columns) */}
-            <div ref={headlineRef} className="col-span-3 flex flex-col justify-center pr-2 z-20">
+            <div ref={headlineRef} className="col-span-3 flex flex-col justify-center pr-1 z-20">
               <div className="flex items-center gap-2 mb-6">
                 <span className="w-6 h-[1.5px] bg-[#292929]" />
                 <span className="text-xs font-mono font-bold tracking-widest uppercase text-[#292929]">
@@ -145,7 +145,7 @@ export default function TechnologySection() {
                 </span>
               </div>
 
-              <h2 className="text-4xl xl:text-5xl font-serif font-medium tracking-tight text-[#292929] leading-[1.08]">
+              <h2 className="text-4xl xl:text-[3.35rem] font-serif font-medium tracking-tight text-[#292929] leading-[0.98]">
                 Tools are my{" "}
                 <span className="italic font-normal text-[#C59B62] block">
                   playground.
@@ -173,7 +173,7 @@ export default function TechnologySection() {
             </div>
 
             {/* 2. CENTER COLUMN: Interactive 3D Technology Universe (6 Columns) */}
-            <div className="col-span-6 relative h-[560px] flex items-center justify-center z-10">
+            <div className="col-span-6 relative h-[520px] flex items-center justify-center z-10">
               <TechUniverseScene3D
                 selectedCategoryId={selectedCategory.id}
                 onSelectCategory={(cat) => setSelectedCategory(cat)}
@@ -183,21 +183,21 @@ export default function TechnologySection() {
             </div>
 
             {/* 3. RIGHT COLUMN: Refined Information Card (3 Columns) */}
-            <div className="col-span-3 z-20 pl-2">
-              <div className="p-6 xl:p-8 rounded-[2rem] bg-[#FFFFFF] border border-[#E9DED0] shadow-[0_12px_35px_rgba(38,58,80,0.06)] flex flex-col justify-between min-h-[460px]">
+            <div className="col-span-3 z-20 pl-1">
+              <div className="p-5 xl:p-6 rounded-[1.6rem] bg-white/85 backdrop-blur-sm border border-[#E9DED0] shadow-[0_14px_38px_rgba(91,69,45,0.08)] flex flex-col justify-between min-h-[400px]">
                 
                 <div>
                   {/* Category Header: Icon + Title + Next Button */}
                   <div className="flex items-start justify-between gap-3 mb-4">
                     <div className="flex items-center gap-3">
-                      <div className="w-12 h-12 rounded-2xl bg-[#FAF6F0] border border-[#E9DED0] flex items-center justify-center text-[#263A50] shadow-2xs">
+                      <div className="w-11 h-11 rounded-2xl bg-[#FAF6F0] border border-[#E9DED0] flex items-center justify-center text-[#263A50] shadow-sm">
                         {(() => {
                           const Icon = iconMap[selectedCategory.iconName] || Code2;
                           return <Icon className="w-6 h-6 text-[#263A50]" />;
                         })()}
                       </div>
                       <div>
-                        <h3 className="text-xl font-bold text-[#263A50] tracking-tight">
+                        <h3 className="text-lg xl:text-xl font-bold text-[#263A50] tracking-tight">
                           {selectedCategory.title}
                         </h3>
                       </div>
@@ -217,24 +217,24 @@ export default function TechnologySection() {
                   </div>
 
                   {/* Subtitle / Description */}
-                  <p className="text-xs text-[#292929]/70 font-sans leading-relaxed mb-6">
+                  <p className="text-[11px] xl:text-xs text-[#292929]/70 font-sans leading-relaxed mb-5">
                     {selectedCategory.tagline}
                   </p>
 
                   {/* Technology Badges Row (with direct clean icons matching reference) */}
                   <div className="mb-6">
-                    <div className="flex flex-wrap gap-2">
+                    <div className="grid grid-cols-4 gap-2">
                       {selectedCategory.tools.map((tool) => (
                         <div
                           key={tool.name}
-                          className="group/badge inline-flex items-center gap-1.5 px-2.5 py-1.5 rounded-xl bg-[#FAF6F0] border border-[#E9DED0] hover:border-[#C59B62] transition-colors"
+                          className="group/badge flex flex-col items-center justify-center gap-1 p-2 rounded-xl bg-[#FAF6F0] border border-[#E9DED0] hover:border-[#C59B62] hover:-translate-y-0.5 transition-all min-h-[58px]"
                           title={tool.name}
                         >
                           <div
-                            className="w-4 h-4 flex items-center justify-center shrink-0 [&>svg]:w-full [&>svg]:h-full"
+                            className="w-5 h-5 flex items-center justify-center shrink-0 [&>svg]:w-full [&>svg]:h-full"
                             dangerouslySetInnerHTML={{ __html: tool.iconSvg }}
                           />
-                          <span className="text-[11px] font-mono text-[#263A50]">
+                          <span className="text-[9px] xl:text-[10px] text-center font-medium text-[#263A50] leading-tight">
                             {tool.name}
                           </span>
                         </div>
