@@ -16,37 +16,53 @@ interface Milestone {
 
 const milestones: Milestone[] = [
   {
-    period: "2025",
-    role: "Winner • TechSprint 2025",
-    institution: "National Hackathon",
+    period: "2026",
+    role: "IUCEE Student Project Competition 2026",
+    institution: "IUCEE",
     details:
-      "Awarded 1st place for building an autonomous AI system that streamlines real-time code synthesis and context-driven debugging under strict time constraints.",
+      "Presenting engineering project concepts and learning through peer feedback and academic-industry evaluation.",
+    icon: Award,
+  },
+  {
+    period: "2025",
+    role: "Winner • TECHSPRINT 2025",
+    institution: "GDG on Campus • PIEMR",
+    details:
+      "Won TECHSPRINT 2025 organized by GDG on Campus PIEMR, engineering solutions under tight sprint deadlines.",
     icon: Trophy,
     highlight: true,
   },
   {
-    period: "2024 - Present",
-    role: "Project Management & Senior Development",
-    institution: "AV Technologies",
+    period: "2025",
+    role: "Participant • Smart India Hackathon (SIH) 2025",
+    institution: "SIH 2025",
     details:
-      "Leading technical architecture, engineering client-facing web systems, optimizing end-to-end development lifecycles, and spearheading AI integration pipelines.",
+      "Participated in SIH 2025 with MAILTRACE AI, an email threat detection and forensic intelligence concept.",
+    icon: Award,
+  },
+  {
+    period: "2025 - 2028",
+    role: "B.Tech • Computer Science Engineering (IoT + Cyber Security + Blockchain)",
+    institution: "Prestige Institute of Engineering Management & Research (PIEMR), Indore",
+    details:
+      "Pursuing Computer Science Engineering with focus on IoT, Cyber Security, and Blockchain architectures.",
+    icon: GraduationCap,
+  },
+  {
+    period: "Ongoing",
+    role: "Project Manager & Senior Developer",
+    institution: "AV Technologies (AdhritVerse)",
+    details:
+      "Leading project coordination, technical architecture, web development, product development, and AI integration.",
     icon: Briefcase,
     highlight: true,
   },
   {
     period: "2022 - 2025",
-    role: "Bachelor of Technology in Computer Science",
-    institution: "Engineering Graduate",
+    role: "Diploma • Computer Science Engineering",
+    institution: "Government Polytechnic College, Itarsi (MP Board)",
     details:
-      "Specialized in Distributed Computing, Data Structures, Modern Software Design, and Next-Generation Web Architectures.",
-    icon: GraduationCap,
-  },
-  {
-    period: "2019 - 2022",
-    role: "Diploma in Computer Science Engineering",
-    institution: "Technical Institute",
-    details:
-      "Built a solid foundation in computer architecture, algorithmic problem solving, object-oriented programming, and low-level system concepts.",
+      "Completed Computer Science Engineering diploma under MP Board with 7.8 CGPA, mastering foundational computing.",
     icon: Rocket,
   },
 ];

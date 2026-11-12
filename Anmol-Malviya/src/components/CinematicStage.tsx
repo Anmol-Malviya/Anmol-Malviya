@@ -3,6 +3,8 @@
 import { useEffect, useRef } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { ArrowUpRight, Mail } from "lucide-react";
+import { GithubIcon, LinkedinIcon } from "@/components/SocialIcons";
 import ArchitecturalBackground from "@/components/background/ArchitecturalBackground";
 import SpotlightReveal from "@/components/SpotlightReveal";
 
@@ -244,14 +246,14 @@ export default function CinematicStage() {
         <div className="h-24 sm:h-28" />
 
         {/* Centered Hero Content */}
-        <main className="flex-1 flex flex-col items-center justify-center text-center px-6 -mt-8 sm:-mt-12 z-10 select-none">
+        <main className="flex-1 flex flex-col items-center justify-center text-center px-6 -mt-4 sm:-mt-6 z-10 select-none">
           <div
             ref={heroEyebrowRef}
             className="flex items-center justify-center gap-3.5 mb-3 sm:mb-4"
           >
             <span className="w-7 sm:w-8 h-[1.5px] bg-white/70 shadow-[0_1px_4px_rgba(0,0,0,0.5)]" />
-            <span className="text-base sm:text-lg md:text-xl font-normal text-white/90 tracking-wide drop-shadow-[0_2px_8px_rgba(0,0,0,0.7)]">
-              Hye, I&apos;m
+            <span className="text-base sm:text-lg md:text-xl font-normal text-white/95 tracking-wide drop-shadow-[0_2px_8px_rgba(0,0,0,0.7)]">
+              Hey, I&apos;m
             </span>
             <span className="w-7 sm:w-8 h-[1.5px] bg-white/70 shadow-[0_1px_4px_rgba(0,0,0,0.5)]" />
           </div>
@@ -292,6 +294,54 @@ export default function CinematicStage() {
                   filter="url(#heroGlow)"
                 />
               </svg>
+            </div>
+          </div>
+
+          {/* Professional Headline & Supporting Persona */}
+          <div className="mt-4 sm:mt-6 max-w-xl mx-auto flex flex-col items-center">
+            <p className="text-xl sm:text-2xl md:text-3xl font-bold tracking-tight text-white drop-shadow-[0_2px_12px_rgba(0,0,0,0.7)]">
+              Building Ideas Into Digital Reality.
+            </p>
+            <p className="mt-2 text-sm sm:text-base font-medium text-white/90 tracking-wide drop-shadow-[0_2px_8px_rgba(0,0,0,0.7)]">
+              Developer. Product Builder. Technology Enthusiast.
+            </p>
+
+            {/* Hero CTAs & Quick Social Links */}
+            <div className="mt-6 flex flex-wrap items-center justify-center gap-3 pointer-events-auto">
+              <a
+                href="#projects"
+                className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-[#FFE0C2] hover:bg-[#FFD6A6] text-[#4B4B4B] font-semibold text-sm transition-all duration-300 shadow-[0_4px_16px_rgba(0,0,0,0.25)] border border-[#FFD6A6]"
+              >
+                <span>Explore Projects</span>
+                <ArrowUpRight className="w-4 h-4" />
+              </a>
+              <a
+                href="#contact"
+                className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-black/40 hover:bg-black/60 backdrop-blur-md text-white font-medium text-sm transition-all duration-300 border border-white/20 shadow-[0_4px_16px_rgba(0,0,0,0.25)]"
+              >
+                <Mail className="w-4 h-4 text-[#8FBF7A]" />
+                <span>Let&apos;s Connect</span>
+              </a>
+              <div className="flex items-center gap-2 ml-1">
+                <a
+                  href="https://github.com/Anmol-Malviya"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label="GitHub Profile"
+                  className="w-9 h-9 rounded-full bg-black/40 hover:bg-black/60 backdrop-blur-md border border-white/20 flex items-center justify-center text-white/90 hover:text-white transition-all shadow-sm"
+                >
+                  <GithubIcon className="w-4 h-4" />
+                </a>
+                <a
+                  href="https://www.linkedin.com/in/anmol-malviya/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label="LinkedIn Profile"
+                  className="w-9 h-9 rounded-full bg-black/40 hover:bg-black/60 backdrop-blur-md border border-white/20 flex items-center justify-center text-white/90 hover:text-white transition-all shadow-sm"
+                >
+                  <LinkedinIcon className="w-4 h-4" />
+                </a>
+              </div>
             </div>
           </div>
         </main>

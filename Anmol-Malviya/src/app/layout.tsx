@@ -9,13 +9,22 @@ const poppins = Poppins({
 });
 
 export const metadata: Metadata = {
-  title: "Anmol Malviya | Developer & Product Builder",
+  title: "Anmol Malviya | Full-Stack Developer & Product Builder",
   description:
-    "Portfolio of Anmol Malviya — computer science student, developer, and project manager building web products, AI experiments, and interactive digital experiences.",
+    "Explore Anmol Malviya's portfolio — full-stack developer, project manager, AI enthusiast, and technology product builder based in Indore, India.",
   openGraph: {
-    title: "Anmol Malviya | Developer & Product Builder",
-    description: "Building useful products through code, creativity, and curiosity.",
+    title: "Anmol Malviya | Full-Stack Developer & Product Builder",
+    description:
+      "Explore Anmol Malviya's portfolio — full-stack developer, project manager, AI enthusiast, and technology product builder based in Indore, India.",
     type: "website",
+    locale: "en_US",
+    siteName: "Anmol Malviya Portfolio",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Anmol Malviya | Full-Stack Developer & Product Builder",
+    description:
+      "Explore Anmol Malviya's portfolio — full-stack developer, project manager, AI enthusiast, and technology product builder based in Indore, India.",
   },
 };
 
