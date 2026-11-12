@@ -143,6 +143,46 @@ function FuturisticLocomotive({ xPos, wheelRotation }: { xPos: number; wheelRota
     return geo;
   }, []);
 
+  // Custom curved windshield geometry that perfectly follows the nose contour
+  const curvedWindshieldGeo = useMemo(() => {
+    // 2D profile curve for the windshield following the nose slope:
+    // Nose curve is: shape.lineTo(-0.7, 1.75); shape.bezierCurveTo(-1.8, 1.70, -2.5, 1.25, -2.9, 0.65);
+    const curvePoints: THREE.Vector2[] = [];
+    const curve = new THREE.CubicBezierCurve(
+      new THREE.Vector2(-0.85, 1.765),
+      new THREE.Vector2(-1.75, 1.715),
+      new THREE.Vector2(-2.45, 1.27),
+      new THREE.Vector2(-2.82, 0.68)
+    );
+    const pts = curve.getPoints(24);
+    
+    // Extrude a thin ribbon or build a lofted curved plate
+    // Let's create an extruded shape ribbon with thickness 0.04
+    const shape = new THREE.Shape();
+    shape.moveTo(pts[0].x, pts[0].y);
+    for (let i = 1; i < pts.length; i++) {
+      shape.lineTo(pts[i].x, pts[i].y);
+    }
+    // slight thickness inward
+    for (let i = pts.length - 1; i >= 0; i--) {
+      // Normal vector inward
+      shape.lineTo(pts[i].x + 0.03, pts[i].y - 0.03);
+    }
+    shape.closePath();
+
+    const extrudeSettings = {
+      steps: 1,
+      depth: 2.14, // covers full width across front
+      bevelEnabled: true,
+      bevelThickness: 0.02,
+      bevelSize: 0.02,
+      bevelSegments: 3,
+    };
+    const geo = new THREE.ExtrudeGeometry(shape, extrudeSettings);
+    geo.translate(0, 0, -1.07);
+    return geo;
+  }, []);
+
   return (
     <group ref={groupRef} position={[xPos, 0, 0]}>
       {/* 1. Main Unified Streamlined Locomotive Body in Pearl White Satin */}
@@ -156,27 +196,20 @@ function FuturisticLocomotive({ xPos, wheelRotation }: { xPos: number; wheelRota
         />
       </mesh>
 
-      {/* 2. FRONT COCKPIT WINDSCREEN (Large dark tinted aerodynamic front glass) */}
-      <group position={[-2.25, 1.05, 0]}>
-        {/* Sloping front glass pane - stands out clearly from the white nose */}
-        <mesh position={[0, 0, 0]} rotation={[0, 0, 0.58]}>
-          <boxGeometry args={[1.5, 0.72, 2.14]} />
+      {/* 2. FRONT COCKPIT CURVED WINDSCREEN (Smoothly hugs the nose aerodynamic curve) */}
+      <group>
+        <mesh geometry={curvedWindshieldGeo} castShadow>
           <meshPhysicalMaterial
-            color="#141311"
-            roughness={0.05}
+            color="#121110"
+            roughness={0.04}
             metalness={0.92}
             clearcoat={1.0}
-            clearcoatRoughness={0.1}
+            clearcoatRoughness={0.08}
           />
-        </mesh>
-        {/* Champagne Metallic Windshield Frame Trim */}
-        <mesh position={[0.02, 0.02, 0]} rotation={[0, 0, 0.58]}>
-          <boxGeometry args={[1.56, 0.05, 2.18]} />
-          <meshStandardMaterial color="#D9C5A3" roughness={0.2} metalness={0.85} />
         </mesh>
       </group>
 
-      {/* 3. SIDE DRIVER MIRROR WINDOW & BLACK ACCENT BAND (Matching reference image) */}
+      {/* 3. SIDE DRIVER WINDOW (Curved/angled corner window matching reference image) */}
       {/* Black Horizontal Accent Strip running along the upper side */}
       <mesh position={[0.45, 1.18, 1.18]}>
         <boxGeometry args={[3.6, 0.06, 0.02]} />
