@@ -25,6 +25,52 @@
 
 ---
 
+## 🎨 Featured Workspaces & Visual Showcase
+
+Experience the aesthetic environment, 3D design atmosphere, and visual concepts behind my engineering portfolio and creative workspace.
+
+<div align="center">
+
+| 🌌 Moonlit Ocean Workspace | 🏛️ Architectural Archway & Horizon |
+|:---:|:---:|
+| <a href="Anmol-Malviya/public/Cozy%20Moonlit%20Ocean%20Workspace.png"><img src="Anmol-Malviya/public/Cozy%20Moonlit%20Ocean%20Workspace.png" width="460" alt="Cozy Moonlit Ocean Workspace" style="border-radius: 12px;"/></a> | <a href="Anmol-Malviya/public/Warm%20Cream%20Archway%20with%20Floating%20Table.png"><img src="Anmol-Malviya/public/Warm%20Cream%20Archway%20with%20Floating%20Table.png" width="460" alt="Warm Cream Archway with Floating Table" style="border-radius: 12px;"/></a> |
+| *Immersive nighttime 3D creative station* | *Minimalist architectural depth & warm lighting* |
+
+<br/>
+
+| 🌄 Studio Atmosphere 1 | 🌅 Studio Atmosphere 2 |
+|:---:|:---:|
+| <a href="Anmol-Malviya/public/BG_IMAGEs_1.jpg"><img src="Anmol-Malviya/public/BG_IMAGEs_1.jpg" width="460" alt="Studio Atmosphere 1" style="border-radius: 12px;"/></a> | <a href="Anmol-Malviya/public/BG_IMAGEs_2.jpg"><img src="Anmol-Malviya/public/BG_IMAGEs_2.jpg" width="460" alt="Studio Atmosphere 2" style="border-radius: 12px;"/></a> |
+| *Warm studio lighting & perspective canvas* | *Depth map render for interactive 3D camera staging* |
+
+</div>
+
+<br/>
+
+<details>
+<summary><b>🎬 Watch Cinematic Video Preview & 3D Interactive Animation</b> (Click to expand)</summary>
+
+<br/>
+
+https://github.com/user-attachments/assets/cinematic_optimized?raw=true *(or click below to stream the video)*
+
+<div align="center">
+
+<video src="Anmol-Malviya/public/vedio/cinematic_optimized.mp4" width="100%" controls autoplay loop muted>
+  Your browser does not support the video tag.
+</video>
+
+<p align="center">
+  <b>▶️ <a href="Anmol-Malviya/public/vedio/cinematic_optimized.mp4">Open Cinematic Showcase Video (MP4)</a></b> &nbsp;•&nbsp; 
+  <b>▶️ <a href="Anmol-Malviya/public/refrence/20261112-0427-11.1195394.mp4">Open Interaction Walkthrough Demo (MP4)</a></b>
+</p>
+
+</div>
+
+</details>
+
+---
+
 ## ⚡ Executive Summary & Founder Mindset
 
 ```ascii
