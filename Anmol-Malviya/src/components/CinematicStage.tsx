@@ -3,7 +3,7 @@
 import { useEffect, useRef } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import { ArrowUpRight, Mail } from "lucide-react";
+import { Mail } from "lucide-react";
 import { GithubIcon, LinkedinIcon } from "@/components/SocialIcons";
 import ArchitecturalBackground from "@/components/background/ArchitecturalBackground";
 import SpotlightReveal from "@/components/SpotlightReveal";
@@ -18,6 +18,7 @@ export default function CinematicStage() {
   const heroEyebrowRef = useRef<HTMLDivElement>(null);
   const heroHeadingRef = useRef<HTMLHeadingElement>(null);
   const heroSwooshRef = useRef<SVGPathElement>(null);
+  const heroSocialsRef = useRef<HTMLDivElement>(null);
   const heroScrollCueRef = useRef<HTMLDivElement>(null);
 
   // Video window frame container
@@ -70,27 +71,33 @@ export default function CinematicStage() {
       const loadTl = gsap.timeline({ defaults: { ease: "power3.out" } });
       loadTl
         .fromTo(
+          heroSocialsRef.current,
+          { opacity: 0, x: -30 },
+          { opacity: 1, x: 0, duration: 1, delay: 0.1 }
+        )
+        .fromTo(
           heroEyebrowRef.current,
-          { opacity: 0, y: -20, filter: "blur(8px)" },
-          { opacity: 1, y: 0, filter: "blur(0px)", duration: 1.2, delay: 0.1 }
+          { opacity: 0, y: -20 },
+          { opacity: 1, y: 0, duration: 1 },
+          "-=0.8"
         )
         .fromTo(
           heroHeadingRef.current,
-          { opacity: 0, y: 30, scale: 0.96, filter: "blur(12px)" },
-          { opacity: 1, y: 0, scale: 1, filter: "blur(0px)", duration: 1.4 },
+          { opacity: 0, y: 30, scale: 0.96 },
+          { opacity: 1, y: 0, scale: 1, duration: 1.2 },
           "-=0.8"
         )
         .fromTo(
           heroSwooshRef.current,
           { strokeDasharray: 500, strokeDashoffset: 500, opacity: 0 },
-          { strokeDashoffset: 0, opacity: 1, duration: 1.5, ease: "power2.inOut" },
-          "-=0.9"
+          { strokeDashoffset: 0, opacity: 1, duration: 1.3, ease: "power2.inOut" },
+          "-=0.8"
         )
         .fromTo(
           heroScrollCueRef.current,
           { opacity: 0, y: 15 },
-          { opacity: 0.8, y: 0, duration: 1 },
-          "-=0.4"
+          { opacity: 0.8, y: 0, duration: 0.8 },
+          "-=0.5"
         );
 
       const playhead = { frame: 0 };
@@ -106,6 +113,14 @@ export default function CinematicStage() {
           anticipatePin: 1,
           onUpdate: (self) => {
             renderFrame(playhead.frame);
+            if (self.progress <= 0.002) {
+              if (heroWrapperRef.current) gsap.set(heroWrapperRef.current, { clearProps: "opacity,transform" });
+              if (heroHeadingRef.current) gsap.set(heroHeadingRef.current, { clearProps: "opacity,transform" });
+              if (heroEyebrowRef.current) gsap.set(heroEyebrowRef.current, { clearProps: "opacity,transform" });
+              if (heroSwooshRef.current) gsap.set(heroSwooshRef.current, { clearProps: "opacity,transform" });
+              if (heroSocialsRef.current) gsap.set(heroSocialsRef.current, { clearProps: "opacity,transform" });
+              if (heroScrollCueRef.current) gsap.set(heroScrollCueRef.current, { clearProps: "opacity,transform" });
+            }
           },
         },
       });
@@ -116,8 +131,8 @@ export default function CinematicStage() {
           heroWrapperRef.current,
           {
             opacity: 0,
-            scale: 0.96,
-            ease: "power2.inOut",
+            scale: 0.98,
+            ease: "none",
             duration: 0.8,
           },
           0
@@ -125,10 +140,10 @@ export default function CinematicStage() {
         .to(
           heroHeadingRef.current,
           {
-            y: -40,
-            letterSpacing: "0.06em",
+            y: -35,
             opacity: 0,
-            duration: 0.7,
+            ease: "none",
+            duration: 0.6,
           },
           0
         )
@@ -136,16 +151,38 @@ export default function CinematicStage() {
           heroSwooshRef.current,
           {
             opacity: 0,
-            scaleX: 1.3,
+            scaleX: 1.2,
+            ease: "none",
             duration: 0.5,
           },
           0
         )
         .to(
-          [heroEyebrowRef.current, heroScrollCueRef.current],
+          heroEyebrowRef.current,
+          {
+            opacity: 0,
+            y: -15,
+            ease: "none",
+            duration: 0.4,
+          },
+          0
+        )
+        .to(
+          heroSocialsRef.current,
+          {
+            x: -40,
+            opacity: 0,
+            ease: "none",
+            duration: 0.5,
+          },
+          0
+        )
+        .to(
+          heroScrollCueRef.current,
           {
             opacity: 0,
             y: -20,
+            ease: "none",
             duration: 0.4,
           },
           0
@@ -245,11 +282,45 @@ export default function CinematicStage() {
 
         <div className="h-24 sm:h-28" />
 
-        {/* Centered Hero Content */}
-        <main className="flex-1 flex flex-col items-center justify-center text-center px-6 -mt-4 sm:-mt-6 z-10 select-none">
+        {/* Social Icons positioned cleanly on the Left Side in a Single Column */}
+        <div
+          ref={heroSocialsRef}
+          className="absolute left-3 sm:left-5 md:left-6 top-1/2 -translate-y-1/2 z-20 flex flex-col items-center gap-3.5 pointer-events-auto"
+        >
+          <a
+            href="https://github.com/Anmol-Malviya"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="GitHub Profile"
+            className="w-10 h-10 sm:w-11 sm:h-11 rounded-full bg-black/50 hover:bg-black/80 backdrop-blur-md border border-white/20 flex items-center justify-center text-white/90 hover:text-white hover:border-[#8FBF7A] hover:scale-110 transition-all duration-300 shadow-[0_4px_16px_rgba(0,0,0,0.35)]"
+          >
+            <GithubIcon className="w-5 h-5" />
+          </a>
+          <a
+            href="https://www.linkedin.com/in/anmol-malviya/"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="LinkedIn Profile"
+            className="w-10 h-10 sm:w-11 sm:h-11 rounded-full bg-black/50 hover:bg-black/80 backdrop-blur-md border border-white/20 flex items-center justify-center text-white/90 hover:text-white hover:border-[#8FBF7A] hover:scale-110 transition-all duration-300 shadow-[0_4px_16px_rgba(0,0,0,0.35)]"
+          >
+            <LinkedinIcon className="w-5 h-5" />
+          </a>
+          <a
+            href="mailto:anmolmalviya4328@gmail.com"
+            aria-label="Send Email"
+            className="w-10 h-10 sm:w-11 sm:h-11 rounded-full bg-black/50 hover:bg-black/80 backdrop-blur-md border border-white/20 flex items-center justify-center text-white/90 hover:text-white hover:border-[#8FBF7A] hover:scale-110 transition-all duration-300 shadow-[0_4px_16px_rgba(0,0,0,0.35)]"
+          >
+            <Mail className="w-5 h-5 text-[#8FBF7A]" />
+          </a>
+          {/* Subtle vertical accent indicator */}
+          <div className="w-[1.5px] h-10 bg-gradient-to-b from-white/40 to-transparent mt-1" />
+        </div>
+
+        {/* Clean Centered Name & Eyebrow (Shifted slightly upward) */}
+        <main className="flex-1 flex flex-col items-center justify-center text-center px-6 -mt-16 sm:-mt-24 md:-mt-28 z-10 select-none">
           <div
             ref={heroEyebrowRef}
-            className="flex items-center justify-center gap-3.5 mb-3 sm:mb-4"
+            className="flex items-center justify-center gap-3.5 mb-2.5 sm:mb-3"
           >
             <span className="w-7 sm:w-8 h-[1.5px] bg-white/70 shadow-[0_1px_4px_rgba(0,0,0,0.5)]" />
             <span className="text-base sm:text-lg md:text-xl font-normal text-white/95 tracking-wide drop-shadow-[0_2px_8px_rgba(0,0,0,0.7)]">
@@ -261,7 +332,7 @@ export default function CinematicStage() {
           <div className="relative inline-flex flex-col items-center">
             <h1
               ref={heroHeadingRef}
-              className="text-5xl sm:text-6xl md:text-7xl lg:text-[5.25rem] font-extrabold tracking-tight text-white leading-tight drop-shadow-[0_4px_24px_rgba(0,0,0,0.6)]"
+              className="text-5xl sm:text-6xl md:text-7xl lg:text-[5.5rem] font-extrabold tracking-tight text-white leading-tight drop-shadow-[0_4px_24px_rgba(0,0,0,0.6)]"
             >
               Anmol Malviya
             </h1>
@@ -294,54 +365,6 @@ export default function CinematicStage() {
                   filter="url(#heroGlow)"
                 />
               </svg>
-            </div>
-          </div>
-
-          {/* Professional Headline & Supporting Persona */}
-          <div className="mt-4 sm:mt-6 max-w-xl mx-auto flex flex-col items-center">
-            <p className="text-xl sm:text-2xl md:text-3xl font-bold tracking-tight text-white drop-shadow-[0_2px_12px_rgba(0,0,0,0.7)]">
-              Building Ideas Into Digital Reality.
-            </p>
-            <p className="mt-2 text-sm sm:text-base font-medium text-white/90 tracking-wide drop-shadow-[0_2px_8px_rgba(0,0,0,0.7)]">
-              Developer. Product Builder. Technology Enthusiast.
-            </p>
-
-            {/* Hero CTAs & Quick Social Links */}
-            <div className="mt-6 flex flex-wrap items-center justify-center gap-3 pointer-events-auto">
-              <a
-                href="#projects"
-                className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-[#FFE0C2] hover:bg-[#FFD6A6] text-[#4B4B4B] font-semibold text-sm transition-all duration-300 shadow-[0_4px_16px_rgba(0,0,0,0.25)] border border-[#FFD6A6]"
-              >
-                <span>Explore Projects</span>
-                <ArrowUpRight className="w-4 h-4" />
-              </a>
-              <a
-                href="#contact"
-                className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-black/40 hover:bg-black/60 backdrop-blur-md text-white font-medium text-sm transition-all duration-300 border border-white/20 shadow-[0_4px_16px_rgba(0,0,0,0.25)]"
-              >
-                <Mail className="w-4 h-4 text-[#8FBF7A]" />
-                <span>Let&apos;s Connect</span>
-              </a>
-              <div className="flex items-center gap-2 ml-1">
-                <a
-                  href="https://github.com/Anmol-Malviya"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  aria-label="GitHub Profile"
-                  className="w-9 h-9 rounded-full bg-black/40 hover:bg-black/60 backdrop-blur-md border border-white/20 flex items-center justify-center text-white/90 hover:text-white transition-all shadow-sm"
-                >
-                  <GithubIcon className="w-4 h-4" />
-                </a>
-                <a
-                  href="https://www.linkedin.com/in/anmol-malviya/"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  aria-label="LinkedIn Profile"
-                  className="w-9 h-9 rounded-full bg-black/40 hover:bg-black/60 backdrop-blur-md border border-white/20 flex items-center justify-center text-white/90 hover:text-white transition-all shadow-sm"
-                >
-                  <LinkedinIcon className="w-4 h-4" />
-                </a>
-              </div>
             </div>
           </div>
         </main>
