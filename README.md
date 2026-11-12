@@ -1,11 +1,13 @@
 <div align="center">
 
-<!-- Hero Banner -->
-<img width="100%" src="https://capsule-render.vercel.app/api?type=waving&height=260&color=0:0B132B,40:1C2541,75:3A506B,100:5BC0BE&text=ANMOL%20MALVIYA&fontColor=FFFFFF&fontSize=52&fontAlignY=36&desc=BUILDING%20PRODUCTS%20%7C%20SOLVING%20REAL%20PROBLEMS%20%7C%20AI%20%26%20SYSTEMS&descAlignY=58&descSize=15&animation=fadeIn" alt="Anmol Malviya Banner" />
+<!-- Custom Designed Vector Header Banner -->
+<a href="https://github.com/Anmol-Malviya">
+  <img width="100%" src="assets/header-banner.svg" alt="Anmol Malviya Header Banner" />
+</a>
 
-# Hey there, I'm Anmol Malviya 👋
+<br/><br/>
 
-[![Typing SVG](https://readme-typing-svg.demolab.com?font=Fira+Code&weight=600&size=20&duration=3000&pause=1000&color=5BC0BE&center=true&vCenter=true&width=620&lines=Aspiring+Founder+%26+Product+Engineer;Project+Manager+%40+AV+Technologies;AI+%2B+Full-Stack+Systems+Builder;Winner+%40+TECHSPRINT+2025+%7C+SIH+2025)](https://git.io/typing-svg)
+[![Typing SVG](https://readme-typing-svg.demolab.com?font=Fira+Code&weight=600&size=20&duration=3000&pause=1000&color=00F0FF&center=true&vCenter=true&width=620&lines=Aspiring+Founder+%26+Product+Engineer;Project+Manager+%40+AV+Technologies;AI+%2B+Full-Stack+Systems+Builder;Winner+%40+TECHSPRINT+2025+%7C+SIH+2025)](https://git.io/typing-svg)
 
 <p align="center">
   <b>B.Tech CSE (IoT, Cybersecurity & Blockchain)</b> • <b>Project Manager & Developer @ AV Technologies (AdhritVerse)</b><br/>
