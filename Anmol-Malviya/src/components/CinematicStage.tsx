@@ -66,14 +66,16 @@ export default function CinematicStage() {
       }
     };
 
+    const isMobile = window.innerWidth < 768;
+
     const gsapContext = gsap.context(() => {
       // Initial Hero load animation
       const loadTl = gsap.timeline({ defaults: { ease: "power3.out" } });
       loadTl
         .fromTo(
           heroSocialsRef.current,
-          { opacity: 0, x: -30 },
-          { opacity: 1, x: 0, duration: 1, delay: 0.1 }
+          { opacity: 0, x: isMobile ? 0 : -30, y: isMobile ? -10 : 0 },
+          { opacity: 1, x: 0, y: 0, duration: 1, delay: 0.1 }
         )
         .fromTo(
           heroEyebrowRef.current,
@@ -107,7 +109,7 @@ export default function CinematicStage() {
         scrollTrigger: {
           trigger: containerRef.current,
           start: "top top",
-          end: "+=5800",
+          end: isMobile ? "+=3800" : "+=5800",
           pin: true,
           scrub: 0.7,
           anticipatePin: 1,
@@ -170,7 +172,8 @@ export default function CinematicStage() {
         .to(
           heroSocialsRef.current,
           {
-            x: -40,
+            x: isMobile ? 0 : -40,
+            y: isMobile ? -20 : 0,
             opacity: 0,
             ease: "none",
             duration: 0.5,
@@ -199,12 +202,6 @@ export default function CinematicStage() {
         0.05
       );
 
-      // =========================================================================
-      // AFTER VIDEO COMPLETELY REACHES FINAL FRAME (FRAME 239) IN FULLSCREEN:
-      // AUTOMATIC MINIMIZE IN THE CENTER (0.88 -> 1.00)
-      // FULLSCREEN 16:9 → 4:3 CENTERED WINDOW (480px x 360px)
-      // =========================================================================
-
       // Smoothly reveal warm architectural background behind video as it minimizes
       masterTimeline.fromTo(
         warmBgRef.current,
@@ -213,13 +210,16 @@ export default function CinematicStage() {
         0.86
       );
 
-      // Smoothly shrink fullscreen video into EXACT CENTER in 4:3 aspect ratio
+      // Smoothly shrink fullscreen video into CENTER in 4:3 aspect ratio (responsive)
+      const targetWidth = isMobile ? "min(340px, 86vw)" : "480px";
+      const targetHeight = isMobile ? "min(255px, 64.5vw)" : "360px";
+
       masterTimeline.to(
         stageFrameRef.current,
         {
-          width: "480px",
-          height: "360px", // Exactly 4:3 aspect ratio (480 : 360 = 4 : 3)
-          borderRadius: "24px",
+          width: targetWidth,
+          height: targetHeight,
+          borderRadius: isMobile ? "16px" : "24px",
           border: "1px solid rgba(255, 214, 166, 0.6)",
           boxShadow:
             "0 35px 80px -15px rgba(75, 75, 75, 0.25), 0 0 50px rgba(255, 214, 166, 0.35), 0 0 20px rgba(255, 252, 248, 0.8)",
@@ -237,13 +237,13 @@ export default function CinematicStage() {
     <section
       id="home"
       ref={containerRef}
-      className="relative w-full h-screen bg-[#FFFCF8] overflow-hidden select-none"
+      className="relative w-full h-[100dvh] bg-[#FFFCF8] overflow-hidden select-none"
     >
       {/* Warm 3D Architectural Studio Background */}
       <ArchitecturalBackground ref={warmBgRef} />
 
       {/* Background ambient glow behind minimized center window */}
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-[#FFE0C2]/40 blur-[160px] rounded-full pointer-events-none" />
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[320px] sm:w-[500px] md:w-[600px] h-[320px] sm:h-[500px] md:h-[600px] bg-[#FFE0C2]/40 blur-[120px] sm:blur-[160px] rounded-full pointer-events-none" />
 
       {/* =========================================================================
           CINEMATIC STAGE: INITIALLY 100VW x 100VH FULLSCREEN UNTIL FINAL FRAME
@@ -277,66 +277,36 @@ export default function CinematicStage() {
           baseImageSrc="/BG_IMAGEs_1.jpg"
           revealImageSrc="/BG_IMAGEs_2.jpg"
           alt="Hero Scene"
-          revealRadius={260}
+          revealRadius={220}
         />
 
-        <div className="h-24 sm:h-28" />
+        {/* Top spacer to account for fixed navbar */}
+        <div className="h-20 sm:h-24 md:h-28" />
 
-        {/* Social Icons positioned cleanly on the Left Side in a Single Column */}
-        <div
-          ref={heroSocialsRef}
-          className="absolute left-3 sm:left-5 md:left-6 top-1/2 -translate-y-1/2 z-20 flex flex-col items-center gap-3.5 pointer-events-auto"
-        >
-          <a
-            href="https://github.com/Anmol-Malviya"
-            target="_blank"
-            rel="noopener noreferrer"
-            aria-label="GitHub Profile"
-            className="w-10 h-10 sm:w-11 sm:h-11 rounded-full bg-black/50 hover:bg-black/80 backdrop-blur-md border border-white/20 flex items-center justify-center text-white/90 hover:text-white hover:border-[#8FBF7A] hover:scale-110 transition-all duration-300 shadow-[0_4px_16px_rgba(0,0,0,0.35)]"
-          >
-            <GithubIcon className="w-5 h-5" />
-          </a>
-          <a
-            href="https://www.linkedin.com/in/anmol-malviya/"
-            target="_blank"
-            rel="noopener noreferrer"
-            aria-label="LinkedIn Profile"
-            className="w-10 h-10 sm:w-11 sm:h-11 rounded-full bg-black/50 hover:bg-black/80 backdrop-blur-md border border-white/20 flex items-center justify-center text-white/90 hover:text-white hover:border-[#8FBF7A] hover:scale-110 transition-all duration-300 shadow-[0_4px_16px_rgba(0,0,0,0.35)]"
-          >
-            <LinkedinIcon className="w-5 h-5" />
-          </a>
-          <a
-            href="mailto:anmolmalviya4328@gmail.com"
-            aria-label="Send Email"
-            className="w-10 h-10 sm:w-11 sm:h-11 rounded-full bg-black/50 hover:bg-black/80 backdrop-blur-md border border-white/20 flex items-center justify-center text-white/90 hover:text-white hover:border-[#8FBF7A] hover:scale-110 transition-all duration-300 shadow-[0_4px_16px_rgba(0,0,0,0.35)]"
-          >
-            <Mail className="w-5 h-5 text-[#8FBF7A]" />
-          </a>
-          {/* Subtle vertical accent indicator */}
-          <div className="w-[1.5px] h-10 bg-gradient-to-b from-white/40 to-transparent mt-1" />
-        </div>
-
-        {/* Clean Centered Name & Eyebrow (Shifted slightly upward) */}
-        <main className="flex-1 flex flex-col items-center justify-center text-center px-6 -mt-16 sm:-mt-24 md:-mt-28 z-10 select-none">
+        {/* Clean Centered Name & Eyebrow */}
+        <main className="flex-1 flex flex-col items-center justify-center text-center px-4 sm:px-6 -mt-8 sm:-mt-16 md:-mt-24 z-10 select-none">
+          {/* Eyebrow badge */}
           <div
             ref={heroEyebrowRef}
-            className="flex items-center justify-center gap-3.5 mb-2.5 sm:mb-3"
+            className="flex items-center justify-center gap-2.5 sm:gap-3.5 mb-2 sm:mb-3"
           >
-            <span className="w-7 sm:w-8 h-[1.5px] bg-white/70 shadow-[0_1px_4px_rgba(0,0,0,0.5)]" />
-            <span className="text-base sm:text-lg md:text-xl font-normal text-white/95 tracking-wide drop-shadow-[0_2px_8px_rgba(0,0,0,0.7)]">
+            <span className="w-5 sm:w-8 h-[1.5px] bg-white/70 shadow-[0_1px_4px_rgba(0,0,0,0.5)]" />
+            <span className="text-sm sm:text-base md:text-xl font-normal text-white/95 tracking-wide drop-shadow-[0_2px_8px_rgba(0,0,0,0.7)]">
               Hey, I&apos;m
             </span>
-            <span className="w-7 sm:w-8 h-[1.5px] bg-white/70 shadow-[0_1px_4px_rgba(0,0,0,0.5)]" />
+            <span className="w-5 sm:w-8 h-[1.5px] bg-white/70 shadow-[0_1px_4px_rgba(0,0,0,0.5)]" />
           </div>
 
-          <div className="relative inline-flex flex-col items-center">
+          {/* Heading */}
+          <div className="relative inline-flex flex-col items-center max-w-[94vw]">
             <h1
               ref={heroHeadingRef}
-              className="text-5xl sm:text-6xl md:text-7xl lg:text-[5.5rem] font-extrabold tracking-tight text-white leading-tight drop-shadow-[0_4px_24px_rgba(0,0,0,0.6)]"
+              className="text-4xl sm:text-6xl md:text-7xl lg:text-[5.5rem] font-extrabold tracking-tight text-white leading-tight drop-shadow-[0_4px_24px_rgba(0,0,0,0.7)]"
             >
               Anmol Malviya
             </h1>
 
+            {/* Glowing swoosh curve underline */}
             <div className="w-[85%] sm:w-[90%] md:w-[92%] mt-1 sm:mt-2">
               <svg
                 viewBox="0 0 420 32"
@@ -367,16 +337,79 @@ export default function CinematicStage() {
               </svg>
             </div>
           </div>
+
+          {/* Social Icons on Mobile (Positioned gracefully directly below heading) */}
+          <div
+            ref={heroSocialsRef}
+            className="flex md:hidden items-center justify-center gap-3.5 mt-5 z-20 pointer-events-auto"
+          >
+            <a
+              href="https://github.com/Anmol-Malviya"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="GitHub Profile"
+              className="w-10 h-10 rounded-full bg-black/45 hover:bg-black/75 backdrop-blur-md border border-white/25 flex items-center justify-center text-white/95 hover:text-white hover:border-[#8FBF7A] active:scale-95 transition-all shadow-[0_4px_16px_rgba(0,0,0,0.35)]"
+            >
+              <GithubIcon className="w-4 h-4" />
+            </a>
+            <a
+              href="https://www.linkedin.com/in/anmol-malviya/"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="LinkedIn Profile"
+              className="w-10 h-10 rounded-full bg-black/45 hover:bg-black/75 backdrop-blur-md border border-white/25 flex items-center justify-center text-white/95 hover:text-white hover:border-[#8FBF7A] active:scale-95 transition-all shadow-[0_4px_16px_rgba(0,0,0,0.35)]"
+            >
+              <LinkedinIcon className="w-4 h-4" />
+            </a>
+            <a
+              href="mailto:anmolmalviya4328@gmail.com"
+              aria-label="Send Email"
+              className="w-10 h-10 rounded-full bg-black/45 hover:bg-black/75 backdrop-blur-md border border-white/25 flex items-center justify-center text-white/95 hover:text-white hover:border-[#8FBF7A] active:scale-95 transition-all shadow-[0_4px_16px_rgba(0,0,0,0.35)]"
+            >
+              <Mail className="w-4 h-4 text-[#8FBF7A]" />
+            </a>
+          </div>
         </main>
 
+        {/* Social Icons on Desktop (Vertical column on Left side) */}
+        <div className="hidden md:flex absolute left-4 lg:left-6 top-1/2 -translate-y-1/2 z-20 flex-col items-center gap-3.5 pointer-events-auto">
+          <a
+            href="https://github.com/Anmol-Malviya"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="GitHub Profile"
+            className="w-11 h-11 rounded-full bg-black/50 hover:bg-black/80 backdrop-blur-md border border-white/20 flex items-center justify-center text-white/90 hover:text-white hover:border-[#8FBF7A] hover:scale-110 transition-all duration-300 shadow-[0_4px_16px_rgba(0,0,0,0.35)]"
+          >
+            <GithubIcon className="w-5 h-5" />
+          </a>
+          <a
+            href="https://www.linkedin.com/in/anmol-malviya/"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="LinkedIn Profile"
+            className="w-11 h-11 rounded-full bg-black/50 hover:bg-black/80 backdrop-blur-md border border-white/20 flex items-center justify-center text-white/90 hover:text-white hover:border-[#8FBF7A] hover:scale-110 transition-all duration-300 shadow-[0_4px_16px_rgba(0,0,0,0.35)]"
+          >
+            <LinkedinIcon className="w-5 h-5" />
+          </a>
+          <a
+            href="mailto:anmolmalviya4328@gmail.com"
+            aria-label="Send Email"
+            className="w-11 h-11 rounded-full bg-black/50 hover:bg-black/80 backdrop-blur-md border border-white/20 flex items-center justify-center text-white/90 hover:text-white hover:border-[#8FBF7A] hover:scale-110 transition-all duration-300 shadow-[0_4px_16px_rgba(0,0,0,0.35)]"
+          >
+            <Mail className="w-5 h-5 text-[#8FBF7A]" />
+          </a>
+          <div className="w-[1.5px] h-10 bg-gradient-to-b from-white/40 to-transparent mt-1" />
+        </div>
+
+        {/* Scroll to explore cue */}
         <div
           ref={heroScrollCueRef}
-          className="pb-10 flex flex-col items-center justify-center gap-2 pointer-events-none text-white/75 drop-shadow-[0_2px_8px_rgba(0,0,0,0.8)]"
+          className="pb-6 sm:pb-10 flex flex-col items-center justify-center gap-2 pointer-events-none text-white/80 drop-shadow-[0_2px_8px_rgba(0,0,0,0.8)] z-10"
         >
-          <span className="text-[11px] uppercase tracking-[0.25em] font-medium text-white/80">
+          <span className="text-[10px] sm:text-[11px] uppercase tracking-[0.25em] font-medium text-white/85">
             Scroll to explore
           </span>
-          <div className="w-5 h-9 rounded-full border border-white/40 flex items-start justify-center p-1.5 shadow-[0_2px_8px_rgba(0,0,0,0.5)]">
+          <div className="w-4 h-8 sm:w-5 sm:h-9 rounded-full border border-white/45 flex items-start justify-center p-1 sm:p-1.5 shadow-[0_2px_8px_rgba(0,0,0,0.5)]">
             <div className="w-1.5 h-2 rounded-full bg-[#8FBF7A] animate-bounce shadow-[0_0_8px_#8FBF7A]" />
           </div>
         </div>
