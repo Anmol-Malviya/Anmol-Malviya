@@ -68,7 +68,7 @@ export default function ProjectsSection() {
       */}
       <div
         ref={stagePinnedRef}
-        className="relative w-full h-screen overflow-hidden flex items-center justify-center"
+        className="relative w-full h-[100dvh] overflow-hidden flex items-center justify-center"
         style={{
           backgroundImage: "url('/background.png')",
           backgroundSize: "cover",

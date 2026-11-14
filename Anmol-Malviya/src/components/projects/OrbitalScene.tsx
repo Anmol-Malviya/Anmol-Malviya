@@ -22,6 +22,10 @@ function SceneHierarchy({
   const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
   const masterGroupRef = useRef<THREE.Group>(null);
 
+  // Responsive camera calculation
+  const isMobile = typeof window !== "undefined" && window.innerWidth < 768;
+  const isSmall = typeof window !== "undefined" && window.innerWidth < 480;
+
   // Rings opacity synced with stages
   let ringsOpacity = 0.75;
   if (scrollProgress < 0.12) {
@@ -32,9 +36,9 @@ function SceneHierarchy({
   }
 
   useFrame((state, delta) => {
-    // Camera is steady: pillar size and perspective stay stationary and anchored!
-    const targetCamZ = 9.2;
-    const targetCamY = 0.35;
+    // Camera distance adapts to screen width so full 3D card orbit fits comfortably on mobile
+    const targetCamZ = isSmall ? 12.8 : isMobile ? 11.2 : 9.2;
+    const targetCamY = isSmall ? 0.2 : 0.35;
 
     state.camera.position.z = THREE.MathUtils.damp(
       state.camera.position.z,

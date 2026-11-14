@@ -57,21 +57,21 @@ export default function JourneySection() {
       {/* Pinned 100vh Viewport Stage */}
       <div
         ref={pinContainerRef}
-        className="sticky top-0 w-full h-screen overflow-hidden flex flex-col justify-between py-8 px-6 sm:px-12 md:px-16"
+        className="sticky top-0 w-full h-[100dvh] overflow-hidden flex flex-col justify-between py-4 sm:py-6 md:py-8 px-4 sm:px-10 md:px-16"
       >
         {/* Soft Warm Ivory Architectural Ambient Lights (NO GREEN) */}
         <div className="absolute inset-0 pointer-events-none overflow-hidden">
-          <div className="absolute -top-32 left-1/4 w-[600px] h-[600px] bg-[#FFE0C2]/30 blur-[180px] rounded-full" />
-          <div className="absolute -bottom-32 right-1/4 w-[600px] h-[600px] bg-[#F4EFE6]/60 blur-[180px] rounded-full" />
+          <div className="absolute -top-32 left-1/4 w-[300px] sm:w-[600px] h-[300px] sm:h-[600px] bg-[#FFE0C2]/30 blur-[120px] sm:blur-[180px] rounded-full" />
+          <div className="absolute -bottom-32 right-1/4 w-[300px] sm:w-[600px] h-[300px] sm:h-[600px] bg-[#F4EFE6]/60 blur-[120px] sm:blur-[180px] rounded-full" />
         </div>
 
         {/* Section Top Header */}
-        <div className="relative z-10 flex flex-col md:flex-row md:items-end justify-between gap-6 max-w-7xl mx-auto w-full pt-4">
+        <div className="relative z-10 flex flex-col sm:flex-row sm:items-end justify-between gap-3 sm:gap-6 max-w-7xl mx-auto w-full pt-16 sm:pt-4">
           <div>
-            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#FFFDF8] border border-[#E8DFD1] text-xs font-mono uppercase tracking-widest text-[#858174] mb-3 shadow-sm">
+            <div className="inline-flex items-center gap-2 px-3 py-1 sm:px-3.5 sm:py-1.5 rounded-full bg-[#FFFDF8] border border-[#E8DFD1] text-[11px] sm:text-xs font-mono uppercase tracking-widest text-[#858174] mb-2 sm:mb-3 shadow-sm">
               <Train className="w-3.5 h-3.5 text-[#A88D61]" /> 3D Journey Express • Career Odyssey
             </div>
-            <h2 className="text-3xl sm:text-5xl font-extrabold tracking-tight">
+            <h2 className="text-2xl xs:text-3xl sm:text-5xl font-extrabold tracking-tight">
               Learning, building,{" "}
               <span
                 className="text-transparent bg-clip-text"
@@ -85,7 +85,7 @@ export default function JourneySection() {
             </h2>
           </div>
 
-          <div className="flex items-center gap-6 text-sm font-mono text-[#858174]">
+          <div className="flex items-center gap-4 sm:gap-6 text-xs sm:text-sm font-mono text-[#858174]">
             <div className="flex items-center gap-2">
               <span className="w-2 h-2 rounded-full bg-[#D9C5A3] shadow-[0_0_8px_#D9C5A3] animate-ping" />
               <span>CARRIAGE {activeIndex + 1} / {JOURNEY_MILESTONES.length}</span>
@@ -98,7 +98,7 @@ export default function JourneySection() {
         </div>
 
         {/* 3D WebGL Train Canvas Stage */}
-        <div className="relative z-10 w-full h-[62vh] my-auto">
+        <div className="relative z-10 w-full h-[52vh] sm:h-[60vh] md:h-[62vh] my-auto">
           <TrainSceneWrapper scrollProgress={scrollProgress} />
         </div>
 
@@ -114,9 +114,9 @@ export default function JourneySection() {
               }}
             />
           </div>
-          <div className="flex justify-between items-center text-[11px] font-mono text-[#858174] mt-3">
+          <div className="flex justify-between items-center text-[10px] sm:text-[11px] font-mono text-[#858174] mt-2.5 sm:mt-3">
             <span>2022 • FOUNDATIONS</span>
-            <span>ACTIVE LEADERSHIP • PM & DEV</span>
+            <span className="hidden xs:inline">ACTIVE LEADERSHIP • PM & DEV</span>
             <span>2026+ • BEYOND</span>
           </div>
         </div>

@@ -285,7 +285,7 @@ export default function About3DScene() {
     <div
       onPointerMove={handlePointerMove}
       onPointerLeave={handlePointerLeave}
-      className="relative w-full h-[500px] sm:h-[580px] lg:h-[650px] rounded-3xl bg-gradient-to-b from-[#F8F3EB] to-[#E9DED0]/60 border border-[#E9DED0] shadow-[0_20px_50px_rgba(38,58,80,0.06)] overflow-hidden flex items-center justify-center cursor-grab active:cursor-grabbing"
+      className="relative w-full h-[360px] sm:h-[480px] md:h-[560px] lg:h-[650px] rounded-3xl bg-gradient-to-b from-[#F8F3EB] to-[#E9DED0]/60 border border-[#E9DED0] shadow-[0_20px_50px_rgba(38,58,80,0.06)] overflow-hidden flex items-center justify-center cursor-grab active:cursor-grabbing"
     >
       {/* Background Soft Lighting Gradients */}
       <div className="absolute -top-12 -right-12 w-72 h-72 rounded-full bg-[#C59B62]/15 blur-3xl pointer-events-none" />

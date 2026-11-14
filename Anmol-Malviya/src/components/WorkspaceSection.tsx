@@ -123,39 +123,39 @@ export default function WorkspaceSection() {
     <section
       id="workspace"
       ref={containerRef}
-      className="relative min-h-screen w-full bg-[#FFF5EA] text-[#4B4B4B] py-36 px-6 sm:px-12 md:px-20 overflow-hidden"
+      className="relative min-h-screen w-full bg-[#FFF5EA] text-[#4B4B4B] py-20 sm:py-28 md:py-36 px-4 sm:px-10 md:px-16 lg:px-20 overflow-hidden"
     >
-      <div className="absolute top-10 right-10 w-[500px] h-[500px] bg-[#FFE0C2]/30 blur-[150px] rounded-full pointer-events-none" />
-      <div className="absolute bottom-10 left-10 w-[400px] h-[400px] bg-[#CBE8C1]/25 blur-[140px] rounded-full pointer-events-none" />
+      <div className="absolute top-10 right-10 w-[280px] sm:w-[500px] h-[280px] sm:h-[500px] bg-[#FFE0C2]/30 blur-[100px] sm:blur-[150px] rounded-full pointer-events-none" />
+      <div className="absolute bottom-10 left-10 w-[240px] sm:w-[400px] h-[240px] sm:h-[400px] bg-[#CBE8C1]/25 blur-[90px] sm:blur-[140px] rounded-full pointer-events-none" />
 
       <div className="max-w-6xl mx-auto relative z-10">
         {/* Section Header */}
-        <div ref={headlineRef} className="text-center max-w-3xl mx-auto mb-20">
-          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#FFE0C2]/60 border border-[#FFD6A6] text-xs font-mono tracking-widest uppercase text-[#4B4B4B] mb-6 shadow-sm">
+        <div ref={headlineRef} className="text-center max-w-3xl mx-auto mb-12 sm:mb-16 md:mb-20">
+          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#FFE0C2]/60 border border-[#FFD6A6] text-[11px] sm:text-xs font-mono tracking-widest uppercase text-[#4B4B4B] mb-4 sm:mb-6 shadow-sm">
             <Workflow className="w-3.5 h-3.5 text-[#8FBF7A]" />
             Development & Engineering Methodology
           </div>
 
-          <h2 className="text-4xl sm:text-6xl md:text-7xl font-extrabold tracking-tight text-[#4B4B4B] leading-tight">
+          <h2 className="text-3xl sm:text-5xl md:text-6xl lg:text-7xl font-extrabold tracking-tight text-[#4B4B4B] leading-tight">
             Where ideas{" "}
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#D9A46F] via-[#8FBF7A] to-[#4B4B4B]">
               become reality.
             </span>
           </h2>
 
-          <p className="mt-6 text-base sm:text-xl text-[#8D857E] font-normal max-w-2xl mx-auto leading-relaxed">
+          <p className="mt-4 sm:mt-6 text-sm sm:text-lg md:text-xl text-[#8D857E] font-normal max-w-2xl mx-auto leading-relaxed">
             A structured, disciplined engineering workflow guiding projects from early conceptualization to scalable production delivery.
           </p>
         </div>
 
         {/* 6-Phase Development Workflow Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 sm:gap-6">
           {workflowSteps.map((step) => {
             const Icon = step.icon;
             return (
               <div
                 key={step.num}
-                className="workflow-card group relative p-8 rounded-3xl bg-[#FFFCF8]/90 backdrop-blur-2xl border border-[#E6E2DC] hover:border-[#FFD6A6] hover:shadow-[0_12px_40px_rgba(255,214,166,0.3)] transition-all duration-300 flex flex-col justify-between"
+                className="workflow-card group relative p-6 sm:p-8 rounded-3xl bg-[#FFFCF8]/90 backdrop-blur-2xl border border-[#E6E2DC] hover:border-[#FFD6A6] hover:shadow-[0_12px_40px_rgba(255,214,166,0.3)] transition-all duration-300 flex flex-col justify-between"
               >
                 <div>
                   <div className="flex items-center justify-between mb-6">

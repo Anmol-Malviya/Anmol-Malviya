@@ -66,6 +66,16 @@ export default function CinematicStage() {
       }
     };
 
+    const updateSizes = () => {
+      const isMob = window.innerWidth < 768;
+      const isSm = window.innerWidth < 640;
+      return {
+        isMob,
+        targetWidth: isSm ? "min(300px, 88vw)" : isMob ? "340px" : "480px",
+        targetHeight: isSm ? "min(225px, 66vw)" : isMob ? "255px" : "360px",
+      };
+    };
+
     const isMobile = window.innerWidth < 768;
 
     const gsapContext = gsap.context(() => {
@@ -211,8 +221,7 @@ export default function CinematicStage() {
       );
 
       // Smoothly shrink fullscreen video into CENTER in 4:3 aspect ratio (responsive)
-      const targetWidth = isMobile ? "min(340px, 86vw)" : "480px";
-      const targetHeight = isMobile ? "min(255px, 64.5vw)" : "360px";
+      const { targetWidth, targetHeight } = updateSizes();
 
       masterTimeline.to(
         stageFrameRef.current,

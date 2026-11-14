@@ -115,23 +115,23 @@ export default function TechnologySection() {
   return (
     <section
       id="technology"
-      className="relative w-full bg-[#FBF7F0] text-[#292929] py-5 sm:py-6 md:py-8 px-3 sm:px-5 md:px-8 flex justify-center items-center overflow-hidden"
+      className="relative w-full bg-[#FBF7F0] text-[#292929] py-8 sm:py-10 md:py-12 px-3 sm:px-5 md:px-8 flex justify-center items-center overflow-hidden"
     >
       {/* Background Soft Lighting Gradients matching reference palette */}
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[1100px] h-[450px] bg-[#EFE4D2]/45 blur-[150px] rounded-full pointer-events-none" />
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[340px] sm:w-[700px] lg:w-[1100px] h-[340px] sm:h-[450px] bg-[#EFE4D2]/45 blur-[100px] sm:blur-[150px] rounded-full pointer-events-none" />
 
       {/* =========================================================================
           PANORAMIC COMPACT BANNER (Exact Warm Ivory & Golden Hue from Reference)
           ========================================================================= */}
-      <div className="relative w-full max-w-[1460px] rounded-[2.2rem] bg-gradient-to-br from-[#FFFFFF] via-[#FAF5EC] to-[#F5ECE0] border border-[#EFE5D6] shadow-[0_20px_50px_rgba(180,140,85,0.08),inset_0_1px_3px_#FFFFFF] px-6 py-5 sm:px-8 sm:py-6 lg:px-9 lg:py-5 overflow-hidden z-10">
+      <div className="relative w-full max-w-[1460px] rounded-2xl sm:rounded-[2.2rem] bg-gradient-to-br from-[#FFFFFF] via-[#FAF5EC] to-[#F5ECE0] border border-[#EFE5D6] shadow-[0_20px_50px_rgba(180,140,85,0.08),inset_0_1px_3px_#FFFFFF] p-4 sm:p-6 lg:px-9 lg:py-6 overflow-hidden z-10">
 
         {/* 3-COLUMN COMPOSITION: Left Headline | Center Minimal 3D Orbit | Right Inspector */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-4 xl:gap-5 items-center">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 sm:gap-8 lg:gap-4 xl:gap-5 items-center">
 
           {/* -------------------------------------------------------------
               1. LEFT: Editorial Headline + Subtitle + Action Button
               ------------------------------------------------------------- */}
-          <div className="lg:col-span-3 flex flex-col justify-center z-20">
+          <div className="lg:col-span-3 flex flex-col justify-center z-20 text-center lg:text-left items-center lg:items-start">
             {/* Tag */}
             <div className="flex items-center gap-2 mb-2.5">
               <span className="w-5 h-[2px] bg-[#C59B62]" />
@@ -141,7 +141,7 @@ export default function TechnologySection() {
             </div>
 
             {/* Heading */}
-            <h2 className="text-3xl sm:text-4xl xl:text-[2.85rem] font-serif font-bold text-[#1A1A1A] leading-[1.04] tracking-tight">
+            <h2 className="text-2xl sm:text-4xl xl:text-[2.85rem] font-serif font-bold text-[#1A1A1A] leading-[1.08] sm:leading-[1.04] tracking-tight">
               Tools are my{" "}
               <span className="font-serif font-bold text-[#C59B62] block mt-0.5">
                 playground.
@@ -149,15 +149,15 @@ export default function TechnologySection() {
             </h2>
 
             {/* Description */}
-            <p className="mt-3 text-xs sm:text-[13px] text-[#555555] leading-relaxed max-w-[280px]">
+            <p className="mt-2.5 sm:mt-3 text-xs sm:text-[13px] text-[#555555] leading-relaxed max-w-[280px]">
               The technologies behind every idea I bring to life.
             </p>
 
             {/* CTA Button */}
-            <div className="mt-5">
+            <div className="mt-4 sm:mt-5">
               <button
                 onClick={cycleNext}
-                className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-[#1C1F26] text-white text-[11px] font-mono font-medium tracking-wider hover:bg-[#C59B62] transition-colors duration-300 shadow-md group cursor-pointer"
+                className="inline-flex items-center gap-2 px-4 sm:px-5 py-2 sm:py-2.5 rounded-full bg-[#1C1F26] text-white text-[11px] font-mono font-medium tracking-wider hover:bg-[#C59B62] transition-colors duration-300 shadow-md group cursor-pointer"
               >
                 <span>Explore My Stack</span>
                 <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform" />
@@ -167,13 +167,9 @@ export default function TechnologySection() {
 
           {/* -------------------------------------------------------------
               2. CENTER: Luminous Champagne-Gold & Crystal Glass Ball
-                 - Exact warm golden ambient gradient
-                 - High-contrast white typography with dark glass backing
-                 - Shimmering champagne-gold single orbit
-                 - Soft claymorphic ceramic cards with delicate warm bevels
               ------------------------------------------------------------- */}
           <div
-            className="lg:col-span-6 relative w-full h-[320px] sm:h-[350px] flex items-center justify-center select-none"
+            className="lg:col-span-6 relative w-full h-[280px] xs:h-[310px] sm:h-[350px] flex items-center justify-center select-none"
             style={{ perspective: "1100px" }}
             onMouseMove={handleMouseMove}
             onMouseEnter={() => setIsPaused(true)}
@@ -235,13 +231,10 @@ export default function TechnologySection() {
 
               {/* -------------------------------------------------------------
                   CENTER 3D TEXTURED BALL: WARM CHAMPAGNE-GOLD & CRYSTAL GLASS
-                  - Exact rich warm amber-gold radial shading from reference
-                  - Deep glass backing behind white typography for sharp contrast
-                  - Glossy top crystal reflection and specular hotspot
                  ------------------------------------------------------------- */}
               <div
                 onClick={cycleNext}
-                className="relative w-[168px] h-[168px] sm:w-[182px] sm:h-[182px] rounded-full flex items-center justify-center cursor-pointer group select-none transition-transform duration-300 hover:scale-105"
+                className="relative w-[130px] h-[130px] sm:w-[170px] sm:h-[170px] rounded-full flex items-center justify-center cursor-pointer group select-none transition-transform duration-300 hover:scale-105"
                 style={{
                   zIndex: 25,
                   transform: "translateZ(0px)",
@@ -361,17 +354,17 @@ export default function TechnologySection() {
                             ? "0 0 0 2.5px #C59B62, inset 0 2px 4px #FFFFFF, inset 0 -2px 4px rgba(197,155,98,0.2)"
                             : "inset 0 2px 4px #FFFFFF, inset 0 -2px 4px rgba(220,205,185,0.3)",
                         }}
-                        className={`relative w-[104px] sm:w-[114px] h-[78px] sm:h-[84px] rounded-[1.4rem] border ${
+                        className={`relative w-[84px] xs:w-[94px] sm:w-[114px] h-[64px] xs:h-[72px] sm:h-[84px] rounded-xl sm:rounded-[1.4rem] border ${
                           isSelected ? "border-[#C59B62]" : "border-[#EFE5D8]"
-                        } flex flex-col items-center justify-center gap-1.5 transition-all duration-300`}
+                        } flex flex-col items-center justify-center gap-1 sm:gap-1.5 transition-all duration-300 p-1`}
                       >
                         {/* Icon */}
-                        <div className="transform group-hover:scale-108 transition-transform duration-200">
+                        <div className="transform group-hover:scale-108 transition-transform duration-200 scale-75 sm:scale-100">
                           <CategoryNodeIcon id={cat.id} />
                         </div>
 
                         {/* Title */}
-                        <span className="text-[10px] sm:text-[11px] font-bold text-[#1E1E1E] tracking-tight leading-tight text-center px-1">
+                        <span className="text-[8px] xs:text-[9px] sm:text-[11px] font-bold text-[#1E1E1E] tracking-tight leading-tight text-center px-0.5">
                           {cat.id === "cloud-devops" ? (
                             <>Cloud &amp;<br />DevOps</>
                           ) : cat.id === "creative-dev" ? (

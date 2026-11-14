@@ -180,18 +180,18 @@ export default function AboutSection() {
     <section
       id="about"
       ref={containerRef}
-      className="relative min-h-screen w-full bg-[#F8F3EB] text-[#292929] py-32 sm:py-40 px-6 sm:px-12 md:px-20 overflow-hidden"
+      className="relative min-h-screen w-full bg-[#F8F3EB] text-[#292929] py-20 sm:py-32 md:py-40 px-4 sm:px-8 md:px-16 lg:px-20 overflow-hidden"
     >
       {/* Subtle Warm Background Ambient Lighting */}
-      <div className="absolute top-1/4 right-0 w-[550px] h-[550px] bg-[#E9DED0]/50 blur-[150px] rounded-full pointer-events-none" />
-      <div className="absolute bottom-1/4 -left-20 w-[450px] h-[450px] bg-[#C59B62]/10 blur-[160px] rounded-full pointer-events-none" />
+      <div className="absolute top-1/4 right-0 w-[300px] sm:w-[550px] h-[300px] sm:h-[550px] bg-[#E9DED0]/50 blur-[100px] sm:blur-[150px] rounded-full pointer-events-none" />
+      <div className="absolute bottom-1/4 -left-20 w-[260px] sm:w-[450px] h-[260px] sm:h-[450px] bg-[#C59B62]/10 blur-[100px] sm:blur-[160px] rounded-full pointer-events-none" />
 
       {/* Editorial Content Frame */}
       <div className="max-w-7xl mx-auto relative z-10">
         
         {/* SECTION METADATA PILL */}
-        <div className="flex items-center justify-between mb-8 pb-4 border-b border-[#E9DED0]/80">
-          <div className="inline-flex items-center gap-2.5 px-3.5 py-1.5 rounded-full bg-[#FFFFFF] border border-[#E9DED0] text-xs font-mono tracking-widest uppercase text-[#263A50] shadow-sm">
+        <div className="flex flex-wrap items-center justify-between mb-8 pb-4 border-b border-[#E9DED0]/80 gap-2">
+          <div className="inline-flex items-center gap-2.5 px-3.5 py-1.5 rounded-full bg-[#FFFFFF] border border-[#E9DED0] text-[11px] sm:text-xs font-mono tracking-widest uppercase text-[#263A50] shadow-sm">
             <span className="w-2 h-2 rounded-full bg-[#C59B62]" />
             <span>01 / IDENTITY & PHILOSOPHY</span>
           </div>
@@ -201,19 +201,19 @@ export default function AboutSection() {
         </div>
 
         {/* EDITORIAL TWO-COLUMN HERO COMPOSITION */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-14 items-center mb-28">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 sm:gap-12 lg:gap-14 items-center mb-16 sm:mb-24 lg:mb-28">
           
           {/* Left Column: Expressive Headline & Concise Narrative */}
           <div ref={headlineRef} className="lg:col-span-7 flex flex-col justify-center">
-            <h2 className="text-4xl sm:text-6xl xl:text-7xl font-serif font-medium tracking-tight text-[#292929] leading-[1.08]">
+            <h2 className="text-3xl sm:text-5xl md:text-6xl xl:text-7xl font-serif font-medium tracking-tight text-[#292929] leading-[1.12] sm:leading-[1.08]">
               Curious mind,{" "}
               <span className="italic font-normal text-[#C59B62] block sm:inline">
                 builder at heart.
               </span>
             </h2>
 
-            <div className="mt-8 space-y-5 text-base sm:text-lg text-[#292929]/80 leading-relaxed font-sans max-w-2xl">
-              <p className="text-xl sm:text-2xl font-light text-[#263A50] leading-snug">
+            <div className="mt-6 sm:mt-8 space-y-4 sm:space-y-5 text-base sm:text-lg text-[#292929]/80 leading-relaxed font-sans max-w-2xl">
+              <p className="text-lg sm:text-xl md:text-2xl font-light text-[#263A50] leading-snug">
                 I design and engineer high-impact digital systems — fusing robust full-stack architecture, 3D spatial web design, and autonomous AI automation into polished products.
               </p>
               
@@ -261,11 +261,11 @@ export default function AboutSection() {
         </div>
 
         {/* SECTION DIVIDER */}
-        <div className="w-full h-px bg-gradient-to-r from-transparent via-[#E9DED0] to-transparent mb-24" />
+        <div className="w-full h-px bg-gradient-to-r from-transparent via-[#E9DED0] to-transparent mb-16 sm:mb-24" />
 
         {/* THREE PROFESSIONAL IDENTITY PANELS */}
-        <div className="mb-28">
-          <div className="flex flex-col sm:flex-row sm:items-end justify-between mb-12 gap-4">
+        <div className="mb-16 sm:mb-28">
+          <div className="flex flex-col sm:flex-row sm:items-end justify-between mb-8 sm:mb-12 gap-4">
             <div>
               <span className="text-xs font-mono uppercase tracking-widest text-[#C59B62] font-semibold">
                 Tri-Fold Professional Focus
@@ -279,7 +279,7 @@ export default function AboutSection() {
             </p>
           </div>
 
-          <div ref={panelsRef} className="grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-8">
+          <div ref={panelsRef} className="grid grid-cols-1 md:grid-cols-3 gap-5 sm:gap-6 lg:gap-8">
             {identityPanels.map((panel, idx) => {
               const Icon = panel.icon;
               return (
@@ -287,7 +287,7 @@ export default function AboutSection() {
                   key={panel.num}
                   onMouseEnter={() => setActiveTilt(idx)}
                   onMouseLeave={() => setActiveTilt(null)}
-                  className={`identity-card group relative p-8 sm:p-9 rounded-3xl bg-[#FFFFFF] border border-[#E9DED0] transition-all duration-500 flex flex-col justify-between ${
+                  className={`identity-card group relative p-6 sm:p-8 lg:p-9 rounded-3xl bg-[#FFFFFF] border border-[#E9DED0] transition-all duration-500 flex flex-col justify-between ${
                     activeTilt === idx
                       ? "shadow-[0_20px_45px_rgba(197,155,98,0.18)] -translate-y-2 border-[#C59B62]"
                       : "shadow-[0_8px_30px_rgba(38,58,80,0.04)] hover:shadow-md"
@@ -338,11 +338,11 @@ export default function AboutSection() {
         </div>
 
         {/* SECTION DIVIDER */}
-        <div className="w-full h-px bg-gradient-to-r from-transparent via-[#E9DED0] to-transparent mb-24" />
+        <div className="w-full h-px bg-gradient-to-r from-transparent via-[#E9DED0] to-transparent mb-16 sm:mb-24" />
 
         {/* COMPACT EDUCATION & ACHIEVEMENT TIMELINE */}
         <div ref={timelineRef}>
-          <div className="flex flex-col sm:flex-row sm:items-end justify-between mb-12 gap-4">
+          <div className="flex flex-col sm:flex-row sm:items-end justify-between mb-8 sm:mb-12 gap-4">
             <div>
               <span className="text-xs font-mono uppercase tracking-widest text-[#C59B62] font-semibold">
                 Chronological Pedigree
@@ -356,18 +356,18 @@ export default function AboutSection() {
             </span>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-5 lg:gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-5 lg:gap-6">
             {timelineMilestones.map((item) => {
               const Icon = item.icon;
               return (
                 <div
                   key={item.title}
-                  className="timeline-item group p-6 sm:p-7 rounded-2xl bg-[#FFFFFF] border border-[#E9DED0] hover:border-[#C59B62]/80 transition-all duration-300 shadow-[0_4px_20px_rgba(38,58,80,0.03)] hover:shadow-md flex items-start gap-4"
+                  className="timeline-item group p-5 sm:p-7 rounded-2xl bg-[#FFFFFF] border border-[#E9DED0] hover:border-[#C59B62]/80 transition-all duration-300 shadow-[0_4px_20px_rgba(38,58,80,0.03)] hover:shadow-md flex flex-col xs:flex-row sm:flex-row items-start gap-4"
                 >
-                  <div className="w-12 h-12 rounded-2xl bg-[#F8F3EB] border border-[#E9DED0] flex items-center justify-center text-[#263A50] group-hover:text-[#C59B62] group-hover:scale-105 transition-all duration-300 shrink-0">
-                    <Icon className="w-5 h-5" />
+                  <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-2xl bg-[#F8F3EB] border border-[#E9DED0] flex items-center justify-center text-[#263A50] group-hover:text-[#C59B62] group-hover:scale-105 transition-all duration-300 shrink-0">
+                    <Icon className="w-4 h-4 sm:w-5 sm:h-5" />
                   </div>
-                  <div className="flex-1">
+                  <div className="flex-1 w-full">
                     <div className="flex flex-wrap items-center justify-between gap-2 mb-1.5">
                       <span className="text-xs font-mono px-2.5 py-0.5 rounded-full bg-[#E9DED0]/50 text-[#263A50] font-medium">
                         {item.period}
