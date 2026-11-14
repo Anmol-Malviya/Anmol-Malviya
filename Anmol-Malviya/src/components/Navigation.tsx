@@ -14,7 +14,7 @@ export default function Navigation() {
       const scrollY = window.scrollY;
       setIsScrolled(scrollY > 60);
 
-      const sections = ["contact", "workspace", "journey", "projects", "technology", "cinematic", "home"];
+      const sections = ["contact", "journey", "projects", "cinematic", "home"];
       for (const section of sections) {
         const el = document.getElementById(section);
         if (el) {
@@ -35,7 +35,7 @@ export default function Navigation() {
   const navLinks = [
     { href: "#home", label: "Home", active: activeSection === "home" || activeSection === "cinematic" },
     { href: "#projects", label: "Projects", active: activeSection === "projects" },
-    { href: "#journey", label: "About", active: activeSection === "journey" || activeSection === "technology" || activeSection === "workspace" },
+    { href: "#journey", label: "Journey", active: activeSection === "journey" },
     { href: "#contact", label: "Contact", active: activeSection === "contact" },
   ];
 
