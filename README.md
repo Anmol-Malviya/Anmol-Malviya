@@ -6,12 +6,12 @@
 
 <div align="center">
 
-<img src="https://capsule-render.vercel.app/api?type=waving&height=220&color=0:2463A6,50:347FC0,100:5AA6E8&text=ANMOL%20MALVIYA&fontColor=F4F7FB&fontSize=48&fontAlignY=38&desc=Building%20useful%20digital%20experiences%20%7C%20Software%20Developer%20%26%20Founder&descAlignY=58&descSize=14&animation=fadeIn" width="100%" alt="Anmol Malviya — Software Developer and Founder"/>
+<img src="https://capsule-render.vercel.app/api?type=waving&height=220&color=0:173B5E,45:286A9A,100:6CAED6&text=ANMOL%20MALVIYA&fontColor=F4F7FB&fontSize=48&fontAlignY=38&desc=Building%20useful%20digital%20experiences%20%7C%20Software%20Developer%20%26%20Founder&descAlignY=58&descSize=14&animation=fadeIn" width="100%" alt="Anmol Malviya — Software Developer and Founder"/>
 
-<a href="https://anmol-malviya-delta.vercel.app"><img src="https://img.shields.io/badge/Portfolio-Visit%20website-347FC0?style=for-the-badge&logo=vercel&logoColor=white" alt="Portfolio"/></a>
+<a href="https://anmol-malviya-delta.vercel.app"><img src="https://img.shields.io/badge/Portfolio-Visit%20website-286A9A?style=for-the-badge&logo=vercel&logoColor=white" alt="Portfolio"/></a>
 <a href="https://www.linkedin.com/"><img src="https://img.shields.io/badge/LinkedIn-Connect-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white" alt="LinkedIn"/></a>
-<a href="mailto:hello@anmolmalviya.com"><img src="https://img.shields.io/badge/Email-Contact-4B8FCB?style=for-the-badge&logo=gmail&logoColor=white" alt="Email"/></a>
-<a href="https://github.com/Anmol-Malviya"><img src="https://img.shields.io/badge/GitHub-Follow-28669E?style=for-the-badge&logo=github&logoColor=white" alt="GitHub"/></a>
+<a href="mailto:hello@anmolmalviya.com"><img src="https://img.shields.io/badge/Email-Contact-477FA8?style=for-the-badge&logo=gmail&logoColor=white" alt="Email"/></a>
+<a href="https://github.com/Anmol-Malviya"><img src="https://img.shields.io/badge/GitHub-Follow-173B5E?style=for-the-badge&logo=github&logoColor=white" alt="GitHub"/></a>
 
 </div>
 
@@ -37,7 +37,7 @@ Hey, I'm **Anmol Malviya** — a software developer, project manager, and aspiri
 <img src="https://skillicons.dev/icons?i=js,ts,python,java,html,css" alt="JavaScript, TypeScript, Python, Java, HTML and CSS"/>
 
 ### Frontend & UI
-<img src="https://skillicons.dev/icons?i=react,nextjs,vite,tailwind, materialui" alt="React, Next.js, Vite, Tailwind CSS and Material UI"/>
+<img src="https://skillicons.dev/icons?i=react,nextjs,vite,tailwind,materialui" alt="React, Next.js, Vite, Tailwind CSS and Material UI"/>
 
 ### Backend, databases & cloud
 <img src="https://skillicons.dev/icons?i=nodejs,express,mongodb,postgres,supabase,redis,aws,vercel" alt="Node.js, Express, MongoDB, PostgreSQL, Supabase, Redis, AWS and Vercel"/>
@@ -96,16 +96,16 @@ A few projects and product directions I enjoy building. Visit the repositories f
 ## GitHub at a glance
 
 <div align="center">
-  <img height="165" src="https://github-readme-stats.vercel.app/api?username=Anmol-Malviya&show_icons=true&hide_border=true&bg_color=245B8D&title_color=FFFFFF&text_color=FFFFFF&icon_color=B9DCFF&rank_icon=github" alt="Anmol's GitHub statistics"/>
-  <img height="165" src="https://github-readme-streak-stats.herokuapp.com?user=Anmol-Malviya&hide_border=true&background=245B8D&ring=FFFFFF&fire=B9DCFF&currStreakLabel=FFFFFF&sideLabels=E4F1FF&dates=C8E2FA&stroke=6FADE4" alt="GitHub contribution streak"/>
+  <img height="165" src="https://github-readme-stats.vercel.app/api?username=Anmol-Malviya&show_icons=true&hide_border=true&bg_color=173B5E&title_color=FFFFFF&text_color=FFFFFF&icon_color=F2EBDD&rank_icon=github" alt="Anmol's GitHub statistics"/>
+  <img height="165" src="https://github-readme-streak-stats.herokuapp.com?user=Anmol-Malviya&hide_border=true&background=173B5E&ring=FFFFFF&fire=F2EBDD&currStreakLabel=FFFFFF&sideLabels=F4EBDD&dates=DCEAF4&stroke=477FA8" alt="GitHub contribution streak"/>
 </div>
 
 <div align="center">
-  <img src="https://github-readme-stats.vercel.app/api/top-langs/?username=Anmol-Malviya&layout=compact&hide_border=true&bg_color=245B8D&title_color=FFFFFF&text_color=FFFFFF" height="150" alt="Most used programming languages"/>
+  <img src="https://github-readme-stats.vercel.app/api/top-langs/?username=Anmol-Malviya&layout=compact&hide_border=true&bg_color=173B5E&title_color=FFFFFF&text_color=FFFFFF" height="150" alt="Most used programming languages"/>
 </div>
 
 <div align="center">
-  <img src="https://github-readme-activity-graph.vercel.app/graph?username=Anmol-Malviya&bg_color=245B8D&color=FFFFFF&line=B9DCFF&point=FFFFFF&area=true&hide_border=true" width="100%" alt="GitHub contribution activity graph"/>
+  <img src="https://github-readme-activity-graph.vercel.app/graph?username=Anmol-Malviya&bg_color=173B5E&color=FFFFFF&line=F2EBDD&point=FFFFFF&area=true&hide_border=true" width="100%" alt="GitHub contribution activity graph"/>
 </div>
 
 ## Let's connect
@@ -114,10 +114,10 @@ I'm always interested in collaborating on meaningful products, developer tools, 
 
 <div align="center">
 
-<a href="https://anmol-malviya-delta.vercel.app"><img src="https://img.shields.io/badge/Explore%20my%20portfolio-347FC0?style=for-the-badge&logo=vercel&logoColor=white" alt="Explore portfolio"/></a>
-<a href="https://github.com/Anmol-Malviya?tab=repositories"><img src="https://img.shields.io/badge/View%20all%20projects-347FC0?style=for-the-badge&logo=github&logoColor=white" alt="View projects"/></a>
+<a href="https://anmol-malviya-delta.vercel.app"><img src="https://img.shields.io/badge/Explore%20my%20portfolio-286A9A?style=for-the-badge&logo=vercel&logoColor=white" alt="Explore portfolio"/></a>
+<a href="https://github.com/Anmol-Malviya?tab=repositories"><img src="https://img.shields.io/badge/View%20all%20projects-286A9A?style=for-the-badge&logo=github&logoColor=white" alt="View projects"/></a>
 
-<img src="https://capsule-render.vercel.app/api?type=waving&height=110&section=footer&color=0:5AA6E8,50:347FC0,100:2463A6" width="100%" alt="Blue footer artwork"/>
+<img src="https://capsule-render.vercel.app/api?type=waving&height=110&section=footer&color=0:5AA6E8,50:286A9A,100:2463A6" width="100%" alt="Blue footer artwork"/>
 
 <sub>Designed with care by Anmol Malviya · Keep building, keep learning.</sub>
 
